@@ -1,0 +1,99 @@
+{Program	GerbTool for Layout
+	{Version	8.0}
+	{Created	Sat Jan 19 15:06:08 2008}
+}
+{Environment
+	{FilesPath  F:\EIS\PROJECTS\TRANSCONDUCTANCE AMPLIFIER\ORCAD\LAYOUT}
+}
+{Layers
+	{Layer  1
+		{File        EIS_NICU_BOARD-10.TOP}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Green}
+		{DrawColor   Green}
+		{Type        Top}
+	}
+	{Layer  2
+		{File        EIS_NICU_BOARD-10.BOT}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Red}
+		{DrawColor   Red}
+		{Type        Bottom}
+	}
+	{Layer  3
+		{File        EIS_NICU_BOARD-10.SMT}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Green}
+		{DrawColor   Green}
+		{Type        Other}
+	}
+	{Layer  4
+		{File        EIS_NICU_BOARD-10.SMB}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  vga16yellow}
+		{DrawColor   vga16yellow}
+		{Type        Other}
+	}
+	{Layer  5
+		{File        EIS_NICU_BOARD-10.SST}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  White}
+		{DrawColor   White}
+		{Type        Other}
+	}
+	{Layer  6
+		{File        EIS_NICU_BOARD-10.AST}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Green}
+		{DrawColor   Green}
+		{Type        Other}
+	}
+	{Layer  7
+		{File        EIS_NICU_BOARD-10.DRD}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Red}
+		{DrawColor   Red}
+		{Type        Other}
+	}
+	{Layer  8
+		{File        EIS_NICU_BOARD-10.FAB}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Green}
+		{DrawColor   Green}
+		{Type        Other}
+	}
+}
+{Format Gerber
+	{Dialect           RS274X}
+	{m.n               3.4}
+	{Mode              Absolute}
+	{ZeroSuppression   Leading}
+	{Terminator        0x2a, 0xD, 0xA}
+	{Metric            No}
+	{Modal             No}
+	{UserData          Yes}
+	{Nets              No}
+	{Gcmds             Yes}
+	{CharSet           ASCII}
+	{Arcs360           No}
+	{ArcsModal         Yes}
+	{HonorCrLf         No}
+	{Comments          Yes}
+	{Flags             0}
+}

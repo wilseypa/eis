@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="FFT_32K">
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|scale_fft_res:scale_fft_real_imag|lpm_clshift:scale_fft_real" CBX_FILE_NAME="lpm_clshift_iuc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|comb_final_fft_res:combine_fft_top_bot|lpm_add_sub:comb_fft_add_imag" CBX_FILE_NAME="add_sub_nkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|comb_final_fft_res:combine_fft_top_bot|lpm_counter:count_mram_rdadd" CBX_FILE_NAME="cntr_ooi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|comb_final_fft_res:combine_fft_top_bot|mram_buf:fft_res_buf_imag|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_8qg1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|mul_fft_bot_tf:multiply_twiddle_factor|mult_add:mult_add_imag|altmult_add:ALTMULT_ADD_component" CBX_FILE_NAME="mult_add_49k2.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|scale_fft_res:scale_fft_real_imag|lpm_add_sub:exp_shift" CBX_FILE_NAME="add_sub_bmg.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|twiddle_rom_add:twiddle_add|altsyncram:coshex" CBX_FILE_NAME="altsyncram_nu71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|scale_fft_res:scale_fft_real_imag|altshift_taps:delay_exp" CBX_FILE_NAME="shift_taps_g3r.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|scale_fft_res:scale_fft_real_imag|lpm_clshift:scale_fft_imag" CBX_FILE_NAME="lpm_clshift_iuc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|twiddle_rom_add:twiddle_add|altsyncram:sinhex" CBX_FILE_NAME="altsyncram_su71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|twiddle_rom_add:twiddle_add|lpm_counter:counter_cos_rom" CBX_FILE_NAME="cntr_2pe.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|twiddle_rom_add:twiddle_add|lpm_counter:counter_rom" CBX_FILE_NAME="cntr_ooi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|comb_final_fft_res:combine_fft_top_bot|lpm_add_sub:comb_fft_add_real" CBX_FILE_NAME="add_sub_nkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|comb_final_fft_res:combine_fft_top_bot|lpm_counter:counter_rom" CBX_FILE_NAME="cntr_ooi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|comb_final_fft_res:combine_fft_top_bot|mram_buf:fft_res_buf_real|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_8qg1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|mul_fft_bot_tf:multiply_twiddle_factor|mult_add:mult_add_real|altmult_add:ALTMULT_ADD_component" CBX_FILE_NAME="mult_add_49k2.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|twiddle_rom_add:twiddle_add|lpm_counter:counter_sin_rom" CBX_FILE_NAME="cntr_2pe.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fft_32K|combine_fft:combine_fft_inst|comb_final_fft_res:combine_fft_top_bot|lpm_counter:count_mram_wradd" CBX_FILE_NAME="cntr_noi.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

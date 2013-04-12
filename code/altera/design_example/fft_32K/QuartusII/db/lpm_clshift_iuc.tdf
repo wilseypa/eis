@@ -1,0 +1,50 @@
+--lpm_clshift CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" LPM_SHIFTTYPE="ARITHMETIC" LPM_WIDTH=18 LPM_WIDTHDIST=5 data direction distance result
+--VERSION_BEGIN 12.1SP1 cbx_lpm_clshift 2013:01:31:18:04:55:SJ cbx_mgl 2013:01:31:18:08:38:SJ  VERSION_END
+
+
+-- Copyright (C) 1991-2012 Altera Corporation
+--  Your use of Altera Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Altera Program License 
+--  Subscription Agreement, Altera MegaCore Function License 
+--  Agreement, or other applicable license agreement, including, 
+--  without limitation, that your use is for the sole purpose of 
+--  programming logic devices manufactured by Altera and sold by 
+--  Altera or its authorized distributors.  Please refer to the 
+--  applicable agreement for further details.
+
+
+
+--synthesis_resources = 
+SUBDESIGN lpm_clshift_iuc
+( 
+	data[17..0]	:	input;
+	direction	:	input;
+	distance[4..0]	:	input;
+	result[17..0]	:	output;
+) 
+VARIABLE 
+	direction_w[0..0]	: WIRE;
+	pad_left_w[15..0]	: WIRE;
+	pad_right_w0w[1..0]	: WIRE;
+	pad_right_w1w[2..0]	: WIRE;
+	pad_right_w2w[4..0]	: WIRE;
+	pad_right_w3w[8..0]	: WIRE;
+	pad_right_w4w[16..0]	: WIRE;
+	sbit_w[107..0]	: WIRE;
+
+BEGIN 
+	direction_w[] = ( direction);
+	pad_left_w[] = B"0000000000000000";
+	pad_right_w0w[] = ( sbit_w[17..17], sbit_w[17..17]);
+	pad_right_w1w[] = ( sbit_w[35..35], sbit_w[35..35], sbit_w[35..35]);
+	pad_right_w2w[] = ( sbit_w[53..53], sbit_w[53..53], sbit_w[53..53], sbit_w[53..53], sbit_w[53..53]);
+	pad_right_w3w[] = ( sbit_w[71..71], sbit_w[71..71], sbit_w[71..71], sbit_w[71..71], sbit_w[71..71], sbit_w[71..71], sbit_w[71..71], sbit_w[71..71], sbit_w[71..71]);
+	pad_right_w4w[] = ( sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89], sbit_w[89..89]);
+	result[17..0] = sbit_w[107..90];
+	sbit_w[] = ( ((((distance[4..4] & (! direction_w[])) & ( sbit_w[73..72], pad_left_w[15..0])) # ((distance[4..4] & direction_w[]) & ( pad_right_w4w[15..0], sbit_w[89..88]))) # ((! distance[4..4]) & sbit_w[89..72])), ((((distance[3..3] & (! direction_w[])) & ( sbit_w[63..54], pad_left_w[7..0])) # ((distance[3..3] & direction_w[]) & ( pad_right_w3w[7..0], sbit_w[71..62]))) # ((! distance[3..3]) & sbit_w[71..54])), ((((distance[2..2] & (! direction_w[])) & ( sbit_w[49..36], pad_left_w[3..0])) # ((distance[2..2] & direction_w[]) & ( pad_right_w2w[3..0], sbit_w[53..40]))) # ((! distance[2..2]) & sbit_w[53..36])), ((((distance[1..1] & (! direction_w[])) & ( sbit_w[33..18], pad_left_w[1..0])) # ((distance[1..1] & direction_w[]) & ( pad_right_w1w[1..0], sbit_w[35..20]))) # ((! distance[1..1]) & sbit_w[35..18])), ((((distance[0..0] & (! direction_w[])) & ( sbit_w[16..0], pad_left_w[0..0])) # ((distance[0..0] & direction_w[]) & ( pad_right_w0w[0..0], sbit_w[17..1]))) # ((! distance[0..0]) & sbit_w[17..0])), data[]);
+END;
+--VALID FILE

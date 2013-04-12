@@ -1,0 +1,99 @@
+--altmult_add ADDNSUB_MULTIPLIER_PIPELINE_REGISTER1="CLOCK0" ADDNSUB_MULTIPLIER_REGISTER1="CLOCK0" CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" DEDICATED_MULTIPLIER_CIRCUITRY="YES" DEVICE_FAMILY="Cyclone II" DSP_BLOCK_BALANCING="Auto" INPUT_REGISTER_A0="CLOCK0" INPUT_REGISTER_A1="CLOCK0" INPUT_REGISTER_B0="CLOCK0" INPUT_REGISTER_B1="CLOCK0" INPUT_SOURCE_A0="DATAA" INPUT_SOURCE_A1="DATAA" INPUT_SOURCE_B0="DATAB" INPUT_SOURCE_B1="DATAB" MULTIPLIER_REGISTER0="CLOCK0" MULTIPLIER_REGISTER1="CLOCK0" NUMBER_OF_MULTIPLIERS=2 OUTPUT_REGISTER="CLOCK0" port_addnsub1="PORT_USED" port_signa="PORT_UNUSED" port_signb="PORT_UNUSED" REPRESENTATION_A="SIGNED" REPRESENTATION_B="SIGNED" SIGNED_PIPELINE_REGISTER_A="CLOCK0" SIGNED_PIPELINE_REGISTER_B="CLOCK0" SIGNED_REGISTER_A="CLOCK0" SIGNED_REGISTER_B="CLOCK0" WIDTH_A=16 WIDTH_B=16 WIDTH_RESULT=33 addnsub1 clock0 dataa datab result CARRY_CHAIN="MANUAL" CARRY_CHAIN_LENGTH=48
+--VERSION_BEGIN 12.1SP1 cbx_alt_ded_mult_y 2013:01:31:18:04:54:SJ cbx_altera_mult_add 2013:01:31:18:04:54:SJ cbx_altmult_add 2013:01:31:18:04:55:SJ cbx_cycloneii 2013:01:31:18:04:55:SJ cbx_lpm_add_sub 2013:01:31:18:04:55:SJ cbx_lpm_mult 2013:01:31:18:04:55:SJ cbx_mgl 2013:01:31:18:08:38:SJ cbx_padd 2013:01:31:18:04:55:SJ cbx_parallel_add 2013:01:31:18:04:55:SJ cbx_stratix 2013:01:31:18:04:55:SJ cbx_stratixii 2013:01:31:18:04:55:SJ cbx_util_mgl 2013:01:31:18:04:55:SJ  VERSION_END
+
+
+-- Copyright (C) 1991-2012 Altera Corporation
+--  Your use of Altera Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Altera Program License 
+--  Subscription Agreement, Altera MegaCore Function License 
+--  Agreement, or other applicable license agreement, including, 
+--  without limitation, that your use is for the sole purpose of 
+--  programming logic devices manufactured by Altera and sold by 
+--  Altera or its authorized distributors.  Please refer to the 
+--  applicable agreement for further details.
+
+
+FUNCTION ded_mult_r291 (aclr[3..0], clock[3..0], dataa[15..0], datab[15..0], ena[3..0])
+RETURNS ( result[31..0]);
+FUNCTION soft (in)
+RETURNS ( out);
+
+--synthesis_resources = dsp_9bit 4 lut 67 reg 36 
+OPTIONS ALTERA_INTERNAL_OPTION = "{-to dffe9a} MAX_FANOUT=5";
+
+SUBDESIGN mult_add_49k2
+( 
+	addnsub1	:	input;
+	clock0	:	input;
+	dataa[31..0]	:	input;
+	datab[31..0]	:	input;
+	result[32..0]	:	output;
+) 
+VARIABLE
+	add5_result[32..0]	:	WIRE;
+	add7_result[33..0]	:	WIRE;
+	ded_mult1 : ded_mult_r291;
+	ded_mult2 : ded_mult_r291;
+	dffe3a[0..0] : dffe;
+	dffe4a[0..0] : dffe;
+	dffe9a[33..0] : dffe;
+	sft6a[32..0] : soft;
+	sft8a[33..0] : soft;
+	aclr0	: NODE;
+	dataa_bus[31..0]	: WIRE;
+	datab_bus[31..0]	: WIRE;
+	ena0	: NODE;
+	w_dny_out181w[31..0]	: WIRE;
+	w_ext_in180w[31..0]	: WIRE;
+	w_input281w[32..0]	: WIRE;
+	w_input286w[32..0]	: WIRE;
+	w_input292w[33..0]	: WIRE;
+	w_input298w[33..0]	: WIRE;
+
+BEGIN 
+	add5_result[] = w_input281w[] + w_input286w[];
+	add7_result[] = w_input292w[] + w_input298w[];
+	ded_mult1.aclr[] = ( B"000", aclr0);
+	ded_mult1.clock[] = ( B"111", clock0);
+	ded_mult1.dataa[] = ( dataa_bus[15..0]);
+	ded_mult1.datab[] = ( datab_bus[15..0]);
+	ded_mult1.ena[] = ( B"111", ena0);
+	ded_mult2.aclr[] = ( B"000", aclr0);
+	ded_mult2.clock[] = ( B"111", clock0);
+	ded_mult2.dataa[] = ( dataa_bus[31..16]);
+	ded_mult2.datab[] = ( datab_bus[31..16]);
+	ded_mult2.ena[] = ( B"111", ena0);
+	dffe3a[].clk = clock0;
+	dffe3a[].clrn = (! aclr0);
+	dffe3a[].d = addnsub1;
+	dffe3a[].ena = ena0;
+	dffe4a[].clk = clock0;
+	dffe4a[].clrn = (! aclr0);
+	dffe4a[].d = dffe3a[].q;
+	dffe4a[].ena = ena0;
+	dffe9a[].clk = clock0;
+	dffe9a[].clrn = (! aclr0);
+	dffe9a[].d = sft8a[].out;
+	dffe9a[].ena = ena0;
+	sft6a[].in = add5_result[];
+	sft8a[].in = add7_result[];
+	aclr0 = GND;
+	dataa_bus[] = ( dataa[31..0]);
+	datab_bus[] = ( datab[31..0]);
+	ena0 = VCC;
+	result[32..0] = dffe9a[32..0].q;
+	w_dny_out181w[] = ( (w_ext_in180w[31..31] $ (! dffe4a[].q)), (w_ext_in180w[30..30] $ (! dffe4a[].q)), (w_ext_in180w[29..29] $ (! dffe4a[].q)), (w_ext_in180w[28..28] $ (! dffe4a[].q)), (w_ext_in180w[27..27] $ (! dffe4a[].q)), (w_ext_in180w[26..26] $ (! dffe4a[].q)), (w_ext_in180w[25..25] $ (! dffe4a[].q)), (w_ext_in180w[24..24] $ (! dffe4a[].q)), (w_ext_in180w[23..23] $ (! dffe4a[].q)), (w_ext_in180w[22..22] $ (! dffe4a[].q)), (w_ext_in180w[21..21] $ (! dffe4a[].q)), (w_ext_in180w[20..20] $ (! dffe4a[].q)), (w_ext_in180w[19..19] $ (! dffe4a[].q)), (w_ext_in180w[18..18] $ (! dffe4a[].q)), (w_ext_in180w[17..17] $ (! dffe4a[].q)), (w_ext_in180w[16..16] $ (! dffe4a[].q)), (w_ext_in180w[15..15] $ (! dffe4a[].q)), (w_ext_in180w[14..14] $ (! dffe4a[].q)), (w_ext_in180w[13..13] $ (! dffe4a[].q)), (w_ext_in180w[12..12] $ (! dffe4a[].q)), (w_ext_in180w[11..11] $ (! dffe4a[].q)), (w_ext_in180w[10..10] $ (! dffe4a[].q)), (w_ext_in180w[9..9] $ (! dffe4a[].q)), (w_ext_in180w[8..8] $ (! dffe4a[].q)), (w_ext_in180w[7..7] $ (! dffe4a[].q)), (w_ext_in180w[6..6] $ (! dffe4a[].q)), (w_ext_in180w[5..5] $ (! dffe4a[].q)), (w_ext_in180w[4..4] $ (! dffe4a[].q)), (w_ext_in180w[3..3] $ (! dffe4a[].q)), (w_ext_in180w[2..2] $ (! dffe4a[].q)), (w_ext_in180w[1..1] $ (! dffe4a[].q)), (w_ext_in180w[0..0] $ (! dffe4a[].q)));
+	w_ext_in180w[31..0] = ded_mult2.result[31..0];
+	w_input281w[] = ( ded_mult1.result[31..31], ded_mult1.result[31..0]);
+	w_input286w[] = ( w_dny_out181w[31..31], ( (w_ext_in180w[31..31] $ (! dffe4a[].q)), (w_ext_in180w[30..30] $ (! dffe4a[].q)), (w_ext_in180w[29..29] $ (! dffe4a[].q)), (w_ext_in180w[28..28] $ (! dffe4a[].q)), (w_ext_in180w[27..27] $ (! dffe4a[].q)), (w_ext_in180w[26..26] $ (! dffe4a[].q)), (w_ext_in180w[25..25] $ (! dffe4a[].q)), (w_ext_in180w[24..24] $ (! dffe4a[].q)), (w_ext_in180w[23..23] $ (! dffe4a[].q)), (w_ext_in180w[22..22] $ (! dffe4a[].q)), (w_ext_in180w[21..21] $ (! dffe4a[].q)), (w_ext_in180w[20..20] $ (! dffe4a[].q)), (w_ext_in180w[19..19] $ (! dffe4a[].q)), (w_ext_in180w[18..18] $ (! dffe4a[].q)), (w_ext_in180w[17..17] $ (! dffe4a[].q)), (w_ext_in180w[16..16] $ (! dffe4a[].q)), (w_ext_in180w[15..15] $ (! dffe4a[].q)), (w_ext_in180w[14..14] $ (! dffe4a[].q)), (w_ext_in180w[13..13] $ (! dffe4a[].q)), (w_ext_in180w[12..12] $ (! dffe4a[].q)), (w_ext_in180w[11..11] $ (! dffe4a[].q)), (w_ext_in180w[10..10] $ (! dffe4a[].q)), (w_ext_in180w[9..9] $ (! dffe4a[].q)), (w_ext_in180w[8..8] $ (! dffe4a[].q)), (w_ext_in180w[7..7] $ (! dffe4a[].q)), (w_ext_in180w[6..6] $ (! dffe4a[].q)), (w_ext_in180w[5..5] $ (! dffe4a[].q)), (w_ext_in180w[4..4] $ (! dffe4a[].q)), (w_ext_in180w[3..3] $ (! dffe4a[].q)), (w_ext_in180w[2..2] $ (! dffe4a[].q)), (w_ext_in180w[1..1] $ (! dffe4a[].q)), (w_ext_in180w[0..0] $ (! dffe4a[].q))));
+	w_input292w[] = ( add5_result[32..32], add5_result[]);
+	w_input298w[] = ( B"000000000000000000000000000000000", (! dffe4a[].q));
+	ASSERT (0) 
+	REPORT "Asynchronous clear port aclr3 of altmult_add megafunction clears register ADDNSUB_MULTIPLIER_REGISTER1"
+	SEVERITY WARNING;
+END;
+--VALID FILE

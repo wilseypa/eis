@@ -1,0 +1,18 @@
+Get dataset from Giorggio
+
+Create process chain model
+
+Implement component blocks in Verilog
+- FFT (frequency resolutons)
+- IIR filter (autoregressive)
+- FIR filter (moving average)
+- Control Unit
+- Memory controller/caching unit
+
+Test
+- Sample rate, FFT length
+- Model order 
+- Sensitivity 
+
+
+

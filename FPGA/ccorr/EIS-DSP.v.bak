@@ -1,0 +1,2 @@
+module EIS-DSP(clock,datain,dataout,ready);
+input clock;

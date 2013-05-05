@@ -1,0 +1,371 @@
+Analysis & Elaboration report for EIS-DSP
+Sun May  5 16:14:36 2013
+Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration Settings
+  5. Port Connectivity Checks: "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_5:s3|cf_fft_1024_18_39:s25"
+  6. Port Connectivity Checks: "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_24:s29|cf_fft_1024_18_25:s11|cf_fft_1024_18_26:s16"
+  7. Port Connectivity Checks: "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_24:s29|cf_fft_1024_18_25:s11|cf_fft_1024_18_26:s15"
+  8. Port Connectivity Checks: "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_29:s27|cf_fft_1024_18_30:s12|cf_fft_1024_18_32:s7"
+  9. Port Connectivity Checks: "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_33:s26|cf_fft_1024_18_34:s8|cf_fft_1024_18_35:s8"
+ 10. Port Connectivity Checks: "cf_fft_1024_18:fft0"
+ 11. Analysis & Elaboration Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                                     ;
++------------------------------------+-----------------------------------------------+
+; Analysis & Elaboration Status      ; Successful - Sun May  5 16:14:36 2013         ;
+; Quartus II 32-bit Version          ; 12.1 Build 243 01/31/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; EIS-DSP                                       ;
+; Top-level Entity Name              ; EISDSP                                        ;
+; Family                             ; Cyclone II                                    ;
+; Total logic elements               ; N/A until Partition Merge                     ;
+;     Total combinational functions  ; N/A until Partition Merge                     ;
+;     Dedicated logic registers      ; N/A until Partition Merge                     ;
+; Total registers                    ; N/A until Partition Merge                     ;
+; Total pins                         ; N/A until Partition Merge                     ;
+; Total virtual pins                 ; N/A until Partition Merge                     ;
+; Total memory bits                  ; N/A until Partition Merge                     ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                     ;
+; Total PLLs                         ; N/A until Partition Merge                     ;
++------------------------------------+-----------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration Settings                                                                                      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                      ; EISDSP             ; EIS-DSP            ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_5:s3|cf_fft_1024_18_39:s25" ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                             ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+; i3   ; Input ; Info     ; Stuck at GND                                                                        ;
++------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_24:s29|cf_fft_1024_18_25:s11|cf_fft_1024_18_26:s16" ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------+
+; i1   ; Input ; Info     ; Stuck at GND                                                                                                                     ;
+; i2   ; Input ; Info     ; Stuck at VCC                                                                                                                     ;
+; i3   ; Input ; Info     ; Stuck at VCC                                                                                                                     ;
+; i4   ; Input ; Info     ; Stuck at VCC                                                                                                                     ;
+; i5   ; Input ; Info     ; Stuck at GND                                                                                                                     ;
+; i6   ; Input ; Info     ; Stuck at GND                                                                                                                     ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_24:s29|cf_fft_1024_18_25:s11|cf_fft_1024_18_26:s15" ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------+
+; i1   ; Input ; Info     ; Stuck at GND                                                                                                                     ;
+; i2   ; Input ; Info     ; Stuck at VCC                                                                                                                     ;
+; i3   ; Input ; Info     ; Stuck at VCC                                                                                                                     ;
+; i4   ; Input ; Info     ; Stuck at VCC                                                                                                                     ;
+; i5   ; Input ; Info     ; Stuck at GND                                                                                                                     ;
+; i6   ; Input ; Info     ; Stuck at GND                                                                                                                     ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_29:s27|cf_fft_1024_18_30:s12|cf_fft_1024_18_32:s7" ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                         ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; i1   ; Input ; Info     ; Stuck at GND                                                                                                                    ;
+; i2   ; Input ; Info     ; Stuck at VCC                                                                                                                    ;
+; i3   ; Input ; Info     ; Stuck at VCC                                                                                                                    ;
+; i4   ; Input ; Info     ; Stuck at GND                                                                                                                    ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_33:s26|cf_fft_1024_18_34:s8|cf_fft_1024_18_35:s8" ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                        ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+; i1   ; Input ; Info     ; Stuck at GND                                                                                                                   ;
+; i2   ; Input ; Info     ; Stuck at GND                                                                                                                   ;
+; i3   ; Input ; Info     ; Stuck at GND                                                                                                                   ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cf_fft_1024_18:fft0"                                                                                                                                                                      ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reset_i     ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; reset_i[-1] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; sync_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; data_0_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; data_1_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Analysis & Elaboration
+    Info: Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun May  5 16:14:32 2013
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off EIS-DSP -c EIS-DSP --analysis_and_elaboration
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 40 design units, including 40 entities, in source file /home/xooxies/Dropbox/Research/LEV/FPGA/cf_fft/cf_fft_1024_18.v
+    Info (12023): Found entity 1: cf_fft_1024_18
+    Info (12023): Found entity 2: cf_fft_1024_18_1
+    Info (12023): Found entity 3: cf_fft_1024_18_2
+    Info (12023): Found entity 4: cf_fft_1024_18_3
+    Info (12023): Found entity 5: cf_fft_1024_18_4
+    Info (12023): Found entity 6: cf_fft_1024_18_5
+    Info (12023): Found entity 7: cf_fft_1024_18_6
+    Info (12023): Found entity 8: cf_fft_1024_18_7
+    Info (12023): Found entity 9: cf_fft_1024_18_8
+    Info (12023): Found entity 10: cf_fft_1024_18_9
+    Info (12023): Found entity 11: cf_fft_1024_18_10
+    Info (12023): Found entity 12: cf_fft_1024_18_11
+    Info (12023): Found entity 13: cf_fft_1024_18_12
+    Info (12023): Found entity 14: cf_fft_1024_18_13
+    Info (12023): Found entity 15: cf_fft_1024_18_14
+    Info (12023): Found entity 16: cf_fft_1024_18_15
+    Info (12023): Found entity 17: cf_fft_1024_18_16
+    Info (12023): Found entity 18: cf_fft_1024_18_17
+    Info (12023): Found entity 19: cf_fft_1024_18_18
+    Info (12023): Found entity 20: cf_fft_1024_18_19
+    Info (12023): Found entity 21: cf_fft_1024_18_20
+    Info (12023): Found entity 22: cf_fft_1024_18_21
+    Info (12023): Found entity 23: cf_fft_1024_18_22
+    Info (12023): Found entity 24: cf_fft_1024_18_23
+    Info (12023): Found entity 25: cf_fft_1024_18_24
+    Info (12023): Found entity 26: cf_fft_1024_18_25
+    Info (12023): Found entity 27: cf_fft_1024_18_26
+    Info (12023): Found entity 28: cf_fft_1024_18_27
+    Info (12023): Found entity 29: cf_fft_1024_18_28
+    Info (12023): Found entity 30: cf_fft_1024_18_29
+    Info (12023): Found entity 31: cf_fft_1024_18_30
+    Info (12023): Found entity 32: cf_fft_1024_18_31
+    Info (12023): Found entity 33: cf_fft_1024_18_32
+    Info (12023): Found entity 34: cf_fft_1024_18_33
+    Info (12023): Found entity 35: cf_fft_1024_18_34
+    Info (12023): Found entity 36: cf_fft_1024_18_35
+    Info (12023): Found entity 37: cf_fft_1024_18_36
+    Info (12023): Found entity 38: cf_fft_1024_18_37
+    Info (12023): Found entity 39: cf_fft_1024_18_38
+    Info (12023): Found entity 40: cf_fft_1024_18_39
+Info (12021): Found 1 design units, including 1 entities, in source file EISDSP.v
+    Info (12023): Found entity 1: EISDSP
+Info (12127): Elaborating entity "EISDSP" for the top level hierarchy
+Warning (10034): Output port "HEX0" at EISDSP.v(13) has no driver
+Warning (10034): Output port "HEX1" at EISDSP.v(14) has no driver
+Warning (10034): Output port "HEX2" at EISDSP.v(15) has no driver
+Warning (10034): Output port "HEX3" at EISDSP.v(16) has no driver
+Warning (10034): Output port "LEDG" at EISDSP.v(18) has no driver
+Warning (10034): Output port "LEDR" at EISDSP.v(19) has no driver
+Warning (10034): Output port "DRAM_ADDR" at EISDSP.v(25) has no driver
+Warning (10034): Output port "FL_ADDR" at EISDSP.v(38) has no driver
+Warning (10034): Output port "SRAM_ADDR" at EISDSP.v(45) has no driver
+Warning (10034): Output port "VGA_R" at EISDSP.v(70) has no driver
+Warning (10034): Output port "VGA_G" at EISDSP.v(71) has no driver
+Warning (10034): Output port "VGA_B" at EISDSP.v(72) has no driver
+Warning (10034): Output port "UART_TXD" at EISDSP.v(21) has no driver
+Warning (10034): Output port "DRAM_LDQM" at EISDSP.v(26) has no driver
+Warning (10034): Output port "DRAM_UDQM" at EISDSP.v(27) has no driver
+Warning (10034): Output port "DRAM_WE_N" at EISDSP.v(28) has no driver
+Warning (10034): Output port "DRAM_CAS_N" at EISDSP.v(29) has no driver
+Warning (10034): Output port "DRAM_RAS_N" at EISDSP.v(30) has no driver
+Warning (10034): Output port "DRAM_CS_N" at EISDSP.v(31) has no driver
+Warning (10034): Output port "DRAM_BA_0" at EISDSP.v(32) has no driver
+Warning (10034): Output port "DRAM_BA_1" at EISDSP.v(33) has no driver
+Warning (10034): Output port "DRAM_CLK" at EISDSP.v(34) has no driver
+Warning (10034): Output port "DRAM_CKE" at EISDSP.v(35) has no driver
+Warning (10034): Output port "FL_WE_N" at EISDSP.v(39) has no driver
+Warning (10034): Output port "FL_RST_N" at EISDSP.v(40) has no driver
+Warning (10034): Output port "FL_OE_N" at EISDSP.v(41) has no driver
+Warning (10034): Output port "FL_CE_N" at EISDSP.v(42) has no driver
+Warning (10034): Output port "SRAM_UB_N" at EISDSP.v(46) has no driver
+Warning (10034): Output port "SRAM_LB_N" at EISDSP.v(47) has no driver
+Warning (10034): Output port "SRAM_WE_N" at EISDSP.v(48) has no driver
+Warning (10034): Output port "SRAM_CE_N" at EISDSP.v(49) has no driver
+Warning (10034): Output port "SRAM_OE_N" at EISDSP.v(50) has no driver
+Warning (10034): Output port "I2C_SCLK" at EISDSP.v(58) has no driver
+Warning (10034): Output port "TDO" at EISDSP.v(66) has no driver
+Warning (10034): Output port "VGA_HS" at EISDSP.v(68) has no driver
+Warning (10034): Output port "VGA_VS" at EISDSP.v(69) has no driver
+Warning (10034): Output port "AUD_ADCLRCK" at EISDSP.v(74) has no driver
+Warning (10034): Output port "AUD_DACLRCK" at EISDSP.v(76) has no driver
+Warning (10034): Output port "AUD_DACDAT" at EISDSP.v(77) has no driver
+Warning (10034): Output port "AUD_XCK" at EISDSP.v(79) has no driver
+Info (12128): Elaborating entity "cf_fft_1024_18" for hierarchy "cf_fft_1024_18:fft0"
+Info (12128): Elaborating entity "cf_fft_1024_18_1" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1"
+Info (12128): Elaborating entity "cf_fft_1024_18_23" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1"
+Info (12128): Elaborating entity "cf_fft_1024_18_39" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_39:s25"
+Info (12128): Elaborating entity "cf_fft_1024_18_33" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_33:s26"
+Info (12128): Elaborating entity "cf_fft_1024_18_37" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_33:s26|cf_fft_1024_18_37:s6"
+Info (12128): Elaborating entity "cf_fft_1024_18_38" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_33:s26|cf_fft_1024_18_37:s6|cf_fft_1024_18_38:s10"
+Info (12128): Elaborating entity "cf_fft_1024_18_36" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_33:s26|cf_fft_1024_18_36:s7"
+Info (12128): Elaborating entity "cf_fft_1024_18_34" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_33:s26|cf_fft_1024_18_34:s8"
+Info (12128): Elaborating entity "cf_fft_1024_18_35" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_33:s26|cf_fft_1024_18_34:s8|cf_fft_1024_18_35:s8"
+Info (12128): Elaborating entity "cf_fft_1024_18_29" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_29:s27"
+Info (12128): Elaborating entity "cf_fft_1024_18_30" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_29:s27|cf_fft_1024_18_30:s12"
+Info (12128): Elaborating entity "cf_fft_1024_18_32" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_29:s27|cf_fft_1024_18_30:s12|cf_fft_1024_18_32:s7"
+Info (12128): Elaborating entity "cf_fft_1024_18_31" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_29:s27|cf_fft_1024_18_30:s12|cf_fft_1024_18_31:s8"
+Info (12128): Elaborating entity "cf_fft_1024_18_28" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_28:s28"
+Info (12128): Elaborating entity "cf_fft_1024_18_24" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_24:s29"
+Info (12128): Elaborating entity "cf_fft_1024_18_25" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_24:s29|cf_fft_1024_18_25:s11"
+Info (12128): Elaborating entity "cf_fft_1024_18_26" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_24:s29|cf_fft_1024_18_25:s11|cf_fft_1024_18_26:s15"
+Info (12128): Elaborating entity "cf_fft_1024_18_27" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_23:s1|cf_fft_1024_18_24:s29|cf_fft_1024_18_25:s11|cf_fft_1024_18_26:s15|cf_fft_1024_18_27:s10"
+Info (12128): Elaborating entity "cf_fft_1024_18_6" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2"
+Info (12128): Elaborating entity "cf_fft_1024_18_21" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_21:s1"
+Info (12128): Elaborating entity "cf_fft_1024_18_22" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_21:s1|cf_fft_1024_18_22:s25"
+Info (12128): Elaborating entity "cf_fft_1024_18_19" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_19:s2"
+Info (12128): Elaborating entity "cf_fft_1024_18_20" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_19:s2|cf_fft_1024_18_20:s25"
+Info (12128): Elaborating entity "cf_fft_1024_18_17" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_17:s3"
+Info (12128): Elaborating entity "cf_fft_1024_18_18" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_17:s3|cf_fft_1024_18_18:s25"
+Info (12128): Elaborating entity "cf_fft_1024_18_15" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_15:s4"
+Info (12128): Elaborating entity "cf_fft_1024_18_16" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_15:s4|cf_fft_1024_18_16:s26"
+Info (12128): Elaborating entity "cf_fft_1024_18_13" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_13:s5"
+Info (12128): Elaborating entity "cf_fft_1024_18_14" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_13:s5|cf_fft_1024_18_14:s26"
+Info (12128): Elaborating entity "cf_fft_1024_18_11" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_11:s6"
+Info (12128): Elaborating entity "cf_fft_1024_18_12" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_11:s6|cf_fft_1024_18_12:s26"
+Info (12128): Elaborating entity "cf_fft_1024_18_9" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_9:s7"
+Info (12128): Elaborating entity "cf_fft_1024_18_10" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_9:s7|cf_fft_1024_18_10:s26"
+Info (12128): Elaborating entity "cf_fft_1024_18_7" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_7:s8"
+Info (12128): Elaborating entity "cf_fft_1024_18_8" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_6:s2|cf_fft_1024_18_7:s8|cf_fft_1024_18_8:s25"
+Info (12128): Elaborating entity "cf_fft_1024_18_5" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_5:s3"
+Info (12128): Elaborating entity "cf_fft_1024_18_2" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_2:s4"
+Info (12128): Elaborating entity "cf_fft_1024_18_4" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_2:s4|cf_fft_1024_18_4:s14"
+Info (12128): Elaborating entity "cf_fft_1024_18_3" for hierarchy "cf_fft_1024_18:fft0|cf_fft_1024_18_1:s1|cf_fft_1024_18_2:s4|cf_fft_1024_18_3:s15"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info: Quartus II 32-bit Analysis & Elaboration was successful. 0 errors, 42 warnings
+    Info: Peak virtual memory: 343 megabytes
+    Info: Processing ended: Sun May  5 16:14:36 2013
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
+
+

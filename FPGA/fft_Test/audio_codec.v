@@ -1,232 +1,125 @@
 module audio_codec (
-output			oAUD_DATA,
-output			oAUD_LRCK,
-output	reg		oAUD_BCK,
-input key1_on,
-input key2_on,
-input key3_on,
-input key4_on,
+iAUD_DATA,
+iAUD_LRCK,
+iAUD_BCK,
+GO,
+RDY,
+oSAMPLE
+);				
 
-input	[1:0]	iSrc_Select,
-input			iCLK_18_4,
-input			iRST_N,
-input   [15:0]	sound1,
-input   [15:0]	sound2,
-input   [15:0]	sound3,
-input   [15:0]	sound4,
-
-input           instru
-
-						);				
-
-parameter	REF_CLK			=	18432000;	//	18.432	MHz
-parameter	SAMPLE_RATE		=	48000;		//	48		KHz
-parameter	DATA_WIDTH		=	16;			//	16		Bits
+parameter	SAMPLE_RATE		=	8000;		//	8		KHz
+parameter	DATA_WIDTH		=	24;		//	24		Bits
 parameter	CHANNEL_NUM		=	2;			//	Dual Channel
 
-parameter	SIN_SAMPLE_DATA	=	48;
+input iAUD_DATA;
+input iAUD_LRCK;
+input iAUD_BCK;
+output GO;
+output RDY;
+output[0:(DATA_WIDTH*CHANNEL_NUM)-1]oSAMPLE;
+
+reg [0:(DATA_WIDTH*CHANNEL_NUM)-1] Sample;
+reg [0:5] BIT_COUNTER; //DATA_WIDTH*CHANNEL_NUM < 64
+
+reg mGO;
+reg mRDY;
 
 
+wire GO= mGO ? 1'b1:1'b0;
+wire RDY= mRDY ? 1'b1:1'b0;
+reg[0:(DATA_WIDTH*CHANNEL_NUM)-1]oSAMPLE;
 
-////////////	Input Source Number	//////////////
-parameter	SIN_SANPLE		=	0;
-//////////////////////////////////////////////////
-//	Internal Registers and Wires
-reg		[3:0]	BCK_DIV;
-reg		[8:0]	LRCK_1X_DIV;
-reg		[7:0]	LRCK_2X_DIV;
-reg		[6:0]	LRCK_4X_DIV;
-reg		[3:0]	SEL_Cont;
-////////	DATA Counter	////////
-reg		[5:0]	SIN_Cont;
-////////////////////////////////////
-reg							LRCK_1X;
-reg							LRCK_2X;
-reg							LRCK_4X;
 
-////////////	AUD_BCK Generator	//////////////
-always@(posedge iCLK_18_4 or negedge iRST_N)
+//-- Bit Counter
+always @(negedge iAUD_BCK or negedge iAUD_LRCK or posedge mGO) 
 begin
-	if(!iRST_N)
+
+if (!iAUD_LRCK)
 	begin
-		BCK_DIV		<=	0;
-		oAUD_BCK	<=	0;
+	mGO <= 1;
 	end
-	else
+else
 	begin
-		if(BCK_DIV >= REF_CLK/(SAMPLE_RATE*DATA_WIDTH*CHANNEL_NUM*2)-1 )
+	BIT_COUNTER <= 0;
+	mGO <= 0;
+	mRDY <= 0;
+	end
+
+if (mGO)
+	begin
+	if (BIT_COUNTER==DATA_WIDTH*CHANNEL_NUM-1)
 		begin
-			BCK_DIV		<=	0;
-			oAUD_BCK	<=	~oAUD_BCK;
-		end
-		else
-		BCK_DIV		<=	BCK_DIV+1;
+		// Transfer data to DSP
+   	BIT_COUNTER <= 0;
+		mGO <=0;
+		mRDY <= 1;
+		oSAMPLE <= Sample;
+	end	
+	else begin
+		if (BIT_COUNTER < DATA_WIDTH*CHANNEL_NUM - 1) BIT_COUNTER<=BIT_COUNTER+1;	
 	end
 end
-//////////////////////////////////////////////////
-////////////	AUD_LRCK Generator	//////////////
-always@(posedge iCLK_18_4 or negedge iRST_N)
-begin
-	if(!iRST_N)
-	begin
-		LRCK_1X_DIV	<=	0;
-		LRCK_2X_DIV	<=	0;
-		LRCK_4X_DIV	<=	0;
-		LRCK_1X		<=	0;
-		LRCK_2X		<=	0;
-		LRCK_4X		<=	0;
-	end
-	else
-	begin
-		//	LRCK 1X
-		if(LRCK_1X_DIV >= REF_CLK/(SAMPLE_RATE*2)-1 )
-		begin
-			LRCK_1X_DIV	<=	0;
-			LRCK_1X	<=	~LRCK_1X;
-		end
-		else
-		LRCK_1X_DIV		<=	LRCK_1X_DIV+1;
-		//	LRCK 2X
-		if(LRCK_2X_DIV >= REF_CLK/(SAMPLE_RATE*4)-1 )
-		begin
-			LRCK_2X_DIV	<=	0;
-			LRCK_2X	<=	~LRCK_2X;
-		end
-		else
-		LRCK_2X_DIV		<=	LRCK_2X_DIV+1;		
-		//	LRCK 4X
-		if(LRCK_4X_DIV >= REF_CLK/(SAMPLE_RATE*8)-1 )
-		begin
-			LRCK_4X_DIV	<=	0;
-			LRCK_4X	<=	~LRCK_4X;
-		end
-		else
-		LRCK_4X_DIV		<=	LRCK_4X_DIV+1;		
-	end
 end
-assign	oAUD_LRCK	=	LRCK_1X;
-//////////////////////////////////////////////////
-//////////	Sin LUT ADDR Generator	//////////////
-always@(negedge LRCK_1X or negedge iRST_N)
+//----
+
+// Get data
+always@(negedge iAUD_BCK )
 begin
-	if(!iRST_N)
-	SIN_Cont	<=	0;
-	else
+if (mGO)
 	begin
-		if(SIN_Cont < SIN_SAMPLE_DATA-1 )
-		SIN_Cont	<=	SIN_Cont+1;
-		else
-		SIN_Cont	<=	0;
-	end
+	case(BIT_COUNTER)
+		6'd0 : Sample[0] <= iAUD_DATA;
+		6'd1 : Sample[1] <= iAUD_DATA;
+		6'd2 : Sample[2] <= iAUD_DATA;
+		6'd3 : Sample[3] <= iAUD_DATA;
+		6'd4 : Sample[4] <= iAUD_DATA;
+		6'd5 : Sample[5] <= iAUD_DATA;
+		6'd6 : Sample[6] <= iAUD_DATA;
+		6'd7 : Sample[7] <= iAUD_DATA;
+		6'd8 : Sample[8] <= iAUD_DATA;
+		6'd9 : Sample[9] <= iAUD_DATA;
+		6'd10 : Sample[10] <= iAUD_DATA;
+		6'd11 : Sample[11] <= iAUD_DATA;
+		6'd12 : Sample[12] <= iAUD_DATA;
+		6'd13 : Sample[13] <= iAUD_DATA;
+		6'd14 : Sample[14] <= iAUD_DATA;
+		6'd15 : Sample[15] <= iAUD_DATA;
+		6'd16 : Sample[16] <= iAUD_DATA;
+		6'd17 : Sample[17] <= iAUD_DATA;
+		6'd18 : Sample[18] <= iAUD_DATA;
+		6'd19 : Sample[19] <= iAUD_DATA;
+		6'd20 : Sample[20] <= iAUD_DATA;
+		6'd21 : Sample[21] <= iAUD_DATA;
+		6'd22 : Sample[22] <= iAUD_DATA;
+		6'd23 : Sample[23] <= iAUD_DATA;
+		6'd24 : Sample[24] <= iAUD_DATA;
+		6'd25 : Sample[25] <= iAUD_DATA;
+		6'd26 : Sample[26] <= iAUD_DATA;
+		6'd27 : Sample[27] <= iAUD_DATA;
+		6'd28 : Sample[28] <= iAUD_DATA;
+		6'd29 : Sample[29] <= iAUD_DATA;
+		6'd30 : Sample[30] <= iAUD_DATA;
+		6'd31 :  Sample[31] <= iAUD_DATA;
+		6'd32 : Sample[32] <= iAUD_DATA;
+		6'd33 : Sample[33] <= iAUD_DATA;
+		6'd34 : Sample[34] <= iAUD_DATA;
+		6'd35 : Sample[35] <= iAUD_DATA;
+		6'd36 : Sample[36] <= iAUD_DATA;
+		6'd37 : Sample[37] <= iAUD_DATA;
+		6'd38 : Sample[38] <= iAUD_DATA;
+		6'd39 : Sample[39] <= iAUD_DATA;
+		6'd40 : Sample[40] <= iAUD_DATA;
+		6'd41 : Sample[41] <= iAUD_DATA;
+		6'd42 : Sample[42] <= iAUD_DATA;
+		6'd43 : Sample[43] <= iAUD_DATA;
+		6'd44 : Sample[44] <= iAUD_DATA;
+		6'd45 : Sample[45] <= iAUD_DATA;
+		6'd46 : Sample[46] <= iAUD_DATA;
+		6'd47 : Sample[47] <= iAUD_DATA;
+		default: Sample[0] <= 0;
+		endcase
+end
 end
 
-
-///////////////////Wave-Source generate////////////////
-////////////Timbre selection & SoundOut///////////////
-	wire [15:0]music1_ramp;
-	wire [15:0]music2_ramp;
-	wire [15:0]music1_sin;
-	wire [15:0]music2_sin;
-	wire [15:0]music3_ramp;
-	wire [15:0]music4_ramp;
-	wire [15:0]music3_sin;
-	wire [15:0]music4_sin;
-	wire [15:0]music1=(instru)?music1_ramp:music1_sin;
-	wire [15:0]music2=(instru)?music2_ramp:music2_sin;
-	wire [15:0]music3=(instru)?music3_ramp:music3_sin;
-	wire [15:0]music4=(instru)?music4_ramp:music4_sin;
-	wire [15:0]sound_o;
-	assign sound_o=music1+music2+music3+music4;	
-	always@(negedge oAUD_BCK or negedge iRST_N)begin
-		if(!iRST_N)
-			SEL_Cont	<=	0;
-		else
-			SEL_Cont	<=	SEL_Cont+1;
-	end
-	assign	oAUD_DATA	=	((key4_on|key3_on|key2_on|key1_on) && (iSrc_Select==SIN_SANPLE))	?	sound_o[~SEL_Cont]	:0;
-
-//////////Ramp address generater//////////////
-	reg  [15:0]ramp1;
-	reg  [15:0]ramp2;
-	reg  [15:0]ramp3;
-	reg  [15:0]ramp4;
-	wire [15:0]ramp_max=60000;
-//////CH1 Ramp//////
-	always@(negedge key1_on or negedge LRCK_1X)begin
-	if (!key1_on)
-		ramp1=0;
-	else if (ramp1>ramp_max) ramp1=0;
-	else ramp1=ramp1+sound1;
-	end
-
-//////CH2 Ramp//////
-	always@(negedge key2_on or negedge LRCK_1X)begin
-	if (!key2_on)
-		ramp2=0;
-	else if (ramp2>ramp_max) ramp2=0;
-	else ramp2=ramp2+sound2;
-	end
-
-//////CH3 Ramp/////
-	always@(negedge key3_on or negedge LRCK_1X)begin
-	if (!key3_on)
-		ramp3=0;
-	else if (ramp3>ramp_max) ramp3=0;
-	else ramp3=ramp3+sound3;
-	end
-
-//////CH3 Ramp/////
-	always@(negedge key4_on or negedge LRCK_1X)begin
-	if (!key4_on)
-		ramp4=0;
-	else if (ramp4>ramp_max) ramp4=0;
-	else ramp4=ramp4+sound4;
-	end
-
-////////////Ramp address assign//////////////
-	wire [5:0]ramp1_ramp=(instru)?ramp1[15:10]:0;
-	wire [5:0]ramp2_ramp=(instru)?ramp2[15:10]:0;
-	wire [5:0]ramp3_ramp=(instru)?ramp3[15:10]:0;
-	wire [5:0]ramp4_ramp=(instru)?ramp4[15:10]:0;
-	wire [5:0]ramp1_sin=(!instru)?ramp1[15:10]:0;
-	wire [5:0]ramp2_sin=(!instru)?ramp2[15:10]:0;
-	wire [5:0]ramp3_sin=(!instru)?ramp3[15:10]:0;
-	wire [5:0]ramp4_sin=(!instru)?ramp4[15:10]:0;
-
-////////String-wave Timbre///////
-	wave_gen_string r1(
-		.ramp(ramp1_ramp),
-		.music_o(music1_ramp)
-	);
-	wave_gen_string r2(
-		.ramp(ramp2_ramp),
-		.music_o(music2_ramp)
-	);
-	wave_gen_string r3(
-		.ramp(ramp3_ramp),
-		.music_o(music3_ramp)
-	);
-	wave_gen_string r4(
-		.ramp(ramp4_ramp),
-		.music_o(music4_ramp)
-	);
-
-/////////Brass-wave Timbre////////
-	wave_gen_brass s1(
-		.ramp(ramp1_sin),
-		.music_o(music1_sin)
-	);
-	wave_gen_brass s2(
-		.ramp(ramp2_sin),
-		.music_o(music2_sin)
-	);
-	wave_gen_brass s3(
-		.ramp(ramp3_sin),
-		.music_o(music3_sin)
-	);
-	wave_gen_brass s4(
-		.ramp(ramp4_sin),
-		.music_o(music4_sin)
-	);
 
 endmodule

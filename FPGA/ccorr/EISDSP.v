@@ -85,8 +85,9 @@ inout	[35:0]	GPIO_1				//	GPIO Connection 1
 
 	wire clk = CLOCK_50;
 	wire reset = KEY[0];
-	wire next = KEY[1];
 	wire next_out;
+	wire monitor;
+	wire [0:47] sample;
 	wire [0:23] X0;
 	wire [0:23] X1;
 	wire [0:23] X2;
@@ -95,10 +96,26 @@ inout	[35:0]	GPIO_1				//	GPIO Connection 1
 	wire [0:23] Y1;
 	wire [0:23] Y2;
 	wire [0:23] Y3;
+	
+	I2C_AV_Config   u1 ( // Host Side
+                       .iCLK(CLOCK_50),
+                       .iRST_N(reset),
+                       .iVOL(VOL),
+                        //      I2C Side
+                        .I2C_SCLK(I2C_SCLK),
+                        .I2C_SDAT(I2C_SDAT)); 
+								
+	audio_codec AC(
+						.iAUD_DATA(AUD_ADCDAT),
+						.iAUD_LRCK(AUD_ADCLRCK),
+						.iAUD_BCK(AUD_BCLK),
+						.GO(monitor),
+						.RDY(next),
+						.oSAMPLE(sample));		
 
 	dft_top fft0(.clk(clk), .reset(reset), .next(next), .next_out(next_out),
-    .X0(X0), .Y0(Y0),
+    .X0(sample[0:23]), .Y0(Y0),
     .X1(X1), .Y1(Y1),
-    .X2(X2), .Y2(Y2),
+    .X2(sample[24:47]), .Y2(Y2),
     .X3(X3), .Y3(Y3));
 endmodule

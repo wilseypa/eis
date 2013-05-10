@@ -2,4 +2,52 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow Model Setup 'I2C_AV_Config:u1|mI2C_CTRL_CLK'
+Slack : -2.938
+TNS   : -76.189
+
+Type  : Slow Model Setup 'CLOCK_50'
+Slack : -2.278
+TNS   : -37.033
+
+Type  : Slow Model Hold 'CLOCK_50'
+Slack : -2.689
+TNS   : -2.689
+
+Type  : Slow Model Hold 'I2C_AV_Config:u1|mI2C_CTRL_CLK'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
+Slack : -1.631
+TNS   : -22.405
+
+Type  : Slow Model Minimum Pulse Width 'I2C_AV_Config:u1|mI2C_CTRL_CLK'
+Slack : -0.611
+TNS   : -51.324
+
+Type  : Fast Model Setup 'I2C_AV_Config:u1|mI2C_CTRL_CLK'
+Slack : -0.479
+TNS   : -7.603
+
+Type  : Fast Model Setup 'CLOCK_50'
+Slack : -0.331
+TNS   : -4.961
+
+Type  : Fast Model Hold 'CLOCK_50'
+Slack : -1.718
+TNS   : -1.718
+
+Type  : Fast Model Hold 'I2C_AV_Config:u1|mI2C_CTRL_CLK'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK_50'
+Slack : -1.380
+TNS   : -18.380
+
+Type  : Fast Model Minimum Pulse Width 'I2C_AV_Config:u1|mI2C_CTRL_CLK'
+Slack : -0.500
+TNS   : -42.000
+
 ------------------------------------------------------------

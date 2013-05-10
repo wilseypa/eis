@@ -1,5 +1,5 @@
 Analysis & Synthesis report for EISDSPProc
-Sun May  5 16:37:11 2013
+Thu May  9 23:01:46 2013
 Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,346 +13,356 @@ Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Editio
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849
- 10. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22854
- 11. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22855
- 12. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|memMod_dist:s1mem0
- 13. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|memMod_dist:s1mem1
- 14. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|nextReg:nextReg_22866
- 15. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22867
- 16. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|nextReg:nextReg_22870
- 17. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22871
- 18. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22874
- 19. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22877
- 20. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22882
- 21. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:writeIntReg
- 22. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|memMod_dist:s2mem0
- 23. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|memMod_dist:s2mem1
- 24. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|swNet14467:sw
- 25. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14471:stage1|shiftRegFIFO:shiftFIFO_22889
- 26. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14471:stage1|addfxp:add14483
- 27. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14471:stage1|addfxp:add14498
- 28. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14471:stage1|subfxp:sub14512
- 29. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14471:stage1|subfxp:sub14526
- 30. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890
- 31. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22895
- 32. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22896
- 33. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|memMod_dist:s1mem0
- 34. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|memMod_dist:s1mem1
- 35. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22905
- 36. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22906
- 37. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22907
- 38. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22908
- 39. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22911
- 40. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22914
- 41. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22919
- 42. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:writeIntReg
- 43. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|memMod_dist:s2mem0
- 44. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|memMod_dist:s2mem1
- 45. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|swNet14549:sw
- 46. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|shiftRegFIFO:shiftFIFO_22923
- 47. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14652
- 48. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14674
- 49. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14691
- 50. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14702
- 51. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|subfxp:sub14680
- 52. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|addfxp:add14709
- 53. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14729:stage4|shiftRegFIFO:shiftFIFO_22926
- 54. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14729:stage4|addfxp:add14741
- 55. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14729:stage4|addfxp:add14756
- 56. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14729:stage4|subfxp:sub14770
- 57. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14729:stage4|subfxp:sub14784
- 58. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927
- 59. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22932
- 60. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22933
- 61. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|memMod_dist:s1mem0
- 62. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|memMod_dist:s1mem1
- 63. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22942
- 64. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22943
- 65. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22944
- 66. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22945
- 67. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22948
- 68. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22951
- 69. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22956
- 70. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:writeIntReg
- 71. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|memMod_dist:s2mem0
- 72. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|memMod_dist:s2mem1
- 73. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|swNet14807:sw
- 74. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|shiftRegFIFO:shiftFIFO_22960
- 75. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14910
- 76. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14932
- 77. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14949
- 78. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14960
- 79. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|subfxp:sub14938
- 80. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|addfxp:add14967
- 81. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14995:stage7|shiftRegFIFO:shiftFIFO_22963
- 82. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14995:stage7|addfxp:add15007
- 83. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14995:stage7|addfxp:add15022
- 84. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14995:stage7|subfxp:sub15036
- 85. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14995:stage7|subfxp:sub15050
- 86. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964
- 87. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22969
- 88. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22970
- 89. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|memMod_dist:s1mem0
- 90. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|memMod_dist:s1mem1
- 91. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22979
- 92. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22980
- 93. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22981
- 94. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22982
- 95. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22985
- 96. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22988
- 97. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22993
- 98. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:writeIntReg
- 99. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|memMod_dist:s2mem0
-100. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|memMod_dist:s2mem1
-101. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|swNet15073:sw
-102. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|shiftRegFIFO:shiftFIFO_22997
-103. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15176
-104. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15198
-105. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15215
-106. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15226
-107. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|subfxp:sub15204
-108. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|addfxp:add15233
-109. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15277:stage10|shiftRegFIFO:shiftFIFO_23000
-110. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15277:stage10|addfxp:add15289
-111. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15277:stage10|addfxp:add15304
-112. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15277:stage10|subfxp:sub15318
-113. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15277:stage10|subfxp:sub15332
-114. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001
-115. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23006
-116. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23007
-117. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|memMod_dist:s1mem0
-118. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|memMod_dist:s1mem1
-119. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|nextReg:nextReg_23018
-120. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23019
-121. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|nextReg:nextReg_23022
-122. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23023
-123. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23026
-124. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23029
-125. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23034
-126. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:writeIntReg
-127. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|memMod_dist:s2mem0
-128. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|memMod_dist:s2mem1
-129. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|swNet15355:sw
-130. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|shiftRegFIFO:shiftFIFO_23042
-131. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15458
-132. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15480
-133. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15497
-134. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15508
-135. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|subfxp:sub15486
-136. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|addfxp:add15515
-137. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15591:stage13|shiftRegFIFO:shiftFIFO_23045
-138. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15591:stage13|addfxp:add15603
-139. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15591:stage13|addfxp:add15618
-140. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15591:stage13|subfxp:sub15632
-141. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15591:stage13|subfxp:sub15646
-142. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046
-143. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23051
-144. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23052
-145. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|memMod_dist:s1mem0
-146. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|memMod_dist:s1mem1
-147. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|nextReg:nextReg_23063
-148. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23064
-149. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|nextReg:nextReg_23067
-150. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23068
-151. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23071
-152. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23074
-153. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23079
-154. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:writeIntReg
-155. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|memMod_dist:s2mem0
-156. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|memMod_dist:s2mem1
-157. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|swNet15669:sw
-158. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|shiftRegFIFO:shiftFIFO_23087
-159. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15772
-160. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15794
-161. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15811
-162. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15822
-163. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|subfxp:sub15800
-164. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|addfxp:add15829
-165. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15969:stage16|shiftRegFIFO:shiftFIFO_23090
-166. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15969:stage16|addfxp:add15981
-167. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15969:stage16|addfxp:add15996
-168. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15969:stage16|subfxp:sub16010
-169. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15969:stage16|subfxp:sub16024
-170. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091
-171. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23096
-172. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23097
-173. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|memMod_dist:s1mem0
-174. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|memMod_dist:s1mem1
-175. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|nextReg:nextReg_23108
-176. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23109
-177. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|nextReg:nextReg_23112
-178. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23113
-179. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23116
-180. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23119
-181. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23124
-182. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:writeIntReg
-183. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|memMod_dist:s2mem0
-184. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|memMod_dist:s2mem1
-185. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|swNet16047:sw
-186. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|shiftRegFIFO:shiftFIFO_23132
-187. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16150
-188. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16172
-189. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16189
-190. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16200
-191. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|subfxp:sub16178
-192. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|addfxp:add16207
-193. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock16475:stage19|shiftRegFIFO:shiftFIFO_23135
-194. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock16475:stage19|addfxp:add16487
-195. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock16475:stage19|addfxp:add16502
-196. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock16475:stage19|subfxp:sub16516
-197. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock16475:stage19|subfxp:sub16530
-198. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136
-199. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23141
-200. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23142
-201. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|memMod_dist:s1mem0
-202. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|memMod_dist:s1mem1
-203. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|nextReg:nextReg_23153
-204. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23154
-205. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|nextReg:nextReg_23157
-206. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23158
-207. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23161
-208. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23164
-209. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23169
-210. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:writeIntReg
-211. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|memMod_dist:s2mem0
-212. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|memMod_dist:s2mem1
-213. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|swNet16553:sw
-214. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|shiftRegFIFO:shiftFIFO_23177
-215. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16656
-216. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16678
-217. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16695
-218. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16706
-219. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|subfxp:sub16684
-220. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|addfxp:add16713
-221. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock17237:stage22|shiftRegFIFO:shiftFIFO_23180
-222. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock17237:stage22|addfxp:add17249
-223. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock17237:stage22|addfxp:add17264
-224. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock17237:stage22|subfxp:sub17278
-225. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock17237:stage22|subfxp:sub17292
-226. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181
-227. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23186
-228. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23187
-229. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|memMod_dist:s1mem0
-230. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|memMod_dist:s1mem1
-231. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|nextReg:nextReg_23198
-232. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23199
-233. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|nextReg:nextReg_23202
-234. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23203
-235. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23206
-236. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23209
-237. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23214
-238. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:writeIntReg
-239. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|memMod_dist:s2mem0
-240. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|memMod_dist:s2mem1
-241. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|swNet17315:sw
-242. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|shiftRegFIFO:shiftFIFO_23222
-243. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17418
-244. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17440
-245. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17457
-246. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17468
-247. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|subfxp:sub17446
-248. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|addfxp:add17475
-249. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock18511:stage25|shiftRegFIFO:shiftFIFO_23225
-250. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock18511:stage25|addfxp:add18523
-251. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock18511:stage25|addfxp:add18538
-252. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock18511:stage25|subfxp:sub18552
-253. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock18511:stage25|subfxp:sub18566
-254. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226
-255. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23231
-256. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23232
-257. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|memMod_dist:s1mem0
-258. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|memMod_dist:s1mem1
-259. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|nextReg:nextReg_23243
-260. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23244
-261. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|nextReg:nextReg_23247
-262. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23248
-263. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23251
-264. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23254
-265. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23259
-266. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:writeIntReg
-267. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|memMod_dist:s2mem0
-268. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|memMod_dist:s2mem1
-269. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|swNet18589:sw
-270. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|shiftRegFIFO:shiftFIFO_23267
-271. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18691
-272. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18713
-273. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18730
-274. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18741
-275. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|subfxp:sub18719
-276. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|addfxp:add18748
-277. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock20808:stage28|shiftRegFIFO:shiftFIFO_23270
-278. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock20808:stage28|addfxp:add20820
-279. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock20808:stage28|addfxp:add20835
-280. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock20808:stage28|subfxp:sub20849
-281. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock20808:stage28|subfxp:sub20863
-282. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271
-283. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23276
-284. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23277
-285. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|memMod_dist:s1mem0
-286. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|memMod_dist:s1mem1
-287. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|nextReg:nextReg_23288
-288. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23289
-289. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|nextReg:nextReg_23292
-290. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23293
-291. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23296
-292. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23299
-293. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23304
-294. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:writeIntReg
-295. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|memMod_dist:s2mem0
-296. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|memMod_dist:s2mem1
-297. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|swNet20886:sw
-298. Port Connectivity Checks: "dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23296"
-299. Port Connectivity Checks: "dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18741"
-300. Port Connectivity Checks: "dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18730"
-301. Port Connectivity Checks: "dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18713"
-302. Port Connectivity Checks: "dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18691"
-303. Port Connectivity Checks: "dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23251"
-304. Port Connectivity Checks: "dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17468"
-305. Port Connectivity Checks: "dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17457"
-306. Port Connectivity Checks: "dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17440"
-307. Port Connectivity Checks: "dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17418"
-308. Port Connectivity Checks: "dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23206"
-309. Port Connectivity Checks: "dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16706"
-310. Port Connectivity Checks: "dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16695"
-311. Port Connectivity Checks: "dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16678"
-312. Port Connectivity Checks: "dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16656"
-313. Port Connectivity Checks: "dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23161"
-314. Port Connectivity Checks: "dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16200"
-315. Port Connectivity Checks: "dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16189"
-316. Port Connectivity Checks: "dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16172"
-317. Port Connectivity Checks: "dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16150"
-318. Port Connectivity Checks: "dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23116"
-319. Port Connectivity Checks: "dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15822"
-320. Port Connectivity Checks: "dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15811"
-321. Port Connectivity Checks: "dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15794"
-322. Port Connectivity Checks: "dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15772"
-323. Port Connectivity Checks: "dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23071"
-324. Port Connectivity Checks: "dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15508"
-325. Port Connectivity Checks: "dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15497"
-326. Port Connectivity Checks: "dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15480"
-327. Port Connectivity Checks: "dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15458"
-328. Port Connectivity Checks: "dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23026"
-329. Port Connectivity Checks: "dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15226"
-330. Port Connectivity Checks: "dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15215"
-331. Port Connectivity Checks: "dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15198"
-332. Port Connectivity Checks: "dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15176"
-333. Port Connectivity Checks: "dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22985"
-334. Port Connectivity Checks: "dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14960"
-335. Port Connectivity Checks: "dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14949"
-336. Port Connectivity Checks: "dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14932"
-337. Port Connectivity Checks: "dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14910"
-338. Port Connectivity Checks: "dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22948"
-339. Port Connectivity Checks: "dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14702"
-340. Port Connectivity Checks: "dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14691"
-341. Port Connectivity Checks: "dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14674"
-342. Port Connectivity Checks: "dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14652"
-343. Port Connectivity Checks: "dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22911"
-344. Port Connectivity Checks: "dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22874"
-345. Port Connectivity Checks: "dft_top:fft0"
-346. Elapsed Time Per Partition
-347. Analysis & Synthesis Messages
+  8. State Machine - |EISDSPProc|I2C_AV_Config:u1|mSetup_ST
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: I2C_AV_Config:u1
+ 15. Parameter Settings for User Entity Instance: audio_codec:AC
+ 16. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849
+ 17. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22854
+ 18. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22855
+ 19. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|memMod_dist:s1mem0
+ 20. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|memMod_dist:s1mem1
+ 21. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|nextReg:nextReg_22866
+ 22. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22867
+ 23. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|nextReg:nextReg_22870
+ 24. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22871
+ 25. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22874
+ 26. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22877
+ 27. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22882
+ 28. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:writeIntReg
+ 29. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|memMod_dist:s2mem0
+ 30. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|memMod_dist:s2mem1
+ 31. Parameter Settings for User Entity Instance: dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|swNet14467:sw
+ 32. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14471:stage1|shiftRegFIFO:shiftFIFO_22889
+ 33. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14471:stage1|addfxp:add14483
+ 34. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14471:stage1|addfxp:add14498
+ 35. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14471:stage1|subfxp:sub14512
+ 36. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14471:stage1|subfxp:sub14526
+ 37. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890
+ 38. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22895
+ 39. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22896
+ 40. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|memMod_dist:s1mem0
+ 41. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|memMod_dist:s1mem1
+ 42. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22905
+ 43. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22906
+ 44. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22907
+ 45. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22908
+ 46. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22911
+ 47. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22914
+ 48. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22919
+ 49. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:writeIntReg
+ 50. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|memMod_dist:s2mem0
+ 51. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|memMod_dist:s2mem1
+ 52. Parameter Settings for User Entity Instance: dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|swNet14549:sw
+ 53. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|shiftRegFIFO:shiftFIFO_22923
+ 54. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14652
+ 55. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14674
+ 56. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14691
+ 57. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14702
+ 58. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|subfxp:sub14680
+ 59. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|addfxp:add14709
+ 60. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14729:stage4|shiftRegFIFO:shiftFIFO_22926
+ 61. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14729:stage4|addfxp:add14741
+ 62. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14729:stage4|addfxp:add14756
+ 63. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14729:stage4|subfxp:sub14770
+ 64. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14729:stage4|subfxp:sub14784
+ 65. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927
+ 66. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22932
+ 67. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22933
+ 68. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|memMod_dist:s1mem0
+ 69. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|memMod_dist:s1mem1
+ 70. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22942
+ 71. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22943
+ 72. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22944
+ 73. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22945
+ 74. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22948
+ 75. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22951
+ 76. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22956
+ 77. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:writeIntReg
+ 78. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|memMod_dist:s2mem0
+ 79. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|memMod_dist:s2mem1
+ 80. Parameter Settings for User Entity Instance: dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|swNet14807:sw
+ 81. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|shiftRegFIFO:shiftFIFO_22960
+ 82. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14910
+ 83. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14932
+ 84. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14949
+ 85. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14960
+ 86. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|subfxp:sub14938
+ 87. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|addfxp:add14967
+ 88. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14995:stage7|shiftRegFIFO:shiftFIFO_22963
+ 89. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14995:stage7|addfxp:add15007
+ 90. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14995:stage7|addfxp:add15022
+ 91. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14995:stage7|subfxp:sub15036
+ 92. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock14995:stage7|subfxp:sub15050
+ 93. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964
+ 94. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22969
+ 95. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22970
+ 96. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|memMod_dist:s1mem0
+ 97. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|memMod_dist:s1mem1
+ 98. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22979
+ 99. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22980
+100. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22981
+101. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22982
+102. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22985
+103. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22988
+104. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22993
+105. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:writeIntReg
+106. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|memMod_dist:s2mem0
+107. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|memMod_dist:s2mem1
+108. Parameter Settings for User Entity Instance: dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|swNet15073:sw
+109. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|shiftRegFIFO:shiftFIFO_22997
+110. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15176
+111. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15198
+112. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15215
+113. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15226
+114. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|subfxp:sub15204
+115. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|addfxp:add15233
+116. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15277:stage10|shiftRegFIFO:shiftFIFO_23000
+117. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15277:stage10|addfxp:add15289
+118. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15277:stage10|addfxp:add15304
+119. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15277:stage10|subfxp:sub15318
+120. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15277:stage10|subfxp:sub15332
+121. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001
+122. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23006
+123. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23007
+124. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|memMod_dist:s1mem0
+125. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|memMod_dist:s1mem1
+126. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|nextReg:nextReg_23018
+127. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23019
+128. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|nextReg:nextReg_23022
+129. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23023
+130. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23026
+131. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23029
+132. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23034
+133. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:writeIntReg
+134. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|memMod_dist:s2mem0
+135. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|memMod_dist:s2mem1
+136. Parameter Settings for User Entity Instance: dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|swNet15355:sw
+137. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|shiftRegFIFO:shiftFIFO_23042
+138. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15458
+139. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15480
+140. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15497
+141. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15508
+142. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|subfxp:sub15486
+143. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|addfxp:add15515
+144. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15591:stage13|shiftRegFIFO:shiftFIFO_23045
+145. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15591:stage13|addfxp:add15603
+146. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15591:stage13|addfxp:add15618
+147. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15591:stage13|subfxp:sub15632
+148. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15591:stage13|subfxp:sub15646
+149. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046
+150. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23051
+151. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23052
+152. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|memMod_dist:s1mem0
+153. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|memMod_dist:s1mem1
+154. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|nextReg:nextReg_23063
+155. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23064
+156. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|nextReg:nextReg_23067
+157. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23068
+158. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23071
+159. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23074
+160. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23079
+161. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:writeIntReg
+162. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|memMod_dist:s2mem0
+163. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|memMod_dist:s2mem1
+164. Parameter Settings for User Entity Instance: dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|swNet15669:sw
+165. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|shiftRegFIFO:shiftFIFO_23087
+166. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15772
+167. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15794
+168. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15811
+169. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15822
+170. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|subfxp:sub15800
+171. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|addfxp:add15829
+172. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15969:stage16|shiftRegFIFO:shiftFIFO_23090
+173. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15969:stage16|addfxp:add15981
+174. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15969:stage16|addfxp:add15996
+175. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15969:stage16|subfxp:sub16010
+176. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock15969:stage16|subfxp:sub16024
+177. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091
+178. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23096
+179. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23097
+180. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|memMod_dist:s1mem0
+181. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|memMod_dist:s1mem1
+182. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|nextReg:nextReg_23108
+183. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23109
+184. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|nextReg:nextReg_23112
+185. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23113
+186. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23116
+187. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23119
+188. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23124
+189. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:writeIntReg
+190. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|memMod_dist:s2mem0
+191. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|memMod_dist:s2mem1
+192. Parameter Settings for User Entity Instance: dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|swNet16047:sw
+193. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|shiftRegFIFO:shiftFIFO_23132
+194. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16150
+195. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16172
+196. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16189
+197. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16200
+198. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|subfxp:sub16178
+199. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|addfxp:add16207
+200. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock16475:stage19|shiftRegFIFO:shiftFIFO_23135
+201. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock16475:stage19|addfxp:add16487
+202. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock16475:stage19|addfxp:add16502
+203. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock16475:stage19|subfxp:sub16516
+204. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock16475:stage19|subfxp:sub16530
+205. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136
+206. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23141
+207. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23142
+208. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|memMod_dist:s1mem0
+209. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|memMod_dist:s1mem1
+210. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|nextReg:nextReg_23153
+211. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23154
+212. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|nextReg:nextReg_23157
+213. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23158
+214. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23161
+215. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23164
+216. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23169
+217. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:writeIntReg
+218. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|memMod_dist:s2mem0
+219. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|memMod_dist:s2mem1
+220. Parameter Settings for User Entity Instance: dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|swNet16553:sw
+221. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|shiftRegFIFO:shiftFIFO_23177
+222. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16656
+223. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16678
+224. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16695
+225. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16706
+226. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|subfxp:sub16684
+227. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|addfxp:add16713
+228. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock17237:stage22|shiftRegFIFO:shiftFIFO_23180
+229. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock17237:stage22|addfxp:add17249
+230. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock17237:stage22|addfxp:add17264
+231. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock17237:stage22|subfxp:sub17278
+232. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock17237:stage22|subfxp:sub17292
+233. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181
+234. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23186
+235. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23187
+236. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|memMod_dist:s1mem0
+237. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|memMod_dist:s1mem1
+238. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|nextReg:nextReg_23198
+239. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23199
+240. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|nextReg:nextReg_23202
+241. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23203
+242. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23206
+243. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23209
+244. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23214
+245. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:writeIntReg
+246. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|memMod_dist:s2mem0
+247. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|memMod_dist:s2mem1
+248. Parameter Settings for User Entity Instance: dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|swNet17315:sw
+249. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|shiftRegFIFO:shiftFIFO_23222
+250. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17418
+251. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17440
+252. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17457
+253. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17468
+254. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|subfxp:sub17446
+255. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|addfxp:add17475
+256. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock18511:stage25|shiftRegFIFO:shiftFIFO_23225
+257. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock18511:stage25|addfxp:add18523
+258. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock18511:stage25|addfxp:add18538
+259. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock18511:stage25|subfxp:sub18552
+260. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock18511:stage25|subfxp:sub18566
+261. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226
+262. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23231
+263. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23232
+264. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|memMod_dist:s1mem0
+265. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|memMod_dist:s1mem1
+266. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|nextReg:nextReg_23243
+267. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23244
+268. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|nextReg:nextReg_23247
+269. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23248
+270. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23251
+271. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23254
+272. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23259
+273. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:writeIntReg
+274. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|memMod_dist:s2mem0
+275. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|memMod_dist:s2mem1
+276. Parameter Settings for User Entity Instance: dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|swNet18589:sw
+277. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|shiftRegFIFO:shiftFIFO_23267
+278. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18691
+279. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18713
+280. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18730
+281. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18741
+282. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|subfxp:sub18719
+283. Parameter Settings for User Entity Instance: dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|addfxp:add18748
+284. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock20808:stage28|shiftRegFIFO:shiftFIFO_23270
+285. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock20808:stage28|addfxp:add20820
+286. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock20808:stage28|addfxp:add20835
+287. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock20808:stage28|subfxp:sub20849
+288. Parameter Settings for User Entity Instance: dft_top:fft0|codeBlock20808:stage28|subfxp:sub20863
+289. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271
+290. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23276
+291. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23277
+292. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|memMod_dist:s1mem0
+293. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|memMod_dist:s1mem1
+294. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|nextReg:nextReg_23288
+295. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23289
+296. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|nextReg:nextReg_23292
+297. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23293
+298. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23296
+299. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23299
+300. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23304
+301. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:writeIntReg
+302. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|memMod_dist:s2mem0
+303. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|memMod_dist:s2mem1
+304. Parameter Settings for User Entity Instance: dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|swNet20886:sw
+305. Port Connectivity Checks: "dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|shiftRegFIFO:shiftFIFO_23296"
+306. Port Connectivity Checks: "dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18741"
+307. Port Connectivity Checks: "dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18730"
+308. Port Connectivity Checks: "dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18713"
+309. Port Connectivity Checks: "dft_top:fft0|DirSum_20805:stage27|codeBlock18593:codeBlockIsnt23264|multfix:m18691"
+310. Port Connectivity Checks: "dft_top:fft0|rc18591:stage26|perm18589:instPerm23226|shiftRegFIFO:shiftFIFO_23251"
+311. Port Connectivity Checks: "dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17468"
+312. Port Connectivity Checks: "dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17457"
+313. Port Connectivity Checks: "dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17440"
+314. Port Connectivity Checks: "dft_top:fft0|DirSum_18508:stage24|codeBlock17320:codeBlockIsnt23219|multfix:m17418"
+315. Port Connectivity Checks: "dft_top:fft0|rc17317:stage23|perm17315:instPerm23181|shiftRegFIFO:shiftFIFO_23206"
+316. Port Connectivity Checks: "dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16706"
+317. Port Connectivity Checks: "dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16695"
+318. Port Connectivity Checks: "dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16678"
+319. Port Connectivity Checks: "dft_top:fft0|DirSum_17234:stage21|codeBlock16558:codeBlockIsnt23174|multfix:m16656"
+320. Port Connectivity Checks: "dft_top:fft0|rc16555:stage20|perm16553:instPerm23136|shiftRegFIFO:shiftFIFO_23161"
+321. Port Connectivity Checks: "dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16200"
+322. Port Connectivity Checks: "dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16189"
+323. Port Connectivity Checks: "dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16172"
+324. Port Connectivity Checks: "dft_top:fft0|DirSum_16472:stage18|codeBlock16052:codeBlockIsnt23129|multfix:m16150"
+325. Port Connectivity Checks: "dft_top:fft0|rc16049:stage17|perm16047:instPerm23091|shiftRegFIFO:shiftFIFO_23116"
+326. Port Connectivity Checks: "dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15822"
+327. Port Connectivity Checks: "dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15811"
+328. Port Connectivity Checks: "dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15794"
+329. Port Connectivity Checks: "dft_top:fft0|DirSum_15966:stage15|codeBlock15674:codeBlockIsnt23084|multfix:m15772"
+330. Port Connectivity Checks: "dft_top:fft0|rc15671:stage14|perm15669:instPerm23046|shiftRegFIFO:shiftFIFO_23071"
+331. Port Connectivity Checks: "dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15508"
+332. Port Connectivity Checks: "dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15497"
+333. Port Connectivity Checks: "dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15480"
+334. Port Connectivity Checks: "dft_top:fft0|DirSum_15588:stage12|codeBlock15360:codeBlockIsnt23039|multfix:m15458"
+335. Port Connectivity Checks: "dft_top:fft0|rc15357:stage11|perm15355:instPerm23001|shiftRegFIFO:shiftFIFO_23026"
+336. Port Connectivity Checks: "dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15226"
+337. Port Connectivity Checks: "dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15215"
+338. Port Connectivity Checks: "dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15198"
+339. Port Connectivity Checks: "dft_top:fft0|DirSum_15274:stage9|codeBlock15078:codeBlockIsnt22994|multfix:m15176"
+340. Port Connectivity Checks: "dft_top:fft0|rc15075:stage8|perm15073:instPerm22964|shiftRegFIFO:shiftFIFO_22985"
+341. Port Connectivity Checks: "dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14960"
+342. Port Connectivity Checks: "dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14949"
+343. Port Connectivity Checks: "dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14932"
+344. Port Connectivity Checks: "dft_top:fft0|DirSum_14992:stage6|codeBlock14812:codeBlockIsnt22957|multfix:m14910"
+345. Port Connectivity Checks: "dft_top:fft0|rc14809:stage5|perm14807:instPerm22927|shiftRegFIFO:shiftFIFO_22948"
+346. Port Connectivity Checks: "dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14702"
+347. Port Connectivity Checks: "dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14691"
+348. Port Connectivity Checks: "dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14674"
+349. Port Connectivity Checks: "dft_top:fft0|DirSum_14726:stage3|codeBlock14554:codeBlockIsnt22920|multfix:m14652"
+350. Port Connectivity Checks: "dft_top:fft0|rc14551:stage2|perm14549:instPerm22890|shiftRegFIFO:shiftFIFO_22911"
+351. Port Connectivity Checks: "dft_top:fft0|rc14469:stage0|perm14467:instPerm22849|shiftRegFIFO:shiftFIFO_22874"
+352. Port Connectivity Checks: "dft_top:fft0"
+353. Port Connectivity Checks: "audio_codec:AC"
+354. Port Connectivity Checks: "I2C_AV_Config:u1|I2C_Controller:u0"
+355. Port Connectivity Checks: "I2C_AV_Config:u1"
+356. Elapsed Time Per Partition
+357. Analysis & Synthesis Messages
 
 
 
@@ -378,15 +388,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May  5 16:37:11 2013         ;
+; Analysis & Synthesis Status        ; Successful - Thu May  9 23:01:46 2013         ;
 ; Quartus II 32-bit Version          ; 12.1 Build 243 01/31/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; EISDSPProc                                    ;
 ; Top-level Entity Name              ; EISDSPProc                                    ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 0                                             ;
-;     Total combinational functions  ; 0                                             ;
-;     Dedicated logic registers      ; 0                                             ;
-; Total registers                    ; 0                                             ;
+; Total logic elements               ; 99                                            ;
+;     Total combinational functions  ; 88                                            ;
+;     Dedicated logic registers      ; 59                                            ;
+; Total registers                    ; 59                                            ;
 ; Total pins                         ; 279                                           ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0                                             ;
@@ -491,14 +501,17 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                             ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                               ; Library ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
-; ../ccorr/EISDSP.v                ; yes             ; User Verilog HDL File  ; /home/xooxies/Dropbox/Research/LEV/FPGA/ccorr/EISDSP.v     ;         ;
-; dft_top.v                        ; yes             ; User Verilog HDL File  ; /home/xooxies/Dropbox/Research/LEV/FPGA/fft_Test/dft_top.v ;         ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                    ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                      ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+---------+
+; ../ccorr/EISDSP.v                ; yes             ; User Verilog HDL File  ; /home/xooxies/Dropbox/Research/LEV/FPGA/ccorr/EISDSP.v            ;         ;
+; dft_top.v                        ; yes             ; User Verilog HDL File  ; /home/xooxies/Dropbox/Research/LEV/FPGA/fft_Test/dft_top.v        ;         ;
+; I2C_AV_Config.v                  ; yes             ; User Verilog HDL File  ; /home/xooxies/Dropbox/Research/LEV/FPGA/fft_Test/I2C_AV_Config.v  ;         ;
+; I2C_Controller.v                 ; yes             ; User Verilog HDL File  ; /home/xooxies/Dropbox/Research/LEV/FPGA/fft_Test/I2C_Controller.v ;         ;
+; audio_codec.v                    ; yes             ; User Verilog HDL File  ; /home/xooxies/Dropbox/Research/LEV/FPGA/fft_Test/audio_codec.v    ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -506,34 +519,105 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
+; Estimated Total logic elements              ; 99    ;
 ;                                             ;       ;
-; Total combinational functions               ; 0     ;
+; Total combinational functions               ; 88    ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
+;     -- 4 input functions                    ; 52    ;
+;     -- 3 input functions                    ; 12    ;
+;     -- <=2 input functions                  ; 24    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
+;     -- normal mode                          ; 68    ;
+;     -- arithmetic mode                      ; 20    ;
 ;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
+; Total registers                             ; 59    ;
+;     -- Dedicated logic registers            ; 59    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
 ; I/O pins                                    ; 279   ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out                             ; 44    ;
+; Total fan-out                               ; 501   ;
+; Average fan-out                             ; 1.18  ;
 +---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |EISDSPProc                ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 279  ; 0            ; |EISDSPProc         ;              ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                    ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                            ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
+; |EISDSPProc                ; 88 (0)            ; 59 (0)       ; 0           ; 0            ; 0       ; 0         ; 279  ; 0            ; |EISDSPProc                                    ;              ;
+;    |I2C_AV_Config:u1|      ; 88 (45)           ; 59 (36)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |EISDSPProc|I2C_AV_Config:u1                   ;              ;
+;       |I2C_Controller:u0|  ; 43 (43)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |EISDSPProc|I2C_AV_Config:u1|I2C_Controller:u0 ;              ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------+
+; State Machine - |EISDSPProc|I2C_AV_Config:u1|mSetup_ST    ;
++--------------+--------------+--------------+--------------+
+; Name         ; mSetup_ST.00 ; mSetup_ST.10 ; mSetup_ST.01 ;
++--------------+--------------+--------------+--------------+
+; mSetup_ST.00 ; 0            ; 0            ; 0            ;
+; mSetup_ST.01 ; 1            ; 0            ; 1            ;
+; mSetup_ST.10 ; 1            ; 1            ; 0            ;
++--------------+--------------+--------------+--------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                         ;
++---------------------------------------------------+----------------------------------------+
+; Register name                                     ; Reason for Removal                     ;
++---------------------------------------------------+----------------------------------------+
+; I2C_AV_Config:u1|mI2C_DATA[22,23]                 ; Stuck at GND due to stuck port data_in ;
+; I2C_AV_Config:u1|mI2C_DATA[20,21]                 ; Stuck at VCC due to stuck port data_in ;
+; I2C_AV_Config:u1|mI2C_DATA[19]                    ; Stuck at GND due to stuck port data_in ;
+; I2C_AV_Config:u1|mI2C_DATA[18]                    ; Stuck at VCC due to stuck port data_in ;
+; I2C_AV_Config:u1|mI2C_DATA[5,8,13..17]            ; Stuck at GND due to stuck port data_in ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SD[22,23]      ; Stuck at GND due to stuck port data_in ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SD[20,21]      ; Stuck at VCC due to stuck port data_in ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SD[19]         ; Stuck at GND due to stuck port data_in ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SD[18]         ; Stuck at VCC due to stuck port data_in ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SD[5,8,13..17] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 26            ;                                        ;
++---------------------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                            ;
++--------------------------------+---------------------------+-------------------------------------------+
+; Register name                  ; Reason for Removal        ; Registers Removed due to This Register    ;
++--------------------------------+---------------------------+-------------------------------------------+
+; I2C_AV_Config:u1|mI2C_DATA[23] ; Stuck at GND              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[23] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[22] ; Stuck at GND              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[22] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[21] ; Stuck at VCC              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[21] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[20] ; Stuck at VCC              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[20] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[19] ; Stuck at GND              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[19] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[18] ; Stuck at VCC              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[18] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[17] ; Stuck at GND              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[17] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[16] ; Stuck at GND              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[16] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[15] ; Stuck at GND              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[15] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[14] ; Stuck at GND              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[14] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[13] ; Stuck at GND              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[13] ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[8]  ; Stuck at GND              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[8]  ;
+;                                ; due to stuck port data_in ;                                           ;
+; I2C_AV_Config:u1|mI2C_DATA[5]  ; Stuck at GND              ; I2C_AV_Config:u1|I2C_Controller:u0|SD[5]  ;
+;                                ; due to stuck port data_in ;                                           ;
++--------------------------------+---------------------------+-------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -541,14 +625,76 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Total registers                              ; 59    ;
+; Number of registers using Synchronous Clear  ; 16    ;
+; Number of registers using Synchronous Load   ; 6     ;
+; Number of registers using Asynchronous Clear ; 37    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 32    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------+
+; Inverted Register Statistics                               ;
++--------------------------------------------------+---------+
+; Inverted Register                                ; Fan out ;
++--------------------------------------------------+---------+
+; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ; 17      ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; 17      ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; 19      ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; 14      ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; 12      ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[5] ; 11      ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SCLK          ; 3       ;
+; I2C_AV_Config:u1|I2C_Controller:u0|END           ; 5       ;
+; I2C_AV_Config:u1|I2C_Controller:u0|SDO           ; 4       ;
+; Total number of inverted registers = 9           ;         ;
++--------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |EISDSPProc|I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: I2C_AV_Config:u1 ;
++----------------+----------+-----------------------------------+
+; Parameter Name ; Value    ; Type                              ;
++----------------+----------+-----------------------------------+
+; CLK_Freq       ; 50000000 ; Signed Integer                    ;
+; I2C_Freq       ; 20000    ; Signed Integer                    ;
+; LUT_SIZE       ; 11       ; Signed Integer                    ;
+; Dummy_DATA     ; 0        ; Signed Integer                    ;
+; SET_LIN_L      ; 1        ; Signed Integer                    ;
+; SET_LIN_R      ; 2        ; Signed Integer                    ;
+; SET_HEAD_L     ; 3        ; Signed Integer                    ;
+; SET_HEAD_R     ; 4        ; Signed Integer                    ;
+; A_PATH_CTRL    ; 5        ; Signed Integer                    ;
+; D_PATH_CTRL    ; 6        ; Signed Integer                    ;
+; POWER_ON       ; 7        ; Signed Integer                    ;
+; SET_FORMAT     ; 8        ; Signed Integer                    ;
+; SAMPLE_CTRL    ; 9        ; Signed Integer                    ;
+; SET_ACTIVE     ; 10       ; Signed Integer                    ;
++----------------+----------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: audio_codec:AC ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; SAMPLE_RATE    ; 8000  ; Signed Integer                     ;
+; DATA_WIDTH     ; 24    ; Signed Integer                     ;
+; CHANNEL_NUM    ; 2     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +--------------------------------------------------------------------------------------------------+
@@ -4221,12 +4367,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "audio_codec:AC"                                                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; GO   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "I2C_AV_Config:u1|I2C_Controller:u0"                                                                                                                ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                                                      ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; W_R        ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; SD_COUNTER ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; SDO        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "I2C_AV_Config:u1"                                                                                                                           ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; iVOL ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (7 bits) it drives.  Extra input bit(s) "iVOL[6..1]" will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -4236,7 +4411,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun May  5 16:36:57 2013
+    Info: Processing started: Thu May  9 23:01:29 2013
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off EISDSPProc -c EISDSPProc
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file /home/xooxies/Dropbox/Research/LEV/FPGA/ccorr/EISDSP.v
@@ -4706,6 +4881,14 @@ Info (12021): Found 87 design units, including 87 entities, in source file dft_t
     Info (12023): Found entity 85: multfix
     Info (12023): Found entity 86: addfxp
     Info (12023): Found entity 87: subfxp
+Info (12021): Found 1 design units, including 1 entities, in source file I2C_AV_Config.v
+    Info (12023): Found entity 1: I2C_AV_Config
+Info (12021): Found 1 design units, including 1 entities, in source file I2C_Controller.v
+    Info (12023): Found entity 1: I2C_Controller
+Info (12021): Found 1 design units, including 1 entities, in source file audio_codec.v
+    Info (12023): Found entity 1: audio_codec
+Warning (10236): Verilog HDL Implicit Net warning at EISDSP.v(103): created implicit net for "VOL"
+Warning (10236): Verilog HDL Implicit Net warning at EISDSP.v(113): created implicit net for "next"
 Warning (10236): Verilog HDL Implicit Net warning at dft_top.v(1309): created implicit net for "tm0_d"
 Warning (10236): Verilog HDL Implicit Net warning at dft_top.v(1310): created implicit net for "tm0_dd"
 Warning (10236): Verilog HDL Implicit Net warning at dft_top.v(3786): created implicit net for "tm1_d"
@@ -4761,14 +4944,82 @@ Warning (10034): Output port "SRAM_LB_N" at EISDSP.v(47) has no driver
 Warning (10034): Output port "SRAM_WE_N" at EISDSP.v(48) has no driver
 Warning (10034): Output port "SRAM_CE_N" at EISDSP.v(49) has no driver
 Warning (10034): Output port "SRAM_OE_N" at EISDSP.v(50) has no driver
-Warning (10034): Output port "I2C_SCLK" at EISDSP.v(58) has no driver
 Warning (10034): Output port "TDO" at EISDSP.v(66) has no driver
 Warning (10034): Output port "VGA_HS" at EISDSP.v(68) has no driver
 Warning (10034): Output port "VGA_VS" at EISDSP.v(69) has no driver
-Warning (10034): Output port "AUD_ADCLRCK" at EISDSP.v(74) has no driver
 Warning (10034): Output port "AUD_DACLRCK" at EISDSP.v(76) has no driver
 Warning (10034): Output port "AUD_DACDAT" at EISDSP.v(77) has no driver
 Warning (10034): Output port "AUD_XCK" at EISDSP.v(79) has no driver
+Info (12128): Elaborating entity "I2C_AV_Config" for hierarchy "I2C_AV_Config:u1"
+Warning (10230): Verilog HDL assignment warning at I2C_AV_Config.v(55): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at I2C_AV_Config.v(103): truncated value with size 32 to match size of target (4)
+Info (12128): Elaborating entity "I2C_Controller" for hierarchy "I2C_AV_Config:u1|I2C_Controller:u0"
+Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(37): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(36): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at I2C_Controller.v(49): truncated value with size 32 to match size of target (6)
+Info (12128): Elaborating entity "audio_codec" for hierarchy "audio_codec:AC"
+Critical Warning (10237): Verilog HDL warning at audio_codec.v(43): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead
+Critical Warning (10237): Verilog HDL warning at audio_codec.v(44): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead
+Critical Warning (10237): Verilog HDL warning at audio_codec.v(45): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead
+Warning (10230): Verilog HDL assignment warning at audio_codec.v(59): truncated value with size 32 to match size of target (6)
+Warning (10240): Verilog HDL Always Construct warning at audio_codec.v(34): inferring latch(es) for variable "BIT_COUNTER", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at audio_codec.v(34): inferring latch(es) for variable "mRDY", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at audio_codec.v(34): inferring latch(es) for variable "oSAMPLE", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "oSAMPLE[47]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[46]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[45]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[44]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[43]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[42]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[41]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[40]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[39]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[38]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[37]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[36]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[35]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[34]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[33]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[32]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[31]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[30]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[29]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[28]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[27]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[26]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[25]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[24]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[23]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[22]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[21]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[20]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[19]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[18]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[17]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[16]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[15]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[14]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[13]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[12]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[11]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[10]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[9]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[8]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[7]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[6]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[5]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[4]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[3]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[2]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[1]" at audio_codec.v(34)
+Info (10041): Inferred latch for "oSAMPLE[0]" at audio_codec.v(34)
+Info (10041): Inferred latch for "mRDY" at audio_codec.v(34)
+Info (10041): Inferred latch for "BIT_COUNTER[5]" at audio_codec.v(34)
+Info (10041): Inferred latch for "BIT_COUNTER[4]" at audio_codec.v(34)
+Info (10041): Inferred latch for "BIT_COUNTER[3]" at audio_codec.v(34)
+Info (10041): Inferred latch for "BIT_COUNTER[2]" at audio_codec.v(34)
+Info (10041): Inferred latch for "BIT_COUNTER[1]" at audio_codec.v(34)
+Info (10041): Inferred latch for "BIT_COUNTER[0]" at audio_codec.v(34)
 Info (12128): Elaborating entity "dft_top" for hierarchy "dft_top:fft0"
 Info (12128): Elaborating entity "rc14469" for hierarchy "dft_top:fft0|rc14469:stage0"
 Info (12128): Elaborating entity "perm14467" for hierarchy "dft_top:fft0|rc14469:stage0|perm14467:instPerm22849"
@@ -4960,6 +5211,7 @@ Warning (10230): Verilog HDL assignment warning at dft_top.v(16663): truncated v
 Warning (10230): Verilog HDL assignment warning at dft_top.v(16690): truncated value with size 32 to match size of target (9)
 Warning (10230): Verilog HDL assignment warning at dft_top.v(16716): truncated value with size 32 to match size of target (9)
 Info (12128): Elaborating entity "swNet20886" for hierarchy "dft_top:fft0|rc20888:stage29|perm20886:instPerm23271|swNet20886:sw"
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13039): The following bidir pins have no drivers
     Warning (13040): Bidir "DRAM_DQ[0]" has no driver
     Warning (13040): Bidir "DRAM_DQ[1]" has no driver
@@ -5001,9 +5253,7 @@ Warning (13039): The following bidir pins have no drivers
     Warning (13040): Bidir "SRAM_DQ[13]" has no driver
     Warning (13040): Bidir "SRAM_DQ[14]" has no driver
     Warning (13040): Bidir "SRAM_DQ[15]" has no driver
-    Warning (13040): Bidir "I2C_SDAT" has no driver
     Warning (13040): Bidir "PS2_DAT" has no driver
-    Warning (13040): Bidir "AUD_BCLK" has no driver
     Warning (13040): Bidir "GPIO_0[0]" has no driver
     Warning (13040): Bidir "GPIO_0[1]" has no driver
     Warning (13040): Bidir "GPIO_0[2]" has no driver
@@ -5076,6 +5326,9 @@ Warning (13039): The following bidir pins have no drivers
     Warning (13040): Bidir "GPIO_1[33]" has no driver
     Warning (13040): Bidir "GPIO_1[34]" has no driver
     Warning (13040): Bidir "GPIO_1[35]" has no driver
+    Warning (13040): Bidir "AUD_BCLK" has no driver
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX0[0]" is stuck at GND
     Warning (13410): Pin "HEX0[1]" is stuck at GND
@@ -5195,7 +5448,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "SRAM_WE_N" is stuck at GND
     Warning (13410): Pin "SRAM_CE_N" is stuck at GND
     Warning (13410): Pin "SRAM_OE_N" is stuck at GND
-    Warning (13410): Pin "I2C_SCLK" is stuck at GND
     Warning (13410): Pin "TDO" is stuck at GND
     Warning (13410): Pin "VGA_HS" is stuck at GND
     Warning (13410): Pin "VGA_VS" is stuck at GND
@@ -5217,14 +5469,12 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "AUD_XCK" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 26 input pin(s) that do not drive logic
+Warning (21074): Design contains 24 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "CLOCK_24[0]"
     Warning (15610): No output dependent on input pin "CLOCK_24[1]"
     Warning (15610): No output dependent on input pin "CLOCK_27[0]"
     Warning (15610): No output dependent on input pin "CLOCK_27[1]"
-    Warning (15610): No output dependent on input pin "CLOCK_50"
     Warning (15610): No output dependent on input pin "EXT_CLOCK"
-    Warning (15610): No output dependent on input pin "KEY[0]"
     Warning (15610): No output dependent on input pin "KEY[1]"
     Warning (15610): No output dependent on input pin "KEY[2]"
     Warning (15610): No output dependent on input pin "KEY[3]"
@@ -5244,14 +5494,15 @@ Warning (21074): Design contains 26 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "TCK"
     Warning (15610): No output dependent on input pin "TCS"
     Warning (15610): No output dependent on input pin "AUD_ADCDAT"
-Info (21057): Implemented 279 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 378 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 26 input pins
     Info (21059): Implemented 138 output pins
     Info (21060): Implemented 115 bidirectional pins
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 788 warnings
-    Info: Peak virtual memory: 416 megabytes
-    Info: Processing ended: Sun May  5 16:37:11 2013
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:15
+    Info (21061): Implemented 99 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 797 warnings
+    Info: Peak virtual memory: 402 megabytes
+    Info: Processing ended: Thu May  9 23:01:46 2013
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:09
 
 

@@ -1,0 +1,1083 @@
+TimeQuest Timing Analyzer report for uart_Test
+Wed Jun 12 23:24:23 2013
+Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'CLOCK_50'
+ 12. Slow Model Hold: 'CLOCK_50'
+ 13. Slow Model Minimum Pulse Width: 'CLOCK_50'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Fast Model Setup Summary
+ 19. Fast Model Hold Summary
+ 20. Fast Model Recovery Summary
+ 21. Fast Model Removal Summary
+ 22. Fast Model Minimum Pulse Width Summary
+ 23. Fast Model Setup: 'CLOCK_50'
+ 24. Fast Model Hold: 'CLOCK_50'
+ 25. Fast Model Minimum Pulse Width: 'CLOCK_50'
+ 26. Setup Times
+ 27. Hold Times
+ 28. Clock to Output Times
+ 29. Minimum Clock to Output Times
+ 30. Multicorner Timing Analysis Summary
+ 31. Setup Times
+ 32. Hold Times
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Setup Transfers
+ 36. Hold Transfers
+ 37. Report TCCS
+ 38. Report RSKM
+ 39. Unconstrained Paths
+ 40. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                    ;
++--------------------+-----------------------------------------------------------------+
+; Quartus II Version ; Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; uart_Test                                                       ;
+; Device Family      ; Cyclone II                                                      ;
+; Device Name        ; EP2C20F484C7                                                    ;
+; Timing Models      ; Final                                                           ;
+; Delay Model        ; Combined                                                        ;
+; Rise/Fall Delays   ; Unavailable                                                     ;
++--------------------+-----------------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; CLOCK_50   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLOCK_50 } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 327.01 MHz ; 327.01 MHz      ; CLOCK_50   ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------+
+; Slow Model Setup Summary          ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; CLOCK_50 ; -2.058 ; -109.709      ;
++----------+--------+---------------+
+
+
++----------------------------------+
+; Slow Model Hold Summary          ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; CLOCK_50 ; 0.445 ; 0.000         ;
++----------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++----------+--------+--------------------+
+; Clock    ; Slack  ; End Point TNS      ;
++----------+--------+--------------------+
+; CLOCK_50 ; -1.631 ; -93.281            ;
++----------+--------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'CLOCK_50'                                                                                                                                                                 ;
++--------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                             ; To Node                                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -2.058 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 3.101      ;
+; -1.986 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 3.023      ;
+; -1.986 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 3.023      ;
+; -1.986 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 3.023      ;
+; -1.986 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 3.023      ;
+; -1.986 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 3.023      ;
+; -1.986 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 3.023      ;
+; -1.986 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 3.023      ;
+; -1.943 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.980      ;
+; -1.943 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.980      ;
+; -1.943 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.980      ;
+; -1.943 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.980      ;
+; -1.943 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.980      ;
+; -1.943 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.980      ;
+; -1.943 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.980      ;
+; -1.934 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.977      ;
+; -1.899 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.942      ;
+; -1.884 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.927      ;
+; -1.843 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[7]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.882      ;
+; -1.843 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[6]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.882      ;
+; -1.843 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[5]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.882      ;
+; -1.843 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[4]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.882      ;
+; -1.843 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[3]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.882      ;
+; -1.843 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[2]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.882      ;
+; -1.843 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[1]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.882      ;
+; -1.843 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[0]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.882      ;
+; -1.839 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[7]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.879      ;
+; -1.839 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[6]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.879      ;
+; -1.839 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[5]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.879      ;
+; -1.839 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[4]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.879      ;
+; -1.839 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[3]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.879      ;
+; -1.839 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[2]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.879      ;
+; -1.839 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[1]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.879      ;
+; -1.839 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[0]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 2.879      ;
+; -1.826 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[7]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.865      ;
+; -1.826 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[6]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.865      ;
+; -1.826 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[5]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.865      ;
+; -1.826 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[4]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.865      ;
+; -1.826 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[3]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.865      ;
+; -1.826 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[2]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.865      ;
+; -1.826 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[1]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.865      ;
+; -1.826 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[0]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 2.865      ;
+; -1.816 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.853      ;
+; -1.816 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.853      ;
+; -1.816 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.853      ;
+; -1.816 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.853      ;
+; -1.816 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.853      ;
+; -1.816 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.853      ;
+; -1.816 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.853      ;
+; -1.804 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.847      ;
+; -1.774 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.817      ;
+; -1.760 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.803      ;
+; -1.751 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_state[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.789      ;
+; -1.739 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.782      ;
+; -1.729 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.762      ;
+; -1.729 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.762      ;
+; -1.729 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.762      ;
+; -1.729 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.762      ;
+; -1.729 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.762      ;
+; -1.729 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.762      ;
+; -1.729 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.762      ;
+; -1.729 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.762      ;
+; -1.725 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.768      ;
+; -1.724 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.767      ;
+; -1.694 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.732      ;
+; -1.692 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.729      ;
+; -1.692 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.729      ;
+; -1.692 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.729      ;
+; -1.692 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.729      ;
+; -1.692 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.729      ;
+; -1.692 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.729      ;
+; -1.692 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.729      ;
+; -1.686 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.719      ;
+; -1.686 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.719      ;
+; -1.686 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.719      ;
+; -1.686 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.719      ;
+; -1.686 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.719      ;
+; -1.686 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.719      ;
+; -1.686 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.719      ;
+; -1.686 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 2.719      ;
+; -1.680 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.723      ;
+; -1.665 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.702      ;
+; -1.665 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.702      ;
+; -1.665 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.702      ;
+; -1.665 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.702      ;
+; -1.665 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.702      ;
+; -1.665 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.702      ;
+; -1.665 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 2.702      ;
+; -1.663 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[5]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.701      ;
+; -1.647 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_state[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.685      ;
+; -1.645 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.688      ;
+; -1.644 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.687      ;
+; -1.637 ; async_receiver:uart_rx|RxD_state[3]                   ; async_receiver:uart_rx|RxD_state[0]                   ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.675      ;
+; -1.632 ; tx_now                                                ; async_transmitter:uart_tx|TxD_state[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.670      ;
+; -1.619 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_sync[0]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.078     ; 2.450      ;
+; -1.619 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.662      ;
+; -1.614 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[16]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.652      ;
+; -1.600 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.643      ;
+; -1.600 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 2.643      ;
+; -1.591 ; async_receiver:uart_rx|RxD_state[1]                   ; async_receiver:uart_rx|RxD_state[0]                   ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 2.629      ;
++--------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'CLOCK_50'                                                                                                                                                                 ;
++-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                             ; To Node                                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.445 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_state[0]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; async_receiver:uart_rx|RxD_state[3]                   ; async_receiver:uart_rx|RxD_state[3]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; async_receiver:uart_rx|Filter_cnt[0]                  ; async_receiver:uart_rx|Filter_cnt[0]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; async_receiver:uart_rx|Filter_cnt[1]                  ; async_receiver:uart_rx|Filter_cnt[1]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; async_receiver:uart_rx|RxD_bit                        ; async_receiver:uart_rx|RxD_bit                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; async_receiver:uart_rx|RxD_state[2]                   ; async_receiver:uart_rx|RxD_state[2]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|OversamplingCnt[0]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|OversamplingCnt[1]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|OversamplingCnt[2]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; counter[1]                                            ; counter[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; counter[0]                                            ; counter[0]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; tx_now                                                ; tx_now                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_state[3]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_state[1]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.621 ; async_transmitter:uart_tx|TxD_shift[5]                ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.907      ;
+; 0.621 ; async_receiver:uart_rx|RxD_sync[1]                    ; async_receiver:uart_rx|Filter_cnt[0]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.907      ;
+; 0.621 ; async_receiver:uart_rx|RxD_sync[1]                    ; async_receiver:uart_rx|Filter_cnt[1]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.907      ;
+; 0.621 ; async_receiver:uart_rx|Filter_cnt[1]                  ; async_receiver:uart_rx|RxD_bit                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.907      ;
+; 0.628 ; async_receiver:uart_rx|RxD_data[3]                    ; async_receiver:uart_rx|RxD_data[2]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.914      ;
+; 0.630 ; async_receiver:uart_rx|RxD_data[6]                    ; async_receiver:uart_rx|RxD_data[5]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.916      ;
+; 0.630 ; async_receiver:uart_rx|RxD_data[5]                    ; send[2]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.916      ;
+; 0.631 ; async_receiver:uart_rx|RxD_data[7]                    ; async_receiver:uart_rx|RxD_data[6]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.917      ;
+; 0.631 ; async_receiver:uart_rx|RxD_data[5]                    ; async_receiver:uart_rx|RxD_data[4]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.917      ;
+; 0.631 ; async_receiver:uart_rx|RxD_data[7]                    ; send[0]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.917      ;
+; 0.631 ; async_receiver:uart_rx|RxD_data[6]                    ; send[1]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.917      ;
+; 0.633 ; async_receiver:uart_rx|RxD_data[4]                    ; async_receiver:uart_rx|RxD_data[3]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.919      ;
+; 0.633 ; async_receiver:uart_rx|RxD_data[2]                    ; async_receiver:uart_rx|RxD_data[1]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.919      ;
+; 0.633 ; async_receiver:uart_rx|RxD_data[4]                    ; send[3]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.919      ;
+; 0.633 ; async_receiver:uart_rx|RxD_data[2]                    ; send[5]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.919      ;
+; 0.634 ; async_receiver:uart_rx|RxD_data[3]                    ; send[4]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.920      ;
+; 0.661 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|OversamplingCnt[1]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.947      ;
+; 0.661 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|OversamplingCnt[2]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.947      ;
+; 0.678 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_state[3]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.964      ;
+; 0.772 ; async_receiver:uart_rx|RxD_data[1]                    ; async_receiver:uart_rx|RxD_data[0]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.058      ;
+; 0.776 ; async_receiver:uart_rx|RxD_data[1]                    ; send[6]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.062      ;
+; 0.839 ; send[6]                                               ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.125      ;
+; 0.842 ; async_receiver:uart_rx|RxD_data[0]                    ; send[7]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.128      ;
+; 0.849 ; send[7]                                               ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.135      ;
+; 0.934 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[11]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[11]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.220      ;
+; 0.934 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.220      ;
+; 0.939 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[8]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.225      ;
+; 0.945 ; counter[0]                                            ; counter[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.231      ;
+; 0.960 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[9]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.246      ;
+; 0.960 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[10] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.246      ;
+; 0.962 ; async_transmitter:uart_tx|TxD_shift[4]                ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.248      ;
+; 0.964 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[6]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[6]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[9]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[9]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[13]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[13]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[15]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[15]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[16]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[16]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.967 ; async_receiver:uart_rx|Filter_cnt[1]                  ; async_receiver:uart_rx|Filter_cnt[0]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.253      ;
+; 0.967 ; async_receiver:uart_rx|Filter_cnt[0]                  ; async_receiver:uart_rx|Filter_cnt[1]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.253      ;
+; 0.968 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[11] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[11] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.254      ;
+; 0.968 ; async_receiver:uart_rx|Filter_cnt[0]                  ; async_receiver:uart_rx|RxD_bit                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.254      ;
+; 0.969 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[7]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[13] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.972 ; async_transmitter:uart_tx|TxD_shift[6]                ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.258      ;
+; 0.972 ; async_receiver:uart_rx|RxD_data_ready                 ; counter[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.258      ;
+; 0.973 ; async_transmitter:uart_tx|TxD_shift[7]                ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.259      ;
+; 0.976 ; async_transmitter:uart_tx|TxD_shift[3]                ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.262      ;
+; 0.979 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[5]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[5]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.265      ;
+; 1.007 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[10]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[10]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.293      ;
+; 1.007 ; async_transmitter:uart_tx|TxD_shift[1]                ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.293      ;
+; 1.008 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[7]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[7]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[12]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[12]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[14]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[14]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[12] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[12] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[14] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[14] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.009 ; async_receiver:uart_rx|RxD_state[1]                   ; async_receiver:uart_rx|RxD_state[2]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.295      ;
+; 1.010 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.296      ;
+; 1.011 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[8]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[8]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.297      ;
+; 1.011 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.297      ;
+; 1.011 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.297      ;
+; 1.011 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_state[0]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.297      ;
+; 1.031 ; counter[1]                                            ; counter[0]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.317      ;
+; 1.031 ; async_transmitter:uart_tx|TxD_shift[2]                ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.317      ;
+; 1.055 ; async_receiver:uart_rx|RxD_state[3]                   ; async_receiver:uart_rx|RxD_state[2]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.341      ;
+; 1.073 ; async_receiver:uart_rx|RxD_state[0]                   ; async_receiver:uart_rx|RxD_state[3]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.359      ;
+; 1.153 ; async_receiver:uart_rx|RxD_state[3]                   ; async_receiver:uart_rx|RxD_state[0]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.439      ;
+; 1.157 ; async_receiver:uart_rx|RxD_state[2]                   ; async_receiver:uart_rx|RxD_state[3]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.443      ;
+; 1.166 ; async_receiver:uart_rx|RxD_state[1]                   ; async_receiver:uart_rx|RxD_state[1]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.452      ;
+; 1.176 ; send[0]                                               ; async_transmitter:uart_tx|TxD_shift[7]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.462      ;
+; 1.179 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_state[0]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.465      ;
+; 1.211 ; async_receiver:uart_rx|RxD_state[3]                   ; async_receiver:uart_rx|RxD_state[1]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.497      ;
+; 1.226 ; send[5]                                               ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.512      ;
+; 1.229 ; send[4]                                               ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.515      ;
+; 1.237 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|OversamplingCnt[2]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.523      ;
+; 1.237 ; send[2]                                               ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.523      ;
+; 1.238 ; send[3]                                               ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.524      ;
+; 1.327 ; async_receiver:uart_rx|RxD_state[2]                   ; async_receiver:uart_rx|RxD_state[1]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.613      ;
+; 1.341 ; tx_now                                                ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.626      ;
+; 1.342 ; tx_now                                                ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.627      ;
+; 1.343 ; tx_now                                                ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.628      ;
+; 1.343 ; tx_now                                                ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.628      ;
+; 1.345 ; counter[0]                                            ; tx_now                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 1.632      ;
++-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'CLOCK_50'                                                                                                ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                                                ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------------------------+
+; -1.631 ; 1.000        ; 2.631          ; Port Rate        ; CLOCK_50 ; Rise       ; CLOCK_50                                              ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[10]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[10]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[11]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[11]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[12]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[12]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[13]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[13]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[14]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[14]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[15]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[15]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[16]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[16]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[5]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[5]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[6]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[6]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[7]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[7]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[8]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[8]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[9]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[9]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|Filter_cnt[0]                  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|Filter_cnt[0]                  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|Filter_cnt[1]                  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|Filter_cnt[1]                  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[0]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[0]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[1]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[1]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[2]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[2]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_bit                        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_bit                        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[0]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[0]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[1]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[1]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[2]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[2]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[3]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[3]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[4]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[4]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[5]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[5]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[6]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[6]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[7]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[7]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data_ready                 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data_ready                 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[0]                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[0]                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[1]                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[1]                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[2]                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[2]                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[3]                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[3]                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_sync[0]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_sync[0]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_sync[1]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_sync[1]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[10] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[10] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[11] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[11] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[12] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[12] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[13] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[13] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[14] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[14] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[7]  ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; -1.399 ; -1.399 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; 1.603 ; 1.603 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; LEDR[*]   ; CLOCK_50   ; 9.021  ; 9.021  ; Rise       ; CLOCK_50        ;
+;  LEDR[1]  ; CLOCK_50   ; 9.021  ; 9.021  ; Rise       ; CLOCK_50        ;
+; UART_TXD  ; CLOCK_50   ; 10.183 ; 10.183 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; LEDR[*]   ; CLOCK_50   ; 8.700  ; 8.700  ; Rise       ; CLOCK_50        ;
+;  LEDR[1]  ; CLOCK_50   ; 8.700  ; 8.700  ; Rise       ; CLOCK_50        ;
+; UART_TXD  ; CLOCK_50   ; 10.029 ; 10.029 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------+
+; Fast Model Setup Summary          ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; CLOCK_50 ; -0.276 ; -6.078        ;
++----------+--------+---------------+
+
+
++----------------------------------+
+; Fast Model Hold Summary          ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; CLOCK_50 ; 0.215 ; 0.000         ;
++----------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++----------+--------+--------------------+
+; Clock    ; Slack  ; End Point TNS      ;
++----------+--------+--------------------+
+; CLOCK_50 ; -1.380 ; -76.380            ;
++----------+--------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'CLOCK_50'                                                                                                                                                                 ;
++--------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                             ; To Node                                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.276 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.307      ;
+; -0.276 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.307      ;
+; -0.276 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.307      ;
+; -0.276 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.307      ;
+; -0.276 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.307      ;
+; -0.276 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.307      ;
+; -0.276 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.307      ;
+; -0.260 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.297      ;
+; -0.254 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.285      ;
+; -0.254 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.285      ;
+; -0.254 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.285      ;
+; -0.254 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.285      ;
+; -0.254 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.285      ;
+; -0.254 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.285      ;
+; -0.254 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.285      ;
+; -0.210 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.247      ;
+; -0.192 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[7]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.225      ;
+; -0.192 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[6]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.225      ;
+; -0.192 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[5]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.225      ;
+; -0.192 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[4]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.225      ;
+; -0.192 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[3]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.225      ;
+; -0.192 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[2]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.225      ;
+; -0.192 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[1]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.225      ;
+; -0.192 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_data[0]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.225      ;
+; -0.190 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.227      ;
+; -0.186 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[7]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.219      ;
+; -0.186 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[6]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.219      ;
+; -0.186 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[5]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.219      ;
+; -0.186 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[4]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.219      ;
+; -0.186 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[3]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.219      ;
+; -0.186 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[2]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.219      ;
+; -0.186 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[1]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.219      ;
+; -0.186 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|RxD_data[0]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.219      ;
+; -0.183 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.214      ;
+; -0.183 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.214      ;
+; -0.183 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.214      ;
+; -0.183 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.214      ;
+; -0.183 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.214      ;
+; -0.183 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.214      ;
+; -0.183 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.214      ;
+; -0.177 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[7]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.210      ;
+; -0.177 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[6]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.210      ;
+; -0.177 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[5]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.210      ;
+; -0.177 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[4]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.210      ;
+; -0.177 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[3]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.210      ;
+; -0.177 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[2]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.210      ;
+; -0.177 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[1]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.210      ;
+; -0.177 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|RxD_data[0]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.210      ;
+; -0.166 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; async_receiver:uart_rx|RxD_sync[0]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.073     ; 1.055      ;
+; -0.166 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.203      ;
+; -0.148 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.175      ;
+; -0.148 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.175      ;
+; -0.148 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.175      ;
+; -0.148 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.175      ;
+; -0.148 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.175      ;
+; -0.148 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.175      ;
+; -0.148 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.175      ;
+; -0.148 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.175      ;
+; -0.140 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.177      ;
+; -0.131 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.168      ;
+; -0.129 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.160      ;
+; -0.129 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.160      ;
+; -0.129 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.160      ;
+; -0.129 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.160      ;
+; -0.129 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.160      ;
+; -0.129 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.160      ;
+; -0.129 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.160      ;
+; -0.126 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.153      ;
+; -0.126 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.153      ;
+; -0.126 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.153      ;
+; -0.126 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.153      ;
+; -0.126 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.153      ;
+; -0.126 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.153      ;
+; -0.126 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.153      ;
+; -0.126 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.005     ; 1.153      ;
+; -0.121 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.158      ;
+; -0.116 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.153      ;
+; -0.110 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.141      ;
+; -0.110 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.141      ;
+; -0.110 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.141      ;
+; -0.110 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.141      ;
+; -0.110 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.141      ;
+; -0.110 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.141      ;
+; -0.110 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.001     ; 1.141      ;
+; -0.096 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.133      ;
+; -0.096 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.133      ;
+; -0.091 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.123      ;
+; -0.081 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.118      ;
+; -0.073 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.110      ;
+; -0.073 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[5]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.105      ;
+; -0.067 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_state[3]                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.000      ; 1.099      ;
+; -0.061 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.098      ;
+; -0.061 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.098      ;
+; -0.059 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|RxD_data[7]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.092      ;
+; -0.059 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|RxD_data[6]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.092      ;
+; -0.059 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|RxD_data[5]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.092      ;
+; -0.059 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|RxD_data[4]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.092      ;
+; -0.059 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|RxD_data[3]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.092      ;
+; -0.059 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|RxD_data[2]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.092      ;
+; -0.059 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|RxD_data[1]                    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 1.092      ;
++--------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'CLOCK_50'                                                                                                                                                                 ;
++-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                             ; To Node                                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; async_transmitter:uart_tx|TxD_state[0]                ; async_transmitter:uart_tx|TxD_state[0]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; async_receiver:uart_rx|RxD_state[3]                   ; async_receiver:uart_rx|RxD_state[3]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; async_receiver:uart_rx|Filter_cnt[0]                  ; async_receiver:uart_rx|Filter_cnt[0]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; async_receiver:uart_rx|Filter_cnt[1]                  ; async_receiver:uart_rx|Filter_cnt[1]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; async_receiver:uart_rx|RxD_bit                        ; async_receiver:uart_rx|RxD_bit                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; async_receiver:uart_rx|RxD_state[2]                   ; async_receiver:uart_rx|RxD_state[2]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|OversamplingCnt[0]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|OversamplingCnt[1]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; async_receiver:uart_rx|OversamplingCnt[2]             ; async_receiver:uart_rx|OversamplingCnt[2]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; counter[1]                                            ; counter[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; counter[0]                                            ; counter[0]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; tx_now                                                ; tx_now                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_state[3]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; async_transmitter:uart_tx|TxD_state[1]                ; async_transmitter:uart_tx|TxD_state[1]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.241 ; async_receiver:uart_rx|RxD_sync[1]                    ; async_receiver:uart_rx|Filter_cnt[0]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.393      ;
+; 0.241 ; async_receiver:uart_rx|RxD_sync[1]                    ; async_receiver:uart_rx|Filter_cnt[1]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.393      ;
+; 0.241 ; async_receiver:uart_rx|Filter_cnt[1]                  ; async_receiver:uart_rx|RxD_bit                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.393      ;
+; 0.242 ; async_transmitter:uart_tx|TxD_shift[5]                ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.394      ;
+; 0.244 ; async_receiver:uart_rx|RxD_data[3]                    ; async_receiver:uart_rx|RxD_data[2]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.396      ;
+; 0.246 ; async_receiver:uart_rx|RxD_data[6]                    ; async_receiver:uart_rx|RxD_data[5]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.398      ;
+; 0.246 ; async_receiver:uart_rx|RxD_data[5]                    ; send[2]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.398      ;
+; 0.247 ; async_receiver:uart_rx|RxD_data[7]                    ; async_receiver:uart_rx|RxD_data[6]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.399      ;
+; 0.247 ; async_receiver:uart_rx|RxD_data[5]                    ; async_receiver:uart_rx|RxD_data[4]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.399      ;
+; 0.247 ; async_receiver:uart_rx|RxD_data[7]                    ; send[0]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.399      ;
+; 0.247 ; async_receiver:uart_rx|RxD_data[6]                    ; send[1]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.399      ;
+; 0.249 ; async_receiver:uart_rx|RxD_data[4]                    ; async_receiver:uart_rx|RxD_data[3]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.401      ;
+; 0.249 ; async_receiver:uart_rx|RxD_data[2]                    ; async_receiver:uart_rx|RxD_data[1]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.401      ;
+; 0.249 ; async_receiver:uart_rx|RxD_data[4]                    ; send[3]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.401      ;
+; 0.250 ; async_receiver:uart_rx|RxD_data[3]                    ; send[4]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.402      ;
+; 0.250 ; async_receiver:uart_rx|RxD_data[2]                    ; send[5]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.402      ;
+; 0.263 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|OversamplingCnt[1]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.415      ;
+; 0.263 ; async_receiver:uart_rx|OversamplingCnt[0]             ; async_receiver:uart_rx|OversamplingCnt[2]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.415      ;
+; 0.270 ; async_transmitter:uart_tx|TxD_state[2]                ; async_transmitter:uart_tx|TxD_state[3]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.422      ;
+; 0.315 ; send[6]                                               ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.467      ;
+; 0.318 ; async_receiver:uart_rx|RxD_data[0]                    ; send[7]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.470      ;
+; 0.321 ; send[7]                                               ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.473      ;
+; 0.329 ; async_receiver:uart_rx|RxD_data[1]                    ; async_receiver:uart_rx|RxD_data[0]                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.481      ;
+; 0.335 ; async_receiver:uart_rx|RxD_data[1]                    ; send[6]                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.487      ;
+; 0.353 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[9]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.505      ;
+; 0.353 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[10] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.505      ;
+; 0.356 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[6]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[6]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[9]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[9]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[11]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[11]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[13]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[13]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[15]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[15]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[16]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[16]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.357 ; async_receiver:uart_rx|Filter_cnt[1]                  ; async_receiver:uart_rx|Filter_cnt[0]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.509      ;
+; 0.357 ; async_receiver:uart_rx|Filter_cnt[0]                  ; async_receiver:uart_rx|Filter_cnt[1]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.509      ;
+; 0.358 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[11] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[11] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; async_receiver:uart_rx|Filter_cnt[0]                  ; async_receiver:uart_rx|RxD_bit                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.510      ;
+; 0.359 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[7]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[8]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[13] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; async_transmitter:uart_tx|TxD_shift[4]                ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.364 ; async_receiver:uart_rx|RxD_data_ready                 ; counter[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.516      ;
+; 0.365 ; async_transmitter:uart_tx|TxD_shift[7]                ; async_transmitter:uart_tx|TxD_shift[6]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.517      ;
+; 0.365 ; async_transmitter:uart_tx|TxD_shift[6]                ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.517      ;
+; 0.367 ; async_transmitter:uart_tx|TxD_shift[3]                ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.519      ;
+; 0.368 ; async_transmitter:uart_tx|TxD_shift[1]                ; async_transmitter:uart_tx|TxD_shift[0]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.520      ;
+; 0.369 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[5]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[5]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[10]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[10]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[12]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[12]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[12] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[12] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.370 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[7]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[7]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[8]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[8]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[14]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[14]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[14] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[14] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.382 ; async_receiver:uart_rx|RxD_state[1]                   ; async_receiver:uart_rx|RxD_state[2]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.534      ;
+; 0.383 ; counter[0]                                            ; counter[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.535      ;
+; 0.383 ; async_transmitter:uart_tx|TxD_shift[2]                ; async_transmitter:uart_tx|TxD_shift[1]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.535      ;
+; 0.387 ; async_transmitter:uart_tx|TxD_state[3]                ; async_transmitter:uart_tx|TxD_state[0]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.539      ;
+; 0.390 ; counter[1]                                            ; counter[0]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.542      ;
+; 0.399 ; async_receiver:uart_rx|RxD_state[3]                   ; async_receiver:uart_rx|RxD_state[2]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.551      ;
+; 0.408 ; async_receiver:uart_rx|RxD_state[0]                   ; async_receiver:uart_rx|RxD_state[3]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.560      ;
+; 0.438 ; async_receiver:uart_rx|RxD_state[3]                   ; async_receiver:uart_rx|RxD_state[0]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.590      ;
+; 0.438 ; send[0]                                               ; async_transmitter:uart_tx|TxD_shift[7]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.590      ;
+; 0.443 ; async_receiver:uart_rx|RxD_state[2]                   ; async_receiver:uart_rx|RxD_state[3]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.595      ;
+; 0.444 ; send[5]                                               ; async_transmitter:uart_tx|TxD_shift[2]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.596      ;
+; 0.447 ; send[4]                                               ; async_transmitter:uart_tx|TxD_shift[3]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.599      ;
+; 0.448 ; async_receiver:uart_rx|OversamplingCnt[1]             ; async_receiver:uart_rx|OversamplingCnt[2]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.600      ;
+; 0.449 ; async_receiver:uart_rx|RxD_state[1]                   ; async_receiver:uart_rx|RxD_state[1]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.601      ;
+; 0.450 ; async_receiver:uart_rx|RxD_state[3]                   ; async_receiver:uart_rx|RxD_state[1]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.602      ;
+; 0.451 ; send[2]                                               ; async_transmitter:uart_tx|TxD_shift[5]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.603      ;
+; 0.452 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ; async_transmitter:uart_tx|TxD_state[0]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.604      ;
+; 0.452 ; send[3]                                               ; async_transmitter:uart_tx|TxD_shift[4]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.604      ;
+; 0.491 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[9]  ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.643      ;
+; 0.491 ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[10] ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[11] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.643      ;
+; 0.492 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[5]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.644      ;
+; 0.494 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[16]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.646      ;
+; 0.494 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[15]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[16]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.646      ;
+; 0.494 ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[11]    ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[12]    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.646      ;
++-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'CLOCK_50'                                                                                                ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                                                ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; CLOCK_50 ; Rise       ; CLOCK_50                                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[10]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[10]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[11]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[11]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[12]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[12]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[13]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[13]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[14]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[14]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[15]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[15]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[16]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[16]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[17]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[7]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[8]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[8]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[9]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|BaudTickGen:tickgen|Acc[9]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|Filter_cnt[0]                  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|Filter_cnt[0]                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|Filter_cnt[1]                  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|Filter_cnt[1]                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[0]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[0]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[1]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[1]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[2]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|OversamplingCnt[2]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_bit                        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_bit                        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[0]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[0]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[1]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[1]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[2]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[2]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[3]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[3]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[4]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[4]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[5]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[5]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[6]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[6]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[7]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data[7]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data_ready                 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_data_ready                 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[0]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[0]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[1]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[1]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[2]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[2]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[3]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_state[3]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_sync[0]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_sync[0]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_sync[1]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_receiver:uart_rx|RxD_sync[1]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[10] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[10] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[11] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[11] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[12] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[12] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[13] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[13] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[14] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[14] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[15] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[16] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[17] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; async_transmitter:uart_tx|BaudTickGen:tickgen|Acc[7]  ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; -1.012 ; -1.012 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; 1.113 ; 1.113 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDR[*]   ; CLOCK_50   ; 4.728 ; 4.728 ; Rise       ; CLOCK_50        ;
+;  LEDR[1]  ; CLOCK_50   ; 4.728 ; 4.728 ; Rise       ; CLOCK_50        ;
+; UART_TXD  ; CLOCK_50   ; 5.139 ; 5.139 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDR[*]   ; CLOCK_50   ; 4.581 ; 4.581 ; Rise       ; CLOCK_50        ;
+;  LEDR[1]  ; CLOCK_50   ; 4.581 ; 4.581 ; Rise       ; CLOCK_50        ;
+; UART_TXD  ; CLOCK_50   ; 5.083 ; 5.083 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -2.058   ; 0.215 ; N/A      ; N/A     ; -1.631              ;
+;  CLOCK_50        ; -2.058   ; 0.215 ; N/A      ; N/A     ; -1.631              ;
+; Design-wide TNS  ; -109.709 ; 0.0   ; 0.0      ; 0.0     ; -93.281             ;
+;  CLOCK_50        ; -109.709 ; 0.000 ; N/A      ; N/A     ; -93.281             ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; -1.012 ; -1.012 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; 1.603 ; 1.603 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; LEDR[*]   ; CLOCK_50   ; 9.021  ; 9.021  ; Rise       ; CLOCK_50        ;
+;  LEDR[1]  ; CLOCK_50   ; 9.021  ; 9.021  ; Rise       ; CLOCK_50        ;
+; UART_TXD  ; CLOCK_50   ; 10.183 ; 10.183 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDR[*]   ; CLOCK_50   ; 4.581 ; 4.581 ; Rise       ; CLOCK_50        ;
+;  LEDR[1]  ; CLOCK_50   ; 4.581 ; 4.581 ; Rise       ; CLOCK_50        ;
+; UART_TXD  ; CLOCK_50   ; 5.083 ; 5.083 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 668      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 668      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 1     ; 1    ;
+; Unconstrained Output Ports      ; 2     ; 2    ;
+; Unconstrained Output Port Paths ; 7     ; 7    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
+    Info: Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Jun 12 23:24:22 2013
+Info: Command: quartus_sta uart_Test -c uart_Test
+Info: qsta_default_script.tcl version: #1
+Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'uart_Test.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name CLOCK_50 CLOCK_50
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -2.058
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.058      -109.709 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.445
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.445         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.631
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.631       -93.281 CLOCK_50 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -0.276
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.276        -6.078 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380       -76.380 CLOCK_50 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 314 megabytes
+    Info: Processing ended: Wed Jun 12 23:24:23 2013
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

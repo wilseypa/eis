@@ -1,0 +1,30 @@
+module uart_Test (
+input CLOCK_50,
+input UART_RXD,
+output UART_TXD
+
+);
+
+reg [0:7] tx_byte;
+reg [0:7] rx_byte;
+reg tx_now;
+
+wire rst,transmit,received,is_rx,is_tx,rx_err;
+
+assign transmit = tx_now;
+
+uart uart0(CLOCK_50,rst,UART_RXD,UART_TXD,transmit,tx_byte,received,rx_byte,is_rx,is_tx,rx_err);
+
+always @(posedge CLOCK_50) begin
+	if (received) begin
+		tx_byte <= rx_byte;
+		tx_now <= 1'b1;
+	end
+	
+	if (is_tx) begin
+		tx_now <= 1'b0;
+	end
+	
+end
+
+endmodule

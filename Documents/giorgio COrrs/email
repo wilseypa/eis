@@ -1,0 +1,41 @@
+Hello Lee,
+
+thank you very much for contacting me. Since there are so many questions I am not sure if I was able to respond to all of the questions in this e-mail.
+Please feel free also to call me if you have more questions as sometimes it is easier verbally.
+
+1. I will send you some raw data recorded from a phantom (see attached schematics) early next week, my lab is in a different location than the EIS-Lev lab.
+The attached MATLAB script may be able to help you better understand the processing stream, that is only in first approximation implemented in Labview so far.
+Basically, here are the basics steps:
+
+a. the file is read
+b. detrending is the performed on the raw data -  the NI PCI-4472 has a bit of slow wave fluctuations that need to be corrected eventhough there is a 3.4Hz cut-off filter (see attached specs).
+c. the data is then transformed in bipolar format, since we are interested in capturing very small fluctuations in impedance and disregard the background impedance.
+d. then we compute the Transfer function or spectral impedance.  Basically we compute the quotient of the cross power spectral density (Pyx) of currents injected and the potential measured in each electrode and the power spectral density (Pxx) of injected current. If you are a interested in signal processing this is definitely a fun area to work in: we could explore other types of spectral estimation, including the more common parametric AR and ARMA which may be quite appealing since we are dealing with white noise (see attached PDF file on spectrum analysis).  There is also the possibility of using signal array processing for a more sophisticated multichanennel approach (see attached PDF file).
+Finally the results are displayed in a loglog pair.
+
+2.  I believe this is quite simple to use MATLAB to generated it. Please let me know if you need help with this.
+
+3. AT the present we are only looking at the magnitude, the phase is quite complex and small but we display it anyway.
+Following the EIS standard, I would like to add a Nyquist plot so in 1 plot we can look at both magnitude and phase (see attached EIS primer),
+I am trying now to see which MATLAB function works best for us.
+
+4. Well it is really up to you.  But we are using now the system to pickup changes in the order of 100th of Ohms to capture physiological changes over time, so we need all the dynamic range we can get as literature show that these signal or of the order of 10^-2 or smaller.
+
+5. Regarding licensing, I am not really on top of it since we have a Harvard University license that is very broad. I think Labview Tech support should be able to help you with this. Please be assured that any code we wrote and will write is and will be 100% available to you.  In the past running the Labview vi informed on which licenses were missing, I don't know much more than this.
+
+I hope this is of help.
+Best regards,
+
+-giorgio
+
+----
+Assistant Professor
+Harvard Medical School
+A. Martinos Center
+Massachusetts General Hospital
+Building 75, Third Ave
+Charlestown, MA 02129
+Tel. (617) 726-0962
+Fax (617) 726-7422
+
+

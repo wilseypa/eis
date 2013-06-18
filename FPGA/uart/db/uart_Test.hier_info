@@ -1,0 +1,139 @@
+|uart_Test
+CLOCK_50 => clk.IN2
+UART_RXD => UART_RXD.IN1
+SW[9] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[4] => ~NO_FANOUT~
+SW[3] => ~NO_FANOUT~
+SW[2] => ~NO_FANOUT~
+SW[1] => ~NO_FANOUT~
+SW[0] => ~NO_FANOUT~
+UART_TXD <= async_transmitter:uart_tx.port3
+LEDG[7] <= <GND>
+LEDG[6] <= <GND>
+LEDG[5] <= <GND>
+LEDG[4] <= <GND>
+LEDG[3] <= <GND>
+LEDG[2] <= <GND>
+LEDG[1] <= <GND>
+LEDG[0] <= <GND>
+LEDR[9] <= <GND>
+LEDR[8] <= <GND>
+LEDR[7] <= <GND>
+LEDR[6] <= <GND>
+LEDR[5] <= <GND>
+LEDR[4] <= <GND>
+LEDR[3] <= <GND>
+LEDR[2] <= <GND>
+LEDR[1] <= async_transmitter:uart_tx.port4
+LEDR[0] <= <GND>
+
+
+|uart_Test|async_transmitter:uart_tx
+clk => clk.IN1
+TxD_start => always0.IN1
+TxD_start => TxD_state.OUTPUTSELECT
+TxD_start => TxD_state.OUTPUTSELECT
+TxD_start => TxD_state.OUTPUTSELECT
+TxD_start => TxD_state.OUTPUTSELECT
+TxD_data[0] => TxD_shift.DATAB
+TxD_data[1] => TxD_shift.DATAB
+TxD_data[2] => TxD_shift.DATAB
+TxD_data[3] => TxD_shift.DATAB
+TxD_data[4] => TxD_shift.DATAB
+TxD_data[5] => TxD_shift.DATAB
+TxD_data[6] => TxD_shift.DATAB
+TxD_data[7] => TxD_shift.DATAB
+TxD <= TxD.DB_MAX_OUTPUT_PORT_TYPE
+TxD_busy <= TxD_busy.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart_Test|async_transmitter:uart_tx|BaudTickGen:tickgen
+clk => Acc[1].CLK
+clk => Acc[2].CLK
+clk => Acc[3].CLK
+clk => Acc[4].CLK
+clk => Acc[5].CLK
+clk => Acc[6].CLK
+clk => Acc[7].CLK
+clk => Acc[8].CLK
+clk => Acc[9].CLK
+clk => Acc[10].CLK
+clk => Acc[11].CLK
+clk => Acc[12].CLK
+clk => Acc[13].CLK
+clk => Acc[14].CLK
+clk => Acc[15].CLK
+clk => Acc[16].CLK
+clk => Acc[17].CLK
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+tick <= Acc[17].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart_Test|async_receiver:uart_rx
+clk => clk.IN1
+RxD => RxD_sync[0].DATAIN
+RxD_data_ready <= RxD_data_ready~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[0] <= RxD_data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[1] <= RxD_data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[2] <= RxD_data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[3] <= RxD_data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[4] <= RxD_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[5] <= RxD_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[6] <= RxD_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_data[7] <= RxD_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RxD_idle <= GapCnt[5].DB_MAX_OUTPUT_PORT_TYPE
+RxD_endofpacket <= RxD_endofpacket~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|uart_Test|async_receiver:uart_rx|BaudTickGen:tickgen
+clk => Acc[4].CLK
+clk => Acc[5].CLK
+clk => Acc[6].CLK
+clk => Acc[7].CLK
+clk => Acc[8].CLK
+clk => Acc[9].CLK
+clk => Acc[10].CLK
+clk => Acc[11].CLK
+clk => Acc[12].CLK
+clk => Acc[13].CLK
+clk => Acc[14].CLK
+clk => Acc[15].CLK
+clk => Acc[16].CLK
+clk => Acc[17].CLK
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+enable => Acc.OUTPUTSELECT
+tick <= Acc[17].DB_MAX_OUTPUT_PORT_TYPE
+
+

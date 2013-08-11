@@ -1,6 +1,0 @@
-
-State Machine - |EISDSPProc|I2C_AV_Config:u1|mSetup_ST
-Name mSetup_ST.00 mSetup_ST.10 mSetup_ST.01 
-mSetup_ST.00 0 0 0 
-mSetup_ST.01 1 0 1 
-mSetup_ST.10 1 1 0 

@@ -1,0 +1,7 @@
+XionLogic Open Source FFT Processor Library - Release History
+
+0.01 - First release.
+0.02 - Fixed parse errors when compiled with ISE-13.4 ISIM.
+
+Copyright (c) 2010-2012, XIONLOGIC LIMITED
+All rights reserved.

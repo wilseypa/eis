@@ -1,7 +1,13 @@
-=Electrochemical Impedence Spectroscopy=
+Realtime Transfer Function Estimation in Electrochemical Impedence Spectroscopy System using an FPGA 
 
-==DC Rejection==
 Author: Benjamin Jones
-Description: EIS signals from experimental setup have long time-constant drifting DC signals which need to be rejected
-in order to decrease the needed bit-rate for an ADC (analog digital converter). This project aims to find solutions 
-which do not require large passive reactance, and are lower cost relative to thecurrent 24-bit National Instruments DAQ.
+
+Description: 
+
+Electrochemical Impedence Spectroscopy is fundamentally the process of estimating the transfer function-- 
+the frequency-dependent impedence characterisitcs of an electrochemical system. EIS can help identify 
+irregularities in biological systems such as brain injuries. This project extends the work of an EIS system 
+from data gathering and post-processing, to online realtime analysis. This is accomplished with the use 
+of a multi-channel 24-bit ADC combined with an FPGA performing the digital signal processing. An analysis 
+of the electrical characteristics, computational performance, and detection capabilities of the system are 
+performed.

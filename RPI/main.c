@@ -35,7 +35,7 @@ void writeConfigRegisters()
 	data = writeRegNum(1);
 	bcm2835_spi_transfer(data);
 
-	data = 0xE0;
+	data = 0x60;
 	bcm2835_spi_transfer(data);
 
 	bcm2835_delay(2);
@@ -62,48 +62,59 @@ void writeConfigRegisters()
 	data = 0xD0;
 	bcm2835_spi_transfer(data);
 
-	printf("Writing to addr %02x-%02x\n",CHNSET_LOW,CHNSET_HIGH);
+	printf("Writing to addr %02x-%02x\n",CHNSET_LOW,CHNSET_HIGH-1);
 	data = writeRegAddr(CHNSET_LOW);
 	bcm2835_spi_transfer(data);
 
-	data = writeRegNum(8);
+	data = writeRegNum(7);
+	bcm2835_spi_transfer(data);
+
+	data = 0x80;
+
+	for (ctr = 0; ctr < 7; ctr++)
+	{
+		bcm2835_spi_transfer(data);
+	}
+
+	data = writeRegAddr(CHNSET_HIGH);
+	bcm2835_spi_transfer(data);
+	data = writeRegNum(1);
 	bcm2835_spi_transfer(data);
 
 	data = 0x05;
 
-	for (ctr = 0; ctr < 8; ctr++)
-	{
-		bcm2835_spi_transfer(data);
-	}
+	bcm2835_spi_transfer(data);
 
 }
 
 void getData()
 {
-	char buf[27];
-	unsigned int i;
-	bzero(buf,27);
+	char buf[6];
+	unsigned int nCon = 0;
+	FILE *f = fopen("/home/pi/EIS/Data/data.bin","w");
+
+	if (f == NULL) {
+		printf("Can't open file!\n");
+	}
+	bzero(buf,6);
 	
+	printf("Getting data...\n");
 
 	while (gAppRunning) 
 	{
 		if (!bcm2835_gpio_lev(DRDY))
 		{	
-			if (bcm2835_gpio_lev(DRDY)) 
-			{
-				bcm2835_spi_transfern(buf,sizeof(buf));
-				printf("status %02X%02X%02X ",buf[0],buf[1],buf[2]);
-				printf("\n\n");
-				printf("Channel\t1\t2\t3\t4\t5\t6\t7\t8\n");
-				printf("\t");
-				for (i = 3; i < 9*3; i = i + 3) 
-				{
-					printf("%02X%02X%02X\t",buf[i],buf[i+1],buf[i+2]);
-				}
-				printf("\n"); 
-			}
+			while (!bcm2835_gpio_lev(DRDY)) {} /* Spin on DRDY */
+			//bcm2835_spi_transfern(buf,6);
+			//printf("%x%x%x: %x%x%x\n",buf[0],buf[1],buf[2],buf[3],buf[4],buf[5]);
+			//fwrite(buf+3,3,1,f);	
+			//bzero(buf,6); 
+			nCon++;
+			printf("Conversion: %d\n",nCon);
 		}
 	}
+	printf("Closing...\n");
+	fclose(f);
 }
 
 int main(int argc, char **argv)
@@ -128,8 +139,8 @@ int main(int argc, char **argv)
 	bcm2835_gpio_set_pud(DRDY, BCM2835_GPIO_PUD_UP);
 
     	bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);      // The default
-    	bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);                   // The default
-    	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_65536); // The default
+    	bcm2835_spi_setDataMode(BCM2835_SPI_MODE1);                   // The default
+    	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_8); // The default
     	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      // The default
     	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // the default
 
@@ -140,32 +151,22 @@ int main(int argc, char **argv)
 	bcm2835_gpio_write(RESET, HIGH);
 
         // wait 1s for POR
-        bcm2835_delay(1000);
-
-        // Begin reset cycle
-	bcm2835_gpio_write(RESET, LOW);
-
-	bcm2835_delay(2);
-
-	// Activate chip
-	bcm2835_gpio_write(RESET, HIGH);
-	bcm2835_gpio_write(CS, LOW);
-
+        //bcm2835_delay(1000);
 
 	// Tell ADS1299 to stop continuous data transfer mode so we can configure it
-	uint8_t data = bcm2835_spi_transfer(SDATAC);
-        printf("Read from SPI: %02X\n", data);
+	//uint8_t data = bcm2835_spi_transfer(SDATAC);
+        //printf("Read from SPI: %02X\n", data);
+
+	//bcm2835_delay(200);
 
 	// Configure the chip
-	writeConfigRegisters();
+	//writeConfigRegisters();
 	
-	// Let's begin
-	bcm2835_gpio_write(START, HIGH);
-
+	bcm2835_gpio_write(START,LOW);
 
 	// Tell ADS1299 to start continuous data transfer mode
-    	data = bcm2835_spi_transfer(RDATAC);
-    	printf("Read from SPI: %02X\n", data);
+    	//data = bcm2835_spi_transfer(RDATAC);
+    	//printf("Read from SPI: %02X\n", data);
 
 	getData();
 

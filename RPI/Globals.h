@@ -1,3 +1,6 @@
+#ifndef GLOBALS_H
+#define GLOBALS_H
+
 #include <bcm2835.h>
 /*
     // RPi Version 2
@@ -24,7 +27,7 @@
 // Setup our pins
 #define CLKSEL 2
 #define DRDY 3
-#define START 4
+#define START_P 4
 #define RESET 17
 #define CS 8
 #define PWDN 27
@@ -32,9 +35,24 @@
 // These are the opcodes for the ADS1299
 #define SDATAC 0x11 // Stops continuous data transfer mode
 #define RDATAC 0x10 // Start continuous data transfer mode
+#define STOP 0x0a
+#define START 0x08
 
-#define WREG_ADDR 0x20 // 001r rrrr : rrrr is register adress
+// Read
+#define RREG_ADDR 0x20 // 001r rrrr : rrrr is register adress
+#define RREG_NUMR 0x00 // 000n nnnn : nnnn is number of registers to read
+
+// Write
+#define WREG_ADDR 0x40 // 001r rrrr : rrrr is address
 #define WREG_NUMR 0x00 // 000n nnnn : nnnn is number of registers to write
+
+
+#define DONT_CARE 0x00
+#define MAGIC_VALUE 0x96
+
+#define BYTES_PER_SAMPLE 3
+#define NUM_CHAN 9
+
 
 // These are control registers for the ADS1299
 #define CONFIG1 0x01
@@ -124,3 +142,14 @@ Test value: 00000001 -> 0x01
 
 #define CONFIG3 0x03
 #define CONFIG3_TEST_MODE 0xE0
+
+#define false 0
+#define true 1
+#define boolean unsigned int
+#define BLOCK_SIZE 1024
+#define debug_printf(fmt, ...) \
+do { if (DEBUG) fprintf(stderr, "%s:%d:%s(): " fmt, __FILE__, \
+                        __LINE__, __func__, __VA_ARGS__); } while (0)
+
+extern boolean gAppExiting;
+#endif

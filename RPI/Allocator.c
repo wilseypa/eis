@@ -11,7 +11,7 @@ Block * CreateBlock()
 	Block * block = (Block *)malloc(1*sizeof(Block));
 	
 	block->size = BLOCK_SIZE;
-	block->begin = (unsigned char *)malloc(BLOCK_SIZE*sizeof(unsigned char));
+	block->begin = (unsigned char *)calloc(BLOCK_SIZE,sizeof(unsigned char));
 	
 	return block;
 }
@@ -73,12 +73,10 @@ alloc_thread Allocator (void *n)
 			if (msg->payload == NULL) /* NULL payload means we stop! */
 			{
 				debug_printf("%s","We have to stop the allocator\n");
-				free(msg);
 				break;
 			}
 			debug_printf("Returning block 0x%X to pool\n",msg->payload);
 			g_queue_push_head(free_blocks,msg->payload);
-			free(msg);
 		}
 
 		else /* Someone wants a block */ 
@@ -93,7 +91,6 @@ alloc_thread Allocator (void *n)
 			debug_printf("Sending block 0x%X to 0x%X\n",block,msg->destination);
 
 			g_async_queue_push(msg->destination,block); /* Send it! */
-			free(msg);
 		} 
 		
 	}
@@ -102,7 +99,6 @@ alloc_thread Allocator (void *n)
 	msg = g_async_queue_try_pop(g_allocator_inq); 
 	while (msg != NULL)
 	{
-		free(msg);
 		msg = g_async_queue_try_pop(g_allocator_inq); 
 	}
 
@@ -115,7 +111,8 @@ alloc_thread Allocator (void *n)
 	}
 	g_async_queue_unref(g_allocator_inq);
 	g_queue_free(free_blocks);
-	
+
+	debug_printf("%s","Leaving the Allocator thread...\n");	
 	pthread_exit(NULL);
 }
 

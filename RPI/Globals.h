@@ -146,7 +146,7 @@ Test value: 00000001 -> 0x01
 #define false 0
 #define true 1
 #define boolean unsigned int
-#define BLOCK_SIZE 1024
+#define BLOCK_SIZE BYTES_PER_SAMPLE*NUM_CHAN
 #define debug_printf(fmt, ...) \
 do { if (DEBUG) fprintf(stderr, "%s:%d:%s(): " fmt, __FILE__, \
                         __LINE__, __func__, __VA_ARGS__); } while (0)

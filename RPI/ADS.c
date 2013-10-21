@@ -1,6 +1,7 @@
 #include "Globals.h"
 #include "ADS.h"
 #include "Allocator.h"
+#include "Preprocessor.h"
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -145,8 +146,9 @@ boolean getData()
 			/* We send off the block here for processing */		
 			debug_printf("Sending block 0x%X for processing...\n",block);
 
-			free(block); // free it for now
-	
+			/*TODO: Sending to preprocessor */
+			g_async_queue_push(g_preproc_inq,block);
+				
 			/* Try to get a new block */
 			block = g_async_queue_try_pop(inq);
 

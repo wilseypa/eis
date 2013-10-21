@@ -47,10 +47,10 @@ int main()
 	pthread_create(&threads[1], &attr, ADS, NULL);
 
 	debug_printf("%s","Starting preprocessing thread\n");
-	pthread_create(&thread[2], &attr, Preprocessor, NULL); 
+	pthread_create(&threads[2], &attr, Preprocessor, NULL); 
 
 	debug_printf("%s","Starting processing thread\n");
-	pthread_create(&thread[3], &attr, Processor, NULL);
+	pthread_create(&threads[3], &attr, Processor, NULL);
 
 	/* Wait for all threads to complete */
   	for (ctr=0; ctr<NUM_THREADS; ctr++) {

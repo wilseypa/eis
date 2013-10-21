@@ -9,8 +9,6 @@
 #include "Preprocessor.h"
 #include "Processor.h"
 
-#define MAX_SAMPLES 1024
-#define PI 3.14159265359
 
 GAsyncQueue *g_preproc_inq = NULL;
 NamedVector * window = NULL;
@@ -20,6 +18,16 @@ fftw_complex * CreateVector()
 	fftw_complex *vector = (fftw_complex *)fftw_malloc(sizeof(fftw_complex)*MAX_SAMPLES);
 	bzero(vector,MAX_SAMPLES*sizeof(fftw_complex));
 	return vector;
+}
+NamedVector * CreateNamedVector(char * name)
+{
+	NamedVector * nv = (NamedVector *)malloc(sizeof(NamedVector));
+
+	strcpy(nv->name,name);
+
+	nv->vector = CreateVector();
+
+	return nv;
 }
 
 NamedVector * CreateWindow(char *window)
@@ -32,6 +40,7 @@ NamedVector * CreateWindow(char *window)
 		for (ctr = 0; ctr < MAX_SAMPLES; ctr++) {
 			nv->vector[ctr][0] = 0.5 * ( 1.0 - cos( (2.0*PI*ctr) / (MAX_SAMPLES-1)));
 		}
+		return nv;
 	
 	}
 	else {
@@ -41,16 +50,6 @@ NamedVector * CreateWindow(char *window)
 	
 }
 
-NamedVector * CreateNamedVector(char * name)
-{
-	NamedVector * nv = (NamedVector *)malloc(sizeof(NamedVector));
-
-	strcpy(nv->name,name);
-
-	nv->vector = CreateVector();
-
-	return nv;
-}
 
 void build_bipolar_list_with_window(GSList **nv_list, Block *block, unsigned int current_sample_count)
 {
@@ -62,7 +61,7 @@ void build_bipolar_list_with_window(GSList **nv_list, Block *block, unsigned int
 	float scale = 5.36441803e-7;
 	unsigned char * stream = block->begin + 3;
 	int temp;
-
+	NamedVector *nv;
 	GSList *list = *nv_list;
 	
 	
@@ -101,7 +100,8 @@ void build_bipolar_list_with_window(GSList **nv_list, Block *block, unsigned int
 	/* Update the list */
 	ctr = 0;
 	while (list != NULL) {
-		list->data->vector[current_sample_count][0] = bivalues[ctr];
+		nv = (NamedVector *)(list->data);
+		nv->vector[current_sample_count][0] = bivalues[ctr];
 		ctr++;
 		list = g_slist_next(list);
 	}

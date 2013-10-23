@@ -11,11 +11,13 @@
 
 
 GAsyncQueue *g_preproc_inq = NULL;
-NamedVector * window = NULL;
+boolean g_preproc_running = false;
 
 fftw_complex * CreateVector()
 {
-	fftw_complex *vector = (fftw_complex *)fftw_malloc(sizeof(fftw_complex)*MAX_SAMPLES);
+	fftw_complex *vector = (fftw_complex *)malloc(sizeof(fftw_complex)*MAX_SAMPLES);
+//	printf("Mallocing FFTW vector 0x%.8X\n",vector);
+
 	bzero(vector,MAX_SAMPLES*sizeof(fftw_complex));
 	return vector;
 }
@@ -51,34 +53,55 @@ NamedVector * CreateWindow(char *window)
 }
 
 
-void build_bipolar_list_with_window(GSList **nv_list, Block *block, unsigned int current_sample_count)
+void build_bipolar_list_with_window(GSList *nv_list, Block *block, unsigned int current_sample_count,
+					NamedVector *window)
 {
 
 	unsigned int ctr = 0;
 	unsigned int nchan = 8;
-	float values[8];
-	float bivalues[8];
-	float scale = 5.36441803e-7;
+	double values[8];
+	double bivalues[8];
+	double scale = 5.36441803e-7;
 	unsigned char * stream = block->begin + 3;
 	int temp;
 	NamedVector *nv;
-	GSList *list = *nv_list;
+	GSList *list = nv_list;
+
+	int status = block->begin[0];
+	status = (status << 8) | block->begin[1];
+	status = (status << 8) | block->begin[2];
+
+	if (status != 0xC00000) {
+		printf("Status: 0x%.6X\n",status);
+	}
+
+	if (window == NULL) {
+		window = CreateWindow("Hanning");
+
+		if (window->vector == NULL) {
+			return;
+		}
+	}
 	
 	
 	/* Copy 24-bit signed integers into 32-bit signed integers :( */
 	for (ctr = 0; ctr < nchan ; ctr++)
 	{	
-		temp = stream[2];
+		temp = stream[0];
 		temp = (temp << 8) | stream[1];
-		temp = (temp << 8) | stream[0];
+		temp = (temp << 8) | stream[2];
 
-		if (temp & 0x800000) {
+ 		if (temp & 0x800000) {
 			temp |= ~0xffffff;
 		}
 
-		values[ctr] = temp * scale;
 
+		values[ctr] = (double)temp * scale;
+		debug_printf("Channel %d: %.6fV \n",ctr+1,values[ctr]);
 		stream += 3;
+	}
+	if (values[7] < -1.0) {
+		printf("Bad data!\n");
 	}
 
 	/* Calculate the bipolar values */
@@ -94,14 +117,14 @@ void build_bipolar_list_with_window(GSList **nv_list, Block *block, unsigned int
 			bivalues[ctr] = values[ctr] - values[ctr+1];
 		}
 		/* Then window it */
-		bivalues[ctr] *= window->vector[current_sample_count][0];
+		bivalues[ctr] *= window->vector[current_sample_count-1][0];
 	}
 
 	/* Update the list */
 	ctr = 0;
 	while (list != NULL) {
 		nv = (NamedVector *)(list->data);
-		nv->vector[current_sample_count][0] = bivalues[ctr];
+		nv->vector[current_sample_count-1][0] = bivalues[ctr];
 		ctr++;
 		list = g_slist_next(list);
 	}
@@ -152,15 +175,20 @@ preproc_thread Preprocessor (void *n)
 	NamedVector *nv = NULL;
 	GAsyncQueue *inq;
 	allocmsg_t msg;
-
+	NamedVector * window = NULL;
 	unsigned int current_sample_count = 0;
 
 	/* Create a vector to hold a standard Hanning window */
 	window = CreateWindow("Hanning");
 
+	if (window == NULL || window->vector == NULL) {
+		debug_printf("%s","Could not create window \n");
+		pthread_exit(NULL);
+	}
+
 	if (g_preproc_inq == NULL) {
 		debug_printf("%s","Preprocessor starting...\n");
-	
+		g_preproc_running = true;
 		/* Create the preproc interface */
 		g_preproc_inq = g_async_queue_new();
 
@@ -175,16 +203,23 @@ preproc_thread Preprocessor (void *n)
 
 	/*WARNING: This is platform specific! */
 	if (nv_list == NULL) {
+		debug_printf("%s","Creating first list \n");
 		nv_list = populate_list(nv_list);
 	}
 
 	while (!gAppExiting) {
 		/* Wait for incoming sample block */
-		block = g_async_queue_pop(inq);
+		block = g_async_queue_try_pop(inq);
+
+		if (block == NULL) {
+			usleep(1);
+			continue;
+
+		}
 		current_sample_count++;
 
 		/* Create new data structure for processor */
-		build_bipolar_list_with_window(&nv_list,block,current_sample_count);
+		build_bipolar_list_with_window(nv_list,block,current_sample_count,window);
 	
 		/* Return the block to the allocator */
 		msg.destination = NULL;
@@ -202,7 +237,16 @@ preproc_thread Preprocessor (void *n)
 		}
 	}
 	
-	
+	/* Return all the blocks to the allocator */
+	block = g_async_queue_try_pop(inq);
+	while (block != NULL)
+	{
+		msg.destination = NULL;
+		msg.payload = block;
+		g_async_queue_push(g_allocator_inq, &msg);
+		block = g_async_queue_try_pop(inq);
+	}
+	g_preproc_running = false;
 	debug_printf("%s","Leaving the preprocessor...\n");
 	pthread_exit(NULL);
 }

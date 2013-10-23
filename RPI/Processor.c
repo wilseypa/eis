@@ -15,31 +15,28 @@ void printChannels(GSList *channels)
 	GSList *node = channels;
 	unsigned int ctr = 0;
 	unsigned int current_sample = 0;
-	
-	current_channel = (NamedVector *)channels->data;
-	
-	while(current_channel != NULL) {
- 
-		printf("%s: ",current_channel->name);
-	
-		for (current_sample = 0; current_sample < MAX_SAMPLES; current_sample++) {
-		
-			printf("%.4f ", current_channel->vector[current_sample][0]);
-		}
-
-		/* Crashes here ? */
-		fftw_free(current_channel->vector);
-		free(current_channel);
-		printf("\n");
-
-		node = node->next;
-
-		if (node == NULL) {
-			debug_printf("%s","Unexpected EOL\n");
+	fftw_complex * vector;	
+	while(node != NULL) {
+		current_channel = (NamedVector *)node->data;
+		if (current_channel == NULL) {
+			debug_printf("%s","Null channel ?\n");
 			break;
 		}
+		printf("Updating %s\n",current_channel->name);
+		vector = current_channel->vector;
+	
+//		for (current_sample = 0; current_sample < MAX_SAMPLES; current_sample++) {
+//		
+//			printf("%.2e", vector[current_sample][0]);
+//		}
 
-		current_channel = (NamedVector *)node->data;
+		/* Crashes here ? */
+//		printf("Trying to free the FFTW vector 0x%.8X\n",vector);
+//		printf("Trying to free the NV 0x%.8X\n",current_channel);
+		free(vector);
+		free(current_channel);
+
+		node = node->next;
 	}
 
 	g_slist_free(channels);
@@ -64,7 +61,11 @@ proc_thread Processor (void *n)
 	while (!gAppExiting) {
 
 		/* Wait for incoming list to process */
-		nv_list = g_async_queue_pop(g_proc_inq);
+		nv_list = g_async_queue_try_pop(g_proc_inq);
+		if (nv_list == NULL) {
+			usleep(1);
+			continue;
+		}
 	
 		printChannels(nv_list);
 

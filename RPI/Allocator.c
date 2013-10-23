@@ -3,7 +3,7 @@
 #include <pthread.h>
 #include "Globals.h"
 #include "Allocator.h"
-
+#include "Preprocessor.h"
 GAsyncQueue *g_allocator_inq = NULL;
 
 Block * CreateBlock()
@@ -12,7 +12,6 @@ Block * CreateBlock()
 	
 	block->size = BLOCK_SIZE;
 	block->begin = (unsigned char *)calloc(BLOCK_SIZE,sizeof(unsigned char));
-	
 	return block;
 }
 
@@ -73,6 +72,7 @@ alloc_thread Allocator (void *n)
 			if (msg->payload == NULL) /* NULL payload means we stop! */
 			{
 				debug_printf("%s","We have to stop the allocator\n");
+				while (g_preproc_running) sleep(1);
 				break;
 			}
 			debug_printf("Returning block 0x%X to pool\n",msg->payload);

@@ -136,7 +136,7 @@ boolean getData()
 		if (!bcm2835_gpio_lev(DRDY))
 		{	
 			/* Begin read when DRDY goes low */
-//			while (!bcm2835_gpio_lev(DRDY)) {} /* Spin on DRDY */
+			//while (!bcm2835_gpio_lev(DRDY)) {} /* Spin on DRDY */
 
 			/* Read in all the data */
 			bcm2835_spi_transfernb(zbuf,block->begin,BYTES_PER_SAMPLE*NUM_CHAN);
@@ -205,7 +205,7 @@ ads_thread ADS(void *n)
 
     	bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);      // MSB is first
     	bcm2835_spi_setDataMode(BCM2835_SPI_MODE1);                   // CPOL=0 CPHA=1
-    	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_32);     // 31.25MHz
+    	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_64);     // 31.25MHz
     	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                  // Control CS manually
     	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);  
 

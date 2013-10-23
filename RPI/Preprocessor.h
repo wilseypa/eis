@@ -10,7 +10,7 @@
 typedef void * preproc_thread;
 
 extern GAsyncQueue *g_preproc_inq;
-
+extern boolean g_preproc_running;
 typedef struct {
 
 	char name[256];
@@ -19,6 +19,5 @@ typedef struct {
 } NamedVector;
 
 preproc_thread Preprocessor (void *n);
-NamedVector * CreateWindow(char *window);
 
 #endif

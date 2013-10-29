@@ -8,6 +8,8 @@
 #include <strings.h>
 #include <unistd.h>
 
+boolean g_ads_running = false;
+
 boolean writeConfigRegisters()
 {
 	uint8_t data;
@@ -76,7 +78,7 @@ boolean writeConfigRegisters()
 
 	for ( ctr = 0; ctr < 8; ctr++)	
 	{
-		bcm2835_spi_transfer(0x61); // short each channel
+		bcm2835_spi_transfer(0x60); // normal channels
 		bcm2835_delay(1);
 	}
 
@@ -92,15 +94,15 @@ boolean getData()
 	unsigned int ctr = 0;
 
 	GAsyncQueue *inq, *outq;
-	allocmsg_t msg;
-
+	allocmsg_t *msg = malloc(sizeof(allocmsg_t));
+	Block *old;
 
 	/* Create a incoming queue for blocks */
 	inq = g_async_queue_new();
 
 	/* Draft a message to the Allocator thread */
-	msg.destination = inq;
-	msg.payload = NULL;
+	msg->destination = inq;
+	msg->payload = NULL;
 
 	/* Wait for the allocator interface to come online */
 	while (g_allocator_inq == NULL) usleep(1);
@@ -111,7 +113,7 @@ boolean getData()
 	/* Request that NUM_CHAN blocks be made available */
 	for (ctr = 0; ctr < NUM_CHAN; ctr++) {
 	
-		g_async_queue_push(outq,&msg);
+		g_async_queue_push(outq,msg);
 	}
 
 
@@ -121,6 +123,8 @@ boolean getData()
 	/* Get an initial block from the queue */
 	block = g_async_queue_pop(inq);
 
+	g_ads_running = true;
+	
 	debug_printf("%s","Getting data...\n");
 
 	/* Resume continuous data conversion mode */
@@ -148,6 +152,8 @@ boolean getData()
 
 			/*TODO: Sending to preprocessor */
 			g_async_queue_push(g_preproc_inq,block);
+
+			old = block;
 				
 			/* Try to get a new block */
 			block = g_async_queue_try_pop(inq);
@@ -158,7 +164,8 @@ boolean getData()
 				g_async_queue_push(outq,&msg);
 
 				/* Wait until a new block arrives */
-				block = g_async_queue_pop(inq);
+				block = g_async_queue_try_pop(inq);
+				while (block == NULL) usleep(1);
 			}
 
 		}
@@ -167,11 +174,17 @@ boolean getData()
 			/* Check the status of the incoming block queue */
 			if (g_async_queue_length(inq) < 10) {
 				/* Tell the allocator to create some more if we are running low */
-				g_async_queue_push(outq,&msg);
+				g_async_queue_push(outq,msg);
 			}
 			/* Sleep for a bit */
 			usleep(1);
 		}
+	}
+
+	if (block == old) {
+		msg->destination = NULL;
+		msg->payload = block;
+		g_async_queue_push(outq,msg);	
 	}
 
 	/* The program is exiting, turn off the ADS chip */
@@ -182,7 +195,7 @@ boolean getData()
 
 ads_thread ADS(void *n)
 {
-	allocmsg_t msg;
+	allocmsg_t *msg = malloc(sizeof(allocmsg_t));
 	debug_printf("%s","Starting the ADS thread...\n");
 	if (!bcm2835_init())
 	{
@@ -205,7 +218,7 @@ ads_thread ADS(void *n)
 
     	bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);      // MSB is first
     	bcm2835_spi_setDataMode(BCM2835_SPI_MODE1);                   // CPOL=0 CPHA=1
-    	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_64);     // 31.25MHz
+    	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_16);     // 31.25MHz
     	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                  // Control CS manually
     	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);  
 
@@ -228,14 +241,16 @@ EXIT:
 	bcm2835_close();
 
 	/* Tell Allocator we're done */
-	msg.destination = NULL;
-	msg.payload = NULL;
+	msg->destination = NULL;
+	msg->payload = NULL;
 
 	if (g_allocator_inq != NULL) {
-		g_async_queue_push(g_allocator_inq,&msg);
+		g_async_queue_push(g_allocator_inq,msg);
 		sleep(1);
 	}
 
+	g_ads_running = false;
+	
 	debug_printf("%s","Leaving ADS thread...\n");
 	pthread_exit(NULL);
 }

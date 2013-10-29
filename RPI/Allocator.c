@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include "Globals.h"
+#include "ADS.h"
 #include "Allocator.h"
 #include "Preprocessor.h"
 GAsyncQueue *g_allocator_inq = NULL;
@@ -21,6 +22,8 @@ alloc_thread Allocator (void *n)
 	Block * block;
 	unsigned int ctr = 0;
 	unsigned int init_blocks = 10;
+	unsigned allocated = 0;
+
 
 	allocmsg_t *msg = NULL;
 
@@ -47,7 +50,7 @@ alloc_thread Allocator (void *n)
 	for (ctr = 0; ctr < init_blocks; ctr++) {
 
 		block = CreateBlock();
-
+		allocated += sizeof(Block) + BLOCK_SIZE*sizeof(unsigned char);
 		g_queue_push_head(free_blocks, block);
 	}
 
@@ -72,7 +75,7 @@ alloc_thread Allocator (void *n)
 			if (msg->payload == NULL) /* NULL payload means we stop! */
 			{
 				debug_printf("%s","We have to stop the allocator\n");
-				while (g_preproc_running) sleep(1);
+				while (g_preproc_running || g_ads_running) sleep(1);
 				break;
 			}
 			debug_printf("Returning block 0x%X to pool\n",msg->payload);
@@ -86,6 +89,8 @@ alloc_thread Allocator (void *n)
 			if (block == NULL) /* We're fresh out... */
 			{
 				block = CreateBlock();
+				allocated += sizeof(Block) + BLOCK_SIZE*sizeof(unsigned char);
+
 			}
 
 			debug_printf("Sending block 0x%X to 0x%X\n",block,msg->destination);
@@ -95,19 +100,31 @@ alloc_thread Allocator (void *n)
 		
 	}
 
+	while (g_preproc_running || g_ads_running) sleep(1);
+
 	/* Cleanup */
 	msg = g_async_queue_try_pop(g_allocator_inq); 
 	while (msg != NULL)
 	{
+		if (msg->destination == NULL && msg->payload != NULL) {
+			g_queue_push_head(free_blocks,msg->payload);
+		}
+		free(msg);
 		msg = g_async_queue_try_pop(g_allocator_inq); 
 	}
 
 	block = g_queue_pop_tail(free_blocks);
+	printf("We need to destroy %d bytes\n",allocated);
 	while (block != NULL)
 	{
 		free(block->begin);
 		free(block);
+		allocated -= (sizeof(Block) + BLOCK_SIZE*sizeof(unsigned char));
 		block = g_queue_pop_tail(free_blocks);
+	}
+
+	if (allocated != 0) {
+		printf("%d bytes left :(\n",allocated);
 	}
 	g_async_queue_unref(g_allocator_inq);
 	g_queue_free(free_blocks);

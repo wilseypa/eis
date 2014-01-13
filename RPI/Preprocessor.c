@@ -97,7 +97,7 @@ void build_bipolar_list_with_window(GSList *nv_list, Block *block, unsigned int 
 
 
 		values[ctr] = (double)temp * scale;
-		printf("Channel %d: %.6fV \n",ctr+1,values[ctr]);
+		debug_printf("Channel %d: %.6fV \n",ctr+1,values[ctr]);
 		stream += 3;
 	}
 
@@ -171,7 +171,7 @@ preproc_thread Preprocessor (void *n)
 	Block * block = NULL; 
 	NamedVector *nv = NULL;
 	GAsyncQueue *inq;
-	allocmsg_t *msg = (allocmsg_t *)malloc(sizeof(allocmsg_t));
+	allocmsg_t *msg;
 	NamedVector * window = NULL;
 	unsigned int current_sample_count = 0;
 
@@ -219,6 +219,7 @@ preproc_thread Preprocessor (void *n)
 		build_bipolar_list_with_window(nv_list,block,current_sample_count,window);
 	
 		/* Return the block to the allocator */
+        msg = malloc(sizeof(allocmsg_t));
 		msg->destination = NULL;
 		msg->payload = block;
 		g_async_queue_push(g_allocator_inq, msg);
@@ -226,6 +227,7 @@ preproc_thread Preprocessor (void *n)
 		/* Reset the sample counter and send the list to processing*/
 		if (current_sample_count == 1024) {
 			current_sample_count = 0;
+	       // printf("Sending a new list\n");
 		
 			/* Send the list */
 			g_async_queue_push(g_proc_inq,nv_list);
@@ -240,6 +242,7 @@ preproc_thread Preprocessor (void *n)
 	block = g_async_queue_try_pop(inq);
 	while (block != NULL)
 	{
+        msg = malloc(sizeof(allocmsg_t));
 		msg->destination = NULL;
 		msg->payload = block;
 		g_async_queue_push(g_allocator_inq, msg);

@@ -40,7 +40,7 @@ void removeOffset(fftw_complex *vector) {
 
 	dc /= MAX_SAMPLES;
 
-	printf("\n DC Offset: %.3fmV\n",dc*1000);
+	//printf("\n DC Offset: %.3fmV\n",dc*1000);
 
 	for (ctr = 0; ctr < MAX_SAMPLES; ctr++)
 	{
@@ -64,7 +64,7 @@ void printChannels(GSList *channels)
 			debug_printf("%s","Null channel ?\n");
 			break;
 		}
-		printf("Channel %s\t",current_channel->name);
+		//printf("Channel %s\t",current_channel->name);
 		vector = current_channel->vector;
 		
 		removeOffset(vector);
@@ -73,7 +73,7 @@ void printChannels(GSList *channels)
 		fftw_execute(p);
 		fftw_destroy_plan(p); 
 
-		printf("Avg Power Level: %.3f mW / Hz\n",getAveragePower(vector)*1000);
+		printf("%.3f,",getAveragePower(vector)*1000);
 		/* Crashes here ? */
 //		printf("Trying to free the FFTW vector 0x%.8X\n",vector);
 //		printf("Trying to free the NV 0x%.8X\n",current_channel);
@@ -82,7 +82,7 @@ void printChannels(GSList *channels)
 
 		node = node->next;
 	}
-
+    printf("\n");
 	g_slist_free(channels);
 
 }

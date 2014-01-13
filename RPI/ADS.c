@@ -7,8 +7,48 @@
 #include <stdlib.h>
 #include <strings.h>
 #include <unistd.h>
+#include <wiringPi.h>
 
 boolean g_ads_running = false;
+unsigned char zbuf[BYTES_PER_SAMPLE*NUM_CHAN];
+Block *block = NULL;
+GAsyncQueue *inq, *outq;
+
+
+void handleDRDY_interrupt()
+{
+    allocmsg_t *msg;
+    if (!gAppExiting) {
+        /* Begin read when DRDY goes low */
+
+	    /* Read in all the data */
+	    bcm2835_spi_transfernb(zbuf,block->begin,BYTES_PER_SAMPLE*NUM_CHAN);
+
+	    /* We send off the block here for processing */		
+	    debug_printf("Sending block 0x%X for processing...\n",block);
+
+	    /*Sending to preprocessor */
+	    g_async_queue_push(g_preproc_inq,block);
+	    			
+	    /* Try to get a new block */
+	    block = g_async_queue_try_pop(inq);
+
+	    /* If no new blocks are available */
+	    if (block == NULL) {
+        	/* Send a message to the allocator to create one */
+            msg = malloc(sizeof(allocmsg_t));
+            msg->destination = inq;
+            msg->payload = NULL;
+            debug_printf("Sending 0x%X message to allocator",msg);
+	    	g_async_queue_push(outq,msg);
+
+	    	/* Wait until a new block arrives */
+    	    block = g_async_queue_pop(inq);
+	    }
+	}
+    
+}
+
 
 boolean writeConfigRegisters()
 {
@@ -20,19 +60,19 @@ boolean writeConfigRegisters()
 
 	/* Stop all conversions */
 	bcm2835_spi_transfer(STOP);
-	bcm2835_delay(1);	
+	usleep(1);	
 
 	/* Disable continuous conversion mode */
 	bcm2835_spi_transfer(SDATAC);
-	bcm2835_delay(1);
+	usleep(1);
 
 	/* Read from register CONFIG1 */
 	bcm2835_spi_transfer(RREG_ADDR | CONFIG1);
-	bcm2835_delay(1);
+	usleep(1);
 
 	/* Read one register */
 	bcm2835_spi_transfer(RREG_NUMR);
-	bcm2835_delay(1);
+	usleep(1);
 	
 	/* read the data from the bus */
 	data = bcm2835_spi_transfer(DONT_CARE);
@@ -51,35 +91,35 @@ boolean writeConfigRegisters()
 
 	// Write CONFIG1
 	bcm2835_spi_transfer(WREG_ADDR | CONFIG1);
-	bcm2835_delay(1);
+	usleep(1);
 
 	bcm2835_spi_transfer(WREG_NUMR);
-	bcm2835_delay(1);
+	usleep(1);
 
-	bcm2835_spi_transfer(0x96); // Enable 250Sps conversions
-	bcm2835_delay(1);
+	bcm2835_spi_transfer(0x93); // Enable 2 kSps conversions
+	usleep(1);
 
 	// Write CONFIG2
 	bcm2835_spi_transfer(WREG_ADDR | CONFIG2);
-	bcm2835_delay(1);
+	usleep(1);
 
 	bcm2835_spi_transfer(WREG_NUMR);
-	bcm2835_delay(1);
+	usleep(1);
 
 	bcm2835_spi_transfer(0xC2); // No test signals
-	bcm2835_delay(1);
+	usleep(1);
 
 	// Write CHnSet
 	bcm2835_spi_transfer(WREG_ADDR | CHNSET_LOW);
-	bcm2835_delay(1);
+	usleep(1);
 
 	bcm2835_spi_transfer(WREG_NUMR | 0x07);
-	bcm2835_delay(1);
+	usleep(1);
 
 	for ( ctr = 0; ctr < 8; ctr++)	
 	{
 		bcm2835_spi_transfer(0x60); // normal channels
-		bcm2835_delay(1);
+		usleep(1);
 	}
 
 
@@ -88,19 +128,14 @@ boolean writeConfigRegisters()
 
 boolean getData()
 {
-	unsigned char zbuf[BYTES_PER_SAMPLE*NUM_CHAN];
-	Block *block = NULL;
-	unsigned int nCon = 0;
-	unsigned int ctr = 0;
-
-	GAsyncQueue *inq, *outq;
-	allocmsg_t *msg = malloc(sizeof(allocmsg_t));
-	Block *old;
-
+    unsigned int ctr;
+    allocmsg_t *msg;
+    
 	/* Create a incoming queue for blocks */
 	inq = g_async_queue_new();
 
 	/* Draft a message to the Allocator thread */
+    msg = malloc(sizeof(allocmsg_t));
 	msg->destination = inq;
 	msg->payload = NULL;
 
@@ -112,10 +147,11 @@ boolean getData()
 
 	/* Request that NUM_CHAN blocks be made available */
 	for (ctr = 0; ctr < NUM_CHAN; ctr++) {
-	
+        msg = malloc(sizeof(allocmsg_t));
+        msg->destination = inq;
+        msg->payload = NULL;
 		g_async_queue_push(outq,msg);
 	}
-
 
 	/* This is our buffer to send over the SPI bus */
 	bzero(zbuf,BYTES_PER_SAMPLE*NUM_CHAN);
@@ -129,63 +165,37 @@ boolean getData()
 
 	/* Resume continuous data conversion mode */
 	bcm2835_spi_transfer(RDATAC);
-	bcm2835_delay(1);
+	usleep(1);
 
 	/* Start conversions */
 	bcm2835_spi_transfer(START);
 
 	while (!gAppExiting) 
 	{
-		/* Check data conversion ready line */
-		if (!bcm2835_gpio_lev(DRDY))
-		{	
-			/* Begin read when DRDY goes low */
-			//while (!bcm2835_gpio_lev(DRDY)) {} /* Spin on DRDY */
 
-			/* Read in all the data */
-			bcm2835_spi_transfernb(zbuf,block->begin,BYTES_PER_SAMPLE*NUM_CHAN);
-			debug_printf("Conversion: %d\n",nCon);
-			nCon++;
-
-			/* We send off the block here for processing */		
-			debug_printf("Sending block 0x%X for processing...\n",block);
-
-			/*TODO: Sending to preprocessor */
-			g_async_queue_push(g_preproc_inq,block);
-
-			old = block;
-				
-			/* Try to get a new block */
-			block = g_async_queue_try_pop(inq);
-
-			/* If no new blocks are available */
-			if (block == NULL) {
-				/* Send a message to the allocator to create one */
-				g_async_queue_push(outq,&msg);
-
-				/* Wait until a new block arrives */
-				block = g_async_queue_try_pop(inq);
-				while (block == NULL) usleep(1);
-			}
-
+        /* Check the status of the incoming block queue */
+		if (g_async_queue_length(inq) < 10) {
+			/* Tell the allocator to create some more if we are running low */
+            msg = malloc(sizeof(allocmsg_t));
+            msg->destination = inq;
+            msg->payload = NULL;
+			g_async_queue_push(outq,msg);
 		}
-		/* We are between conversions */
-		else {
-			/* Check the status of the incoming block queue */
-			if (g_async_queue_length(inq) < 10) {
-				/* Tell the allocator to create some more if we are running low */
-				g_async_queue_push(outq,msg);
-			}
-			/* Sleep for a bit */
-			usleep(1);
-		}
+		/* Sleep for a bit */
+		usleep(1);
 	}
 
-	if (block == old) {
-		msg->destination = NULL;
-		msg->payload = block;
-		g_async_queue_push(outq,msg);	
-	}
+    /* Return unused blocks to the allocator */
+    block = g_async_queue_try_pop(inq);
+    
+    while (block != NULL) 
+    {
+        msg = malloc(sizeof(allocmsg_t));
+        msg->destination = NULL;
+        msg->payload = block;
+        g_async_queue_push(outq,msg);
+        block = g_async_queue_try_pop(inq);
+    }
 
 	/* The program is exiting, turn off the ADS chip */
 	bcm2835_spi_transfer(0x0A);
@@ -195,8 +205,10 @@ boolean getData()
 
 ads_thread ADS(void *n)
 {
-	allocmsg_t *msg = malloc(sizeof(allocmsg_t));
+    allocmsg_t *msg;
 	debug_printf("%s","Starting the ADS thread...\n");
+
+    // Initialize the broadcom interface
 	if (!bcm2835_init())
 	{
 		debug_printf("%s","ERROR Couldn't start the bcm2835\n");
@@ -206,47 +218,67 @@ ads_thread ADS(void *n)
 	// Enable SPI comms
 	bcm2835_spi_begin();
 
-	// Set the pins to be an output
-    	bcm2835_gpio_fsel(CLKSEL, BCM2835_GPIO_FSEL_OUTP);
+	// Set the pins to be outputs
+    bcm2835_gpio_fsel(CLKSEL, BCM2835_GPIO_FSEL_OUTP);
 	bcm2835_gpio_fsel(RESET, BCM2835_GPIO_FSEL_OUTP);
 	bcm2835_gpio_fsel(START_P, BCM2835_GPIO_FSEL_OUTP);
 	bcm2835_gpio_fsel(PWDN, BCM2835_GPIO_FSEL_OUTP);
 
-	// DRDY is an input, use a pullup resistor
-	bcm2835_gpio_fsel(DRDY, BCM2835_GPIO_FSEL_INPT);
-	bcm2835_gpio_set_pud(DRDY, BCM2835_GPIO_PUD_UP);
-
-    	bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);      // MSB is first
-    	bcm2835_spi_setDataMode(BCM2835_SPI_MODE1);                   // CPOL=0 CPHA=1
-    	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_16);     // 31.25MHz
-    	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                  // Control CS manually
-    	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);  
+    // SPI config
+    bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);      // MSB is first
+    bcm2835_spi_setDataMode(BCM2835_SPI_MODE1);                   // CPOL=0 CPHA=1
+    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_16);     // 31.25MHz
+    bcm2835_spi_chipSelect(BCM2835_SPI_CS_NONE);                  // Control CS manually
+    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);    // CS is enable low
 
 
 	// Enable internal clock
-        bcm2835_gpio_write(CLKSEL, HIGH);
+    bcm2835_gpio_write(CLKSEL, HIGH);
+
+    // Prevent chip from going into standby
 	bcm2835_gpio_write(PWDN,HIGH);
+
+    // Prevent chip from reseting
 	bcm2835_gpio_write(RESET, HIGH);
+
+    // Keep the start pin low, we will trigger via SPI
 	bcm2835_gpio_write(START_P,LOW);
+
+    // Keep the SPI chip select tied low to enable the chip
 	bcm2835_gpio_write(BCM2835_SPI_CS0,LOW);
 
-	// Configure the chip
+	// Configure the chip registers
 	if (!writeConfigRegisters()) goto EXIT;
+	
+    // Enable interrupts on DRDY, so that we can handle data conversions
+    wiringPiSetupGpio();
+    wiringPiISR(DRDY, INT_EDGE_FALLING, &handleDRDY_interrupt);
 	
 	// Let's get data!
 	if (!getData()) goto EXIT;
 
 EXIT:
+    // End the SPI sessions
 	bcm2835_spi_end();
 	bcm2835_close();
 
 	/* Tell Allocator we're done */
+    msg = malloc(sizeof(allocmsg_t));
+	msg->destination = NULL;
+	msg->payload = block;
+
+	if (g_allocator_inq != NULL) {
+		g_async_queue_push(g_allocator_inq,msg);
+		usleep(1);
+	}
+	
+	msg = malloc(sizeof(allocmsg_t));
 	msg->destination = NULL;
 	msg->payload = NULL;
 
 	if (g_allocator_inq != NULL) {
 		g_async_queue_push(g_allocator_inq,msg);
-		sleep(1);
+		usleep(1);
 	}
 
 	g_ads_running = false;

@@ -3,11 +3,12 @@ Get dataset from Giorggio --DONE
 Create process chain model -- DONE
 
 Implement component blocks in Verilog
-- UART -- DONE
-- FFT (frequency resolutons)
-- FIR filter (moving average)
-- Control Unit
-- Memory controller/caching unit
+- ADC comms -- DONE
+- DAQ software -- DONE
+- FFT (frequency resolutons) -- DONE
+- Detection esimtation code
+- Driver and DAQ hardware
+- Build model
 
 Test
 - Sample rate, FFT length

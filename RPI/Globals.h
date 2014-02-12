@@ -25,8 +25,8 @@
 */
 
 // Setup our pins
-#define CLKSEL 2
-#define DRDY 3
+#define CLKSEL 23
+#define DRDY 24
 #define START_P 4
 #define RESET 17
 #define CS 8

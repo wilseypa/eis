@@ -25,10 +25,10 @@
 */
 
 // Setup our pins
-#define CLKSEL 2
-#define DRDY 3
+#define CLKSEL 23
+#define DRDY 24
 #define START_P 4
-#define RESET 17
+#define RESET_P 17
 #define CS 8
 #define PWDN 27
 
@@ -37,7 +37,7 @@
 #define RDATAC 0x10 // Start continuous data transfer mode
 #define STOP 0x0a
 #define START 0x08
-
+#define RESET 0x06
 // Read
 #define RREG_ADDR 0x20 // 001r rrrr : rrrr is register adress
 #define RREG_NUMR 0x00 // 000n nnnn : nnnn is number of registers to read

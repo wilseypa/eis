@@ -18,6 +18,10 @@ GAsyncQueue *inq, *outq;
 void handleDRDY_interrupt()
 {
     allocmsg_t *msg;
+
+	
+    piHiPri(99);
+
     if (!gAppExiting) {
         /* Begin read when DRDY goes low */
 
@@ -96,7 +100,7 @@ boolean writeConfigRegisters()
 	bcm2835_spi_transfer(WREG_NUMR);
 	usleep(1);
 
-	bcm2835_spi_transfer(0x93); // Enable 2 kSps conversions
+	bcm2835_spi_transfer(0x95); // Enable 250, 500, 1, 2, 4, 8, 16 kSps conversions
 	usleep(1);
 
 	// Write CONFIG2

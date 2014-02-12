@@ -9,7 +9,8 @@ void doDRDYcount(void) {
     ++numDRDY; 
 	bcm2835_spi_transfernb(zbuf,buf,BYTES_PER_SAMPLE*NUM_CHAN);
 //	printf("%.2X%.2X%.2X,%.2X%.2X%.2X,%.2X%.2X%.2X,%.2X%.2X%.2X,%.2X%.2X%.2X,%.2X%.2X%.2X,%.2X%.2X%.2X,%.2X%.2X%.2X,%.2X%.2X%.2X\n",buf[0],buf[1],buf[2],buf[3],buf[4],buf[5],buf[6],buf[7],buf[8],buf[9],buf[10],buf[11],buf[12],buf[13],buf[14],buf[15],buf[16],buf[17],buf[18],buf[19],buf[20],buf[21],buf[22],buf[23],buf[24],buf[25],buf[26]);
-    if (buf[0] != 0xC0) {
+	printf("Hit the interrupt %d times\n", numDRDY);  
+  if (buf[0] != 0xC0) {
         printf("Bad value!\n");
     }
 }
@@ -29,7 +30,7 @@ int setupADS()
 	bcm2835_spi_begin();
 	bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);      // MSB is first
     bcm2835_spi_setDataMode(BCM2835_SPI_MODE1);                   // CPOL=0 CPHA=1
-    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_16);     // 1MHz
+    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_64);     // 1MHz
     bcm2835_spi_chipSelect(BCM2835_SPI_CS_NONE);                  // Control CS manually
 //    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);  
     bcm2835_gpio_write(BCM2835_SPI_CS0,LOW);
@@ -37,6 +38,7 @@ int setupADS()
 	/* Sanity check */
 
 	/* Stop all conversions */
+	
 	bcm2835_spi_transfer(STOP);
 	bcm2835_delay(1);	
 
@@ -115,20 +117,21 @@ int main()
 {
     int mycount = 0;
     wiringPiSetupGpio();
-  
-    
-    // Set the pins to be an output
+
+	// Set the pins to be an output
   	pinMode(CLKSEL, OUTPUT);
-	pinMode(RESET, OUTPUT);
+	pinMode(RESET_P, OUTPUT);
 	pinMode(START_P, OUTPUT);
 	pinMode(PWDN, OUTPUT);
 
 	// Enable internal clock
-    digitalWrite(CLKSEL, HIGH);
+	digitalWrite(CLKSEL, HIGH);
 	digitalWrite(PWDN,HIGH);
-	digitalWrite(RESET, HIGH);
+	digitalWrite(RESET_P, HIGH);
 	digitalWrite(START_P,LOW);
-    
+	
+	sleep(1);    
+
     if (!setupADS()) {
         printf("Setup failed!\n");
         goto EXIT;

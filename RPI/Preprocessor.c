@@ -72,7 +72,8 @@ void build_bipolar_list_with_window(GSList *nv_list, Block *block, unsigned int 
 	status = (status << 8) | block->begin[2];
 
 	if (status != 0xC00000) {
-		printf("Status: 0x%.6X\n",status);
+		debug_printf("Status: 0x%.6X\n",status);
+		return;
 	}
 
 	if (window == NULL) {
@@ -102,26 +103,27 @@ void build_bipolar_list_with_window(GSList *nv_list, Block *block, unsigned int 
 	}
 
 	/* Calculate the bipolar values */
-	for (ctr = 0; ctr < nchan; ctr++)
-	{
-		if (ctr == 6) {
-			bivalues[ctr] = values[ctr] - values[0];
-		} 
-		else if (ctr == 7) {
-			bivalues[ctr] = values[ctr];
-		} 
-		else {
-			bivalues[ctr] = values[ctr] - values[ctr+1];
-		}
+//	for (ctr = 0; ctr < nchan; ctr++)
+//	{
+//		if (ctr == 6) {
+//			bivalues[ctr] = values[ctr] - values[0];
+//		} 
+//		else if (ctr == 7) {
+//			bivalues[ctr] = values[ctr];
+//		} 
+//		else {
+//			bivalues[ctr] = values[ctr] - values[ctr+1];
+//		}
 		/* Then window it */
 	//	bivalues[ctr] *= window->vector[current_sample_count-1][0];
-	}
+//	}
 
 	/* Update the list */
 	ctr = 0;
 	while (list != NULL) {
 		nv = (NamedVector *)(list->data);
-		nv->vector[current_sample_count-1][0] = bivalues[ctr];
+//		nv->vector[current_sample_count-1][0] = bivalues[ctr];
+		nv->vector[current_sample_count-1][0] = values[ctr];
 		ctr++;
 		list = g_slist_next(list);
 	}

@@ -405,6 +405,7 @@ void bcm2835_gpio_set_pud(uint8_t pin, uint8_t pud)
 
 void bcm2835_spi_begin(void)
 {
+    volatile uint32_t* paddr;
     // Set the SPI0 pins to the Alt 0 function to enable SPI0 access on them
     bcm2835_gpio_fsel(RPI_GPIO_P1_26, BCM2835_GPIO_FSEL_ALT0); // CE1
     bcm2835_gpio_fsel(RPI_GPIO_P1_24, BCM2835_GPIO_FSEL_ALT0); // CE0
@@ -413,7 +414,8 @@ void bcm2835_spi_begin(void)
     bcm2835_gpio_fsel(RPI_GPIO_P1_23, BCM2835_GPIO_FSEL_ALT0); // CLK
     
     // Set the SPI CS register to the some sensible defaults
-    volatile uint32_t* paddr = bcm2835_spi0 + BCM2835_SPI0_CS/4;
+
+    paddr = bcm2835_spi0 + BCM2835_SPI0_CS/4;
     bcm2835_peri_write(paddr, 0); // All 0s
     
     // Clear TX and RX fifos
@@ -457,7 +459,7 @@ uint8_t bcm2835_spi_transfer(uint8_t value)
 {
     volatile uint32_t* paddr = bcm2835_spi0 + BCM2835_SPI0_CS/4;
     volatile uint32_t* fifo = bcm2835_spi0 + BCM2835_SPI0_FIFO/4;
-
+    uint32_t ret;
     // This is Polled transfer as per section 10.6.1
     // BUG ALERT: what happens if we get interupted in this section, and someone else
     // accesses a different peripheral? 
@@ -479,7 +481,7 @@ uint8_t bcm2835_spi_transfer(uint8_t value)
 	;
 
     // Read any byte that was sent back by the slave while we sere sending to it
-    uint32_t ret = bcm2835_peri_read_nb(fifo);
+    ret = bcm2835_peri_read_nb(fifo);
 
     // Set TA = 0, and also set the barrier
     bcm2835_peri_set_bits(paddr, 0, BCM2835_SPI0_CS_TA);
@@ -492,7 +494,7 @@ void bcm2835_spi_transfernb(char* tbuf, char* rbuf, uint32_t len)
 {
     volatile uint32_t* paddr = bcm2835_spi0 + BCM2835_SPI0_CS/4;
     volatile uint32_t* fifo = bcm2835_spi0 + BCM2835_SPI0_FIFO/4;
-
+    uint32_t i;
     // This is Polled transfer as per section 10.6.1
     // BUG ALERT: what happens if we get interupted in this section, and someone else
     // accesses a different peripheral? 
@@ -503,7 +505,7 @@ void bcm2835_spi_transfernb(char* tbuf, char* rbuf, uint32_t len)
     // Set TA = 1
     bcm2835_peri_set_bits(paddr, BCM2835_SPI0_CS_TA, BCM2835_SPI0_CS_TA);
 
-    uint32_t i;
+    
     for (i = 0; i < len; i++)
     {
 	// Maybe wait for TXD
@@ -533,7 +535,7 @@ void bcm2835_spi_writenb(char* tbuf, uint32_t len)
 {
     volatile uint32_t* paddr = bcm2835_spi0 + BCM2835_SPI0_CS/4;
     volatile uint32_t* fifo = bcm2835_spi0 + BCM2835_SPI0_FIFO/4;
-
+    uint32_t i;
     // This is Polled transfer as per section 10.6.1
     // BUG ALERT: what happens if we get interupted in this section, and someone else
     // accesses a different peripheral?
@@ -544,7 +546,7 @@ void bcm2835_spi_writenb(char* tbuf, uint32_t len)
     // Set TA = 1
     bcm2835_peri_set_bits(paddr, BCM2835_SPI0_CS_TA, BCM2835_SPI0_CS_TA);
 
-    uint32_t i;
+
 	for (i = 0; i < len; i++)
 	{
 		// Maybe wait for TXD
@@ -587,14 +589,16 @@ void bcm2835_spi_setChipSelectPolarity(uint8_t cs, uint8_t active)
 
 void bcm2835_i2c_begin(void)
 {
-	volatile uint32_t* paddr = bcm2835_bsc1 + BCM2835_BSC_DIV/4;
-
+    //volatile uint32_t* paddr = bcm2835_bsc1 + BCM2835_BSC_DIV/4;
+    
     // Set the I2C/BSC1 pins to the Alt 0 function to enable I2C access on them
-    bcm2835_gpio_fsel(RPI_V2_GPIO_P1_03, BCM2835_GPIO_FSEL_ALT0); // SDA
-    bcm2835_gpio_fsel(RPI_V2_GPIO_P1_05, BCM2835_GPIO_FSEL_ALT0); // SCL
+    //bcm2835_gpio_fsel(RPI_V2_GPIO_P1_03, BCM2835_GPIO_FSEL_ALT0); // SDA
+    //bcm2835_gpio_fsel(RPI_V2_GPIO_P1_05, BCM2835_GPIO_FSEL_ALT0); // SCL
+
+	printk("Not implemented!\n");
 
     // Read the clock divider register
-    uint16_t cdiv = bcm2835_peri_read(paddr);
+    //uint16_t cdiv = bcm2835_peri_read(paddr);
     // Calculate time for transmitting one byte
     // 1000000 = micros seconds in a second
     // 9 = Clocks per byte : 8 bits + ACK
@@ -877,6 +881,7 @@ void bcm2835_st_delay(uint64_t offset_micros, uint64_t micros)
 // Initialise this library.
 int bcm2835_init(void)
 {
+   int ok = 0;
     if (debug) 
     {
 //	bcm2835_pads = (uint32_t*)BCM2835_GPIO_PADS;
@@ -889,7 +894,6 @@ int bcm2835_init(void)
 //	bcm2835_st   = (uint32_t*)BCM2835_ST_BASE;
 	return 1; // Success
     }
-    int ok = 0;
 
     // GPIO:
     bcm2835_gpio = ioremap(BCM2835_GPIO_BASE, BCM2835_BLOCK_SIZE);

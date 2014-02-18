@@ -9,10 +9,11 @@
  * device specifics, such as ioctl numbers and the
  * major device file. 
  */
-#include "hello.h"
+#include "ads_module.h"
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <fcntl.h>		/* open */
 #include <unistd.h>		/* exit */
 #include <sys/ioctl.h>		/* ioctl */
@@ -21,88 +22,131 @@
  * Functions for the ioctl calls 
  */
 
-ioctl_set_msg(int file_desc, char *message)
+ioctl_get_int_count(int fd)
 {
-	int ret_val;
-
-	ret_val = ioctl(file_desc, IOCTL_SET_MSG, message);
-
-	if (ret_val < 0) {
-		printf("ioctl_set_msg failed:%d\n", ret_val);
-		exit(-1);
-	}
+	printf("Current int count: %d\n",ioctl(fd, IOCTL_GET_INT_COUNT, NULL));
 }
 
-ioctl_get_msg(int file_desc)
+ioctl_set_ads_config(int fd, int value)
 {
-	int ret_val;
-	char message[100];
+	struct ADS_CONFIG config;
 
-	/* 
-	 * Warning - this is dangerous because we don't tell
-	 * the kernel how far it's allowed to write, so it
-	 * might overflow the buffer. In a real production
-	 * program, we would have used two ioctls - one to tell
-	 * the kernel the buffer length and another to give
-	 * it the buffer to fill
-	 */
-	ret_val = ioctl(file_desc, IOCTL_GET_MSG, message);
+	switch (value) {
 
-	if (ret_val < 0) {
-		printf("ioctl_get_msg failed:%d\n", ret_val);
-		exit(-1);
+	case 250:
+		config.speed = S_250_SPS;
+		break;
+	case 500:
+		config.speed = S_500_SPS;
+		break;
+	case 1000:
+		config.speed = S_1_KSPS;
+		break;
+	case 2000:
+		config.speed = S_2_KSPS;
+		break;
+	case 4000:
+		config.speed = S_4_KSPS;
+		break;
+	case 8000:
+		config.speed = S_8_KSPS;
+		break;
+	case 16000:
+		config.speed = S_16_KSPS;
+		break;
+
+	default:
+		config.speed = S_250_SPS;
+		break;
 	}
-
-	printf("get_msg message:%s\n", message);
+	printf("Using %.2X for speed parameter\n",config.speed);
+	config.config = NO_TEST;
+	config.channel = NORMAL;
+ 
+	ioctl(fd, IOCTL_SET_ADS_CONFIG,&config);
 }
 
-ioctl_get_nth_byte(int file_desc)
+void print_data(unsigned char buf[27])
 {
-	int i;
-	char c;
+	int status = 0;
+	double channels[8];
+	double scale = 5.36441803e-7;
+	unsigned char *iterator = buf + 3;
+	int i, temp;
 
-	printf("get_nth_byte message:");
+	status = buf[0];
+	status = (status << 8) | buf[1];
+	status = (status << 8) | buf[2];
 
-	i = 0;
-	do {
-		c = ioctl(file_desc, IOCTL_GET_NTH_BYTE, i++);
+//	printf("Status: %X \n", status);
 
-		if (c < 0) {
-			printf
-			    ("ioctl_get_nth_byte failed at the %d'th byte:\n",
-			     i);
-			exit(-1);
+	for (i = 0; i < 8; i++) {
+		temp = iterator[0];
+		temp = (temp << 8) | iterator[1];
+		temp = (temp << 8) | iterator[2];
+
+		if (temp & 0x800000) {
+			temp |= ~0xffffff;
 		}
 
-		putchar(c);
-	} while (c != 0);
-	putchar('\n');
+		channels[i] = (double)temp * scale;
+		printf("%f\t", channels[i]);
+		iterator += 3;
+	}
+	printf("\n");
 }
 
-ioctl_blink(int file_desc)
+ioctl_get_data(int fd)
 {
-	ioctl(file_desc, IOCTL_TOGGLE_LED, NULL);
+	unsigned char buf[27];
+
+	int sample;
+
+	while (1) {
+		ioctl(fd, IOCTL_SEND_DATA, &buf);
+		
+		print_data(buf);
+	}
 }
 
 /* 
  * Main - Call the ioctl functions 
  */
-main()
+int main(int argc, char **argv)
 {
-	int file_desc, ret_val;
-	char *msg = "Message passed by ioctl\n";
+	int fd;
+	int i;
+	char *command;
+	int value = 0;
+	
+	if (argc < 2 || argc > 3) {
+		printf("Usage: ioctl <COMMAND> <VALUE>\n");
+		printf("Commands: config, interrupt_count, get_data\n");
+		exit(-1);
+	}
 
-	file_desc = open(DEVICE_FILE_NAME, 0);
-	if (file_desc < 0) {
+	if (argc == 3) {
+
+		value = atoi(argv[2]);
+	}
+	command = argv[1];
+
+	fd = open(DEVICE_FILE_NAME, 0);
+	if (fd < 0) {
 		printf("Can't open device file: %s\n", DEVICE_FILE_NAME);
 		exit(-1);
 	}
 
-	ioctl_blink(file_desc);
+	if (!strcmp(command, "config") && value > 0) {
+		ioctl_set_ads_config(fd,value);
+	}
+	else if(!strcmp(command, "interrupt_count")) {
+		ioctl_get_int_count(fd);
+	}
+	else if(!strcmp(command, "get_data")) {
+		ioctl_get_data(fd);
+	}
 
-//	ioctl_get_nth_byte(file_desc);
-//	ioctl_get_msg(file_desc);
-//	ioctl_set_msg(file_desc, msg);
-
-	close(file_desc);
+	close(fd);
+	return 0;
 }

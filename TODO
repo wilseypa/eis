@@ -2,20 +2,20 @@ Get dataset from Giorggio --DONE
 
 Create process chain model -- DONE
 
-Implement component blocks in Verilog
+Implement component blocks
 - ADC comms -- DONE
 - DAQ software -- DONE
 - FFT (frequency resolutons) -- DONE
-- Detection esimtation code
 - Driver and DAQ hardware
+- Detection estimation code
 - Build model
 
 Test
 - Sample rate, FFT length
-- Model order 
+- Statistical Models 
 - Sensitivity / Detection Threshold
 - Electrical Characterisics
-- Power Usage
+- Power Usage / Usability
 
 
 

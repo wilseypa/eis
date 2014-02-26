@@ -75,6 +75,7 @@ void detrend(double *buffer)
 	{
 		trend[ctr] /= N;
 	}
+	printf("\n");
 
 	for (ctr = 0; ctr < N; ctr++)
 	{

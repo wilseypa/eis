@@ -19,6 +19,7 @@ enum ACQ_CONFIG {
 };
 
 enum CHAN_CONFIG {
+	LOW = 0x00,
 	NORMAL = 0x60,
 	CHAN_TEST = 0x65
 };

@@ -142,6 +142,10 @@ Test value: 00000001 -> 0x01
 #define CONFIG3 0x03
 #define CONFIG3_TEST_MODE 0xE0
 
+#define MISC1 0x15
+#define MISC1_VAL 0x20
+
+
 #define false 0
 #define true 1
 #define boolean unsigned int

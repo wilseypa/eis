@@ -102,6 +102,26 @@ static void set_config_registers(struct ADS_CONFIG *userConfig)
 	bcm2835_spi_transfer(config.config);
 	msleep(1);
 
+	//Write CONFIG3
+	bcm2835_spi_transfer(WREG_ADDR | CONFIG3);
+	msleep(1);
+
+	bcm2835_spi_transfer(WREG_NUMR);
+	msleep(1);
+
+	bcm2835_spi_transfer(0xE0); // Enable internal reference buffer
+	msleep(1);
+
+	//Write MISC1
+	bcm2835_spi_transfer(WREG_ADDR | MISC1);
+	msleep(1);
+
+	bcm2835_spi_transfer(WREG_NUMR);
+	msleep(1);
+
+	bcm2835_spi_transfer(MISC1_VAL); // Enable internal reference buffer
+	msleep(1);
+
 	// Write CHnSet
 	bcm2835_spi_transfer(WREG_ADDR | CHNSET_LOW);
 	msleep(1);

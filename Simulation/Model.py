@@ -32,12 +32,14 @@ def generateData(fifo,model):
 	for (r,c) in model.getElements():
 		totalImpedance = totalImpedance + float(r)
 	totalImpedance = totalImpedance / 2
+	t = 0
 	while True:
-		t = time.time()
-		while time.time() - t < 0.00025:
-			continue
-		sample = random.gauss(0.0,15.0)
-		current = sample / totalImpedance
+		t = t + 0.01
+#		while time.time() - t < 0.00025:
+#			continue
+		sample = math.sin(t)
+		current = sample
+		#current = sample / totalImpedance
 		samples.append(current)
 		for (r,c) in model.getElements():
 			sample = (current)*float(r)

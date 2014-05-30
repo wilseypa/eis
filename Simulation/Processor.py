@@ -20,17 +20,27 @@ def print_stats(m):
 	print "Average input power: " + str(10*math.log(total)) + " dB"
 
 def print_fft(m, h1):
-	N = 1024
-	T = 1.0 / 4000.0
-	xf = np.linspace(0.0, 1.0/(2.0*T), N/2)
-	I = sp.fft(m.input)
+	Fs = 4000.0
+	N = len(m.input)
+	k = sp.arange(N)
+	T = N/Fs
+	frq = k/T
+	frq = frq[0:N/2]
+	I = sp.fft(m.input)[0:N/2]
 	C1 = sp.fft(m.chan1)
 	C2 = sp.fft(m.chan2)
 	C3  = sp.fft(m.chan3)
 	C4 = sp.fft(m.chan4)
+	plt.title("Input Spectrum ")	
+	plt.ylabel("Amplitude (V)")
+	plt.xlabel("Frequency (Hz)")
+	plt.axis([0, 1024, min(m.input), max(m.input)])
+#	plt.axis([min(frq), max(frq), min(np.abs(I))/N, (max(np.abs(I))/N)*2.0])
+	h1.set_xdata(range(0,N))
+	h1.set_ydata(m.input)
 
-	h1.set_xdata(xf)
-	h1.set_ydata(np.abs(I[0:N/2]))
+#	h1.set_xdata(frq)
+#	h1.set_ydata(np.abs(I) / N)
 	plt.draw()
 
 def estimate_tf(m,h1):
@@ -77,8 +87,9 @@ def begin():
 		h1, = plt.plot([],[])
 		plt.show(block=False)
 		while True:
-			if sample_count == 1024:
+			if sample_count == 1024*5:
 				estimate_tf(m,h1)
+				del(m)
 				sample_count = 0
 				m = Measurement()
 			sample = get_data(fifo)
@@ -87,7 +98,10 @@ def begin():
 	except Exception as e:
 		print "Failure: ",
 		print e
+		fifo.close()
 		exit(0)
-
+	except KeyboardInterrupt:
+		fifo.close()
+		exit(0)
 if __name__=="__main__":
 	begin()

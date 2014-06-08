@@ -26,7 +26,6 @@ class Model:
 		return z
 
 def generateData(fifo,model):
-	samples = []
 	totalImpedance = 0.0
 	current = 0.0
 	for (r,c) in model.getElements():
@@ -34,18 +33,19 @@ def generateData(fifo,model):
 	totalImpedance = totalImpedance / 2
 	t = 0
 	while True:
-		t = t + 0.01
-#		while time.time() - t < 0.00025:
-#			continue
-		sample = math.sin(t)
+		t = time.time()
+		while time.time() - t < 0.00025:
+			continue
+		samples = []
+		sample = random.gauss(0.0,30.0)
 		current = sample
-		#current = sample / totalImpedance
+		current = sample / totalImpedance
 		samples.append(current)
 		for (r,c) in model.getElements():
 			sample = (current)*float(r)
 			samples.append(sample)
 		for sample in samples:
-			fifo.write(str(sample) + ":")
+			fifo.write(str(float(sample)) + "\n")
 def begin():
 	parser = OptionParser()
 	parser.add_option("-f", "--file", dest="filename", help="Use model file", metavar="FILE")

@@ -4,9 +4,8 @@ import math
 import random
 import time
 import os
-from debug import Debug
 from optparse import OptionParser
-
+from Debug import Debug
 #Debugging interface
 d = Debug()
 

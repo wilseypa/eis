@@ -33,12 +33,12 @@ def update_estimate(est, frq, N, sp5):
 
 	
 	sp5.clear()
-	hist = sp5.plot(frq,np.abs(estimate) / N*n_estimates)
+	hist = sp5.loglog(frq,np.abs(estimate) / N*n_estimates)
 	sp5.set_title("Estimated Spectral Impedence ")	
 	sp5.set_ylabel("Magnitude (|Ohm|)")
 	sp5.set_xlabel("Frequency (Hz)")
 	
-	sp5.axis([min(frq), max(frq), min(np.abs(estimate))/N*n_estimates, (max(np.abs(estimate))/N*n_estimates)*2.0])
+	sp5.axis([min(frq), max(frq), min(np.abs(estimate))/N*n_estimates, (min(np.abs(estimate))/N*n_estimates)*10000.0])
 
 	return
 def print_stats(m):
@@ -61,7 +61,7 @@ def hanning_window(input):
 
 def print_fft(m, hlist, f1, slist):
 	# Sampling information
-	Fs = 4000.0
+	Fs = 2000.0
 	N = len(m.input)
 	k = sp.arange(N)
 	T = N/Fs
@@ -100,7 +100,7 @@ def print_fft(m, hlist, f1, slist):
 		s.set_ylabel("Magnitude (|Ohm|)")
 		s.set_xlabel("Frequency (Hz)")
 		if s != slist[4]:
-			s.axis([min(frq), max(frq), min(np.abs(Z1))/N, (max(np.abs(Z1))/N)*2.0])
+			s.axis([min(frq), max(frq), min(np.abs(Z1))/N, (min(np.abs(Z1))/N)*1000.0])
 	
 	#print "Setting imp data"
 	#print hlist[0]

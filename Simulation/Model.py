@@ -36,15 +36,26 @@ def generateData(fifo,model):
 		while time.time() - t < 0.00025:
 			continue
 		samples = []
-		sample = random.gauss(0.0,30.0)
-		current = sample
-		current = sample / totalImpedance
-		samples.append(current)
-		for (r,c) in model.getElements():
-			sample = (current)*float(r)
-			samples.append(sample)
-		for sample in samples:
-			fifo.write(str(float(sample)) + "\n")
+		try:
+				fp = open('../Data/noise.csv')
+				for line in fp:
+					line = line.strip().split(",")
+					if len(line) > 1:
+						sample = float(line[0].strip())
+						#sample = random.gauss(0.0,30.0)
+						current = sample
+						current = sample / totalImpedance
+						samples.append(current)
+						for (r,c) in model.getElements():
+							sample = (current)*float(r)
+							samples.append(sample)
+						for sample in samples:
+							fifo.write(str(float(sample)) + "\n")
+					else:
+						raise IOError
+		except Exception as e:
+				raise IOError
+
 def begin():
 	parser = OptionParser()
 	parser.add_option("-f", "--file", dest="filename", help="Use model file", metavar="FILE")

@@ -16,7 +16,7 @@ class Measurement:
 		self.chan3 = []
 		self.chan4 = []
 	
-def update_estimate(est, p1):
+def update_estimate(est, frq, N, sp5):
 	global estimate
 	global n_estimates
 	if not estimate:
@@ -25,23 +25,20 @@ def update_estimate(est, p1):
 		n_estimates = 1
 		return
 	n_estimates = n_estimates + 1
+
+	print "Averaging with " + str(n_estimates) + " estimates"
 	# Simple time average as in Welch's method
 	for i in range(0,len(estimate)):
 		estimate[i] = estimate[i] + est[i]
-	Fs = 4000.0
-	N = len(estimate)
-	k = sp.arange(N)
-	T = N/Fs
-	frq = k/T
-	frq = frq[0:N/2]
 
-	#Window and FFT the data
-	E = sp.fft(hanning_window(estimate))
 	
-	E = E[0:N/2]
-
-	p1.set_xdata(frq)
-	p1.set_ydata(np.abs(E) / N*N)
+	sp5.clear()
+	hist = sp5.plot(frq,np.abs(estimate) / N*n_estimates)
+	sp5.set_title("Estimated Spectral Impedence ")	
+	sp5.set_ylabel("Magnitude (|Ohm|)")
+	sp5.set_xlabel("Frequency (Hz)")
+	
+	sp5.axis([min(frq), max(frq), min(np.abs(estimate))/N*n_estimates, (max(np.abs(estimate))/N*n_estimates)*2.0])
 
 	return
 def print_stats(m):
@@ -62,7 +59,7 @@ def hanning_window(input):
 	return output	
 
 
-def print_fft(m, hlist, f1, slist, p1):
+def print_fft(m, hlist, f1, slist):
 	# Sampling information
 	Fs = 4000.0
 	N = len(m.input)
@@ -102,8 +99,11 @@ def print_fft(m, hlist, f1, slist, p1):
 		s.set_title("Estimated Spectral Impedence ")	
 		s.set_ylabel("Magnitude (|Ohm|)")
 		s.set_xlabel("Frequency (Hz)")
-		s.axis([min(frq), max(frq), min(np.abs(Z1))/N, (max(np.abs(Z1))/N)*2.0])
+		if s != slist[4]:
+			s.axis([min(frq), max(frq), min(np.abs(Z1))/N, (max(np.abs(Z1))/N)*2.0])
 	
+	#print "Setting imp data"
+	#print hlist[0]
 	hlist[0].set_xdata(frq)
 	hlist[0].set_ydata(np.abs(Z1) / N)
 	
@@ -116,8 +116,9 @@ def print_fft(m, hlist, f1, slist, p1):
 	hlist[3].set_xdata(frq)
 	hlist[3].set_ydata(np.abs(Z4) / N)
 
+	
 	# Update the global estimate
-	update_estimate(Z1, p1)
+	update_estimate(Z1, frq, N , slist[4])
 
 	# Compute the size metric and print
 	Z1mag = np.abs(Z1)
@@ -152,9 +153,9 @@ def print_fft(m, hlist, f1, slist, p1):
 	print "Chan 4 RMS |Z| " + str(total4)
 	plt.draw()
 
-def estimate_tf(m,hlist, f1, slist, p1):
+def estimate_tf(m,hlist, f1, slist):
 	print_stats(m)
-	print_fft(m,hlist, f1, slist, p1)
+	print_fft(m,hlist, f1, slist)
 	del(m)
 def get_data(fifo):
 	temp = ""
@@ -202,9 +203,8 @@ def begin():
 		add_data = AddData()
 
 		f1 = plt.figure(figsize=(15,8))
-		f2 = plt.figure()
-		p1 = f2.add_subplot(111)
-		[sp1, sp2, sp3, sp4] = [f1.add_subplot(221), f1.add_subplot(222), f1.add_subplot(223), f1.add_subplot(224)]	
+		
+		[sp1, sp2, sp3, sp4, sp5] = [f1.add_subplot(231), f1.add_subplot(232), f1.add_subplot(233), f1.add_subplot(234), f1.add_subplot(235)]	
 		h1, = sp1.plot([],[])
 		h2, = sp2.plot([],[])
 		h3, = sp3.plot([],[])
@@ -214,7 +214,7 @@ def begin():
 
 		while True:
 			if sample_count == 1024*5:
-				estimate_tf(m,[h1,h2,h3,h4],f1,[sp1, sp2, sp3, sp4], p1)
+				estimate_tf(m,[h1,h2,h3,h4],f1,[sp1, sp2, sp3, sp4, sp5])
 				sample_count = 0
 				m = Measurement()
 				add_data = AddData()

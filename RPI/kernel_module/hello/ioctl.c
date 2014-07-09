@@ -61,8 +61,8 @@ ioctl_set_ads_config(int fd, int value)
 	}
 	printf("Using %.2X for speed parameter\n",config.speed);
 	config.config = NO_TEST;
-//	config.channel = NORMAL;
-	config.channel = LOW;
+	config.channel = NORMAL;
+//	config.channel = LOW;
  
 	ioctl(fd, IOCTL_SET_ADS_CONFIG,&config);
 }
@@ -91,7 +91,7 @@ void print_data(unsigned char buf[27])
 		}
 
 		channels[i] = (double)temp * scale;
-		printf("%.10e\t", channels[i]);
+		printf("%.20f,", channels[i]);
 		iterator += 3;
 	}
 	printf("\n");
